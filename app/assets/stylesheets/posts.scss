@@ -1,0 +1,94 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.articleImageHeader{
+  position: relative;
+  width: 100vw;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.ImageHeader{
+  z-index: -100;
+  width:100vw;
+  overflow: hidden;
+  margin-bottom:20px;
+}
+
+.articleImageHeaderText {
+  font-family: 'Lato', sans-serif;
+  font-size: 6rem;
+  line-height: 6rem;
+  position:absolute;
+  text-align: center;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  color:white;
+}
+
+.navbar{
+  margin-bottom: 0px;
+}
+
+.blogPost{
+  font-family: 'Merriweather', serif;
+  font-size: 2rem;
+  text-align:left;
+}
+
+.blogPost img {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.blogPost img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+.blogPost a:link {
+  text-decoration: none;
+  text-align:center;
+}
+
+.caption {
+  text-decoration: none;
+  font-style:italic;
+  font-weight: bold;
+  color: black;
+  text-align:center;
+  font-size: 1.3rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.postData {
+  font-weight: 700;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.2rem;
+  font-style: italic;
+  text-align: right;
+  padding: 1rem 0 0 0;
+  text-transform: uppercase;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: rgb(0, 0, 0);
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(0, 0, 0);
+  margin-top: 2rem;
+
+  margin-bottom: 3rem;
+
+}
+
+.cardShadow {
+  -webkit-box-shadow: 9px 9px 14px 1px rgba(0,0,0,0.43);
+  -moz-box-shadow: 9px 9px 14px 1px rgba(0,0,0,0.43);
+  box-shadow: 9px 9px 14px 1px rgba(0,0,0,0.43);
+}

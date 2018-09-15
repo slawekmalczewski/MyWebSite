@@ -1,0 +1,48 @@
+<div class = "card-body">
+  <div class="form-group row">
+    <label for="Post_Title" class="col-sm-2 col-form-label">Post Title: </label>
+    <div class="col-sm-10">
+      <%= field.text_field(:Post_Title, :class => "form-control", :placeholder => "Post Title goes here...") %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="Post_Author" class="col-sm-2 col-form-label">Author: </label>
+    <div class="col-sm-10">
+      <%= field.text_field(:Post_Author, :class => "form-control", :placeholder => "Author name goes here...") %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="post_category_id" class="col-sm-2 col-form-label">Post Category: </label>
+    <div class="col-sm-10">
+      <%= field.select(:post_category_id, @post_category.map{|cat| [cat.postcategoryname, cat.id]}) %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="postHeaderPhoto" class="col-sm-2 col-form-label">Header Photo: </label>
+    <div class="col-sm-10">
+          <%= field.file_field(:postHeaderPhoto) %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="Post_Body">Article: </label>
+    <%= field.text_area(:Post_Body, id: :Post_Body, :class => "form-control", :rows =>5, :placeholder => "Your article goes goes here...") %>
+      <trix-editor input = "Post_Body" class="scroll-box"></trix-editor>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label" for="form-check-label">Published ? </label>
+    <div class="col-sm-10">
+      <%= field.check_box(:Post_Visibility, :class => "form-check-input", :style => "width:20px; height:20px;") %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="uploads" class="col-sm-2 col-form-label">Files: </label>
+    <div class="col-sm-10">
+      <%= field.file_field(:uploads, multiple: true) %>
+    </div>
+  </div>

@@ -1,0 +1,39 @@
+<% title "My Galleries |" %>
+
+<div class="container mt-5 pt-5 w-100">
+
+  <div class="row">
+    <% @gallery.each do |g| %>
+        <div class="col-md-6">
+          <!-- Post-->
+          <div class="post-module mb-5">
+            <!-- Thumbnail-->
+            <div class="thumbnail">
+              <div class="date">
+                <div class="day"><%= g.myPhotos.count %></div>
+                <div class="month">photos</div>
+              </div><%= image_tag(g.galleryImageHeader) %>
+
+            </div>
+            <!-- Post Content-->
+            <div class="post-content">
+              <div class="category"><%= g.country %></div>
+              <h1 class="title"><%= g.gallerytitle %></h1>
+              <h2 class="sub_title"><%= first_sentence(g.galleryDescription) %></h2>
+              <p class="description"><%= article_preview(g.galleryDescription) %></p>
+              <div class="post-meta"><span class="timestamp"><i class="fa fa-calendar"></i> <%= local_time(g.created_at, '%A %d %B, %Y %H:%M') %></span><span class="comments"><i class="fa fa-camera"></i> <%= g.galleryAuthor %></span></div>
+              <%= link_to("More...", {:controller => 'public', :action => 'galleryView', :id => g.id}, :class => "btn btn-success btn-lg pull-right") %>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
+
+  <!-- Here is pagination using will_paginate gem -->
+  <div class="row">
+    <div class="col-sm-12 col-md-12 d-flex justify-content-center">
+      <%= will_paginate @gallery, renderer: BootstrapPagination::Rails, :class => "font-weight-bold" %>
+    </div>
+  </div>
+
+</div>

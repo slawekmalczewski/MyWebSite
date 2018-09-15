@@ -1,0 +1,48 @@
+<% title "Users" %>
+
+<div class="container-fluid">
+  <br/>
+  <h1>Users | <span class="label label-info"><%= @user.size %></span></h1>
+  <br/>
+  <br/>
+  <%= link_to("Back", :back, :class => "btn btn-warning btn-lg") %>
+  <%= link_to("Add new User", {:action => 'new'}, :class => "btn btn-info btn-lg") %>
+
+  <table class="table table-bordered table-striped mt-3">
+    <thead>
+      <tr>
+        <th class="span1 align-middle text-center h5">First Name</th>
+        <th class="span1 align-middle text-center h5">Surname</th>
+        <th class="span2 align-middle text-center h5">Username</th>
+        <th class="span2 align-middle text-center h5">Email</th>
+        <th class="span1 align-middle text-center h5">Joined</th>
+        <th class="span4 align-middle text-center h5">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+  <% @user.each do |u| %>
+    <tr>
+      <td class="span1 align-middle text-center"><%= u.User_FirstName %></td>
+      <td class="span1 align-middle text-center"><%= u.User_Surname %></td>
+      <td class="span2 align-middle text-center"><%= u.Username %></td>
+      <td class="span2 align-middle text-center"><%= u.Email %></td>
+      <td class="span1 align-middle text-center"><%= local_time(u.created_at, '%d %b, %Y %H:%M') %></td>
+      <td class="span4 align-middle text-center btn-group-vertical d-block">
+        <%= link_to("Show", {:action => 'show', :id => u.id}, :class => "btn btn-success btn-small m-1") %>
+        <%= link_to("Edit", {:action => "edit", :id => u.id}, :class => "btn btn-warning btn-small m-1") %>
+        <%= link_to("Delete", {:action => "delete", :id => u.id}, :class => "btn btn-danger btn-small m-1") %>
+        <%= link_to("Files", {:controller => "post_attachments" , :action => "show", :id => u.id}, :class => "btn btn-info btn-small m-1") %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+  </table>
+
+  <!-- Here is pagination using will_paginate gem -->
+  <div class="row">
+    <div class="col-sm-12 col-md-12 d-flex justify-content-center">
+      <%= will_paginate @user, renderer: BootstrapPagination::Rails, :class => "font-weight-bold" %>
+    </div>
+  </div>
+
+</div>

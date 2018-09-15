@@ -1,0 +1,13 @@
+<div class="container">
+  <div class ="alert alert-light mx-auto mt-5" role="alert">
+    <h1 class="alert-heading text-white bg-danger p-3 text-center">You are going to delete Post Category: <%= @post_category.postcategoryname %></h1>
+    <br/>
+    <hr class="separationLine1">
+    <br/>
+    <h2 class="alert-heading text-center">Are you sure ???</h2>
+    <div class="form-group d-flex row bg-dark mx-auto mt-5 p-3 w-100 justify-content-end">
+      <%= link_to("Back", {:action => 'index'}, :class => "btn btn-lg btn-info pull-right ml-2") %>
+      <%= button_to("Delete", {:action => 'confirm_deletion', :id => @post_category.id}, method: :post, :class => "btn btn-lg btn-danger pull-right ml-2") %>
+    </div>
+  </div>
+</div>

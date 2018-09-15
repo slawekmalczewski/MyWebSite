@@ -1,0 +1,46 @@
+<% title "Gallery | "+@gallery.gallerytitle %>
+
+<div class="container pt-2">
+  <div class="row justify-content-center align-items-center">
+    <div class="col text-center">
+      <h1 class="display-1"><%= @gallery.gallerytitle %></h1>
+    </div>
+  </div>
+    <hr class="separationLine1">
+  <div class="row justify-content-center mt-4 mb-2">
+    <div class="col">
+      <p class="lead text-center"><%= @gallery.galleryDescription %></p>
+    </div>
+  </div>
+  <hr class="separationLine1 mb-5">
+
+
+<% @gallery.myPhotos.published.each_slice(3) do |row| %>
+  <div class ="row justify-content-center">
+    <% row.each do |photo| %>
+
+
+    <div class="col-md-3 align-items-center p-2 m-1">
+      <div class="overlay-container" data-overlay-text="<%= photo.myPhotoTitle %>">
+        <%= link_to image_tag(photo.myPhotograph, :class => "img-responsive overlay-img"), photo.myPhotograph, data: {lightbox: 'roadtrip', title: photo.myPhotoTitle+photo.myPhotoDescription}%>
+      </div>
+    </div>
+
+
+    <% end %>
+
+  </div>
+<% end %>
+
+
+
+</div>
+
+
+<script>
+    lightbox.option({
+      'resizeDuration': 200,
+      'wrapAround': true,
+      'fitImagesInViewport': true
+    })
+</script>

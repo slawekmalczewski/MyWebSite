@@ -1,0 +1,9 @@
+// Place all the styles related to the myPhotos controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.cardShadow {
+  -webkit-box-shadow: 9px 9px 14px 1px rgba(0,0,0,0.43);
+  -moz-box-shadow: 9px 9px 14px 1px rgba(0,0,0,0.43);
+  box-shadow: 9px 9px 14px 1px rgba(0,0,0,0.43);
+}

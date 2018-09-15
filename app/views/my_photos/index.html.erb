@@ -1,0 +1,38 @@
+<div class ="container">
+  <br/>
+  <h1>You are in the <span class="label label-info"><%= @galleryid.gallerytitle %></span> gallery | <span class="label label-info"><%= @myPhotography.size %></span> photographs</h1>
+  <br/>
+  <br/>
+  <%= link_to("Back", {:controller => 'photo_galleries', :action => 'index'}, :class => "btn btn-warning btn-lg") %>
+  <%= link_to("Add new Photo", {:action => 'new'}, :class => 'btn btn-lg btn-info') %>
+  <table class="table table-striped table-bordered mt-3">
+    <thead>
+      <tr>
+        <th scope="col" class="text-center h2">Thumbnail</th>
+        <th scope="col" class="text-center h2">Photo Position</th>
+        <th scope="col" class="text-center h2">Photo Title</th>
+        <th scope="col" class="text-center h2">Published ?</th>
+        <th scope="col" class="text-center h2">Created</th>
+        <th scope="col" class="text-center h2">Actions</th>
+      </tr>
+    </thead>
+
+  <% @myPhotography.each do |p| %>
+    <tr>
+      <td class="text-center h3"><%= displayThumbnail(p.myPhotograph) %></td>
+      <td class="text-center h3"><%= p.myPhotoPosition %></td>
+      <td class="text-center h3"><%= p.myPhotoTitle %></td>
+      <td class="text-center h3"><%= p.myPhotoVisibility %></td>
+      <td class="text-center h3"><%= p.created_at %></td>
+      <td class="text-center h3">
+        <%= link_to("Show", {:controller => 'my_photos', :action => 'show', :id => p.id}, :class => "btn btn-success btn-small") %>
+        <%= link_to("Edit", {:action => "edit", :id => p.id}, :class => "btn btn-warning btn-small") %>
+        <%= link_to("Delete", {:action => "delete", :id => p.id}, :class => "btn btn-danger btn-small") %>
+      </td>
+    </tr>
+
+  <% end %>
+
+  </table>
+
+</div>

@@ -1,0 +1,48 @@
+<div class = "card-body">
+
+  <div class="form-group row">
+    <label for="gallerytitle" class="col-sm-2 col-form-label">Gallery Name: </label>
+    <div class="col-sm-10">
+        <%= field.text_field(:gallerytitle, :class => "form-control", value:@gallery.gallerytitle) %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="galleryAuthor" class="col-sm-2 col-form-label">Gallery Author: </label>
+    <div class="col-sm-10">
+        <%= field.text_field(:galleryAuthor, :class => "form-control", value:@gallery.galleryAuthor) %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="country" class="col-sm-2 col-form-label">Country: </label>
+    <div class="col-sm-10">
+        <%= field.text_field(:country, :class => "form-control", value:@gallery.country) %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="galleryImageHeader" class="col-sm-2 col-form-label">Gallery Main Photo: </label>
+    <div class="col-sm-10">
+          <%= field.file_field(:galleryImageHeader) %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for ="galleryDescription">Gallery Description: </label>
+    <%= field.text_area(:galleryDescription, :class => "form-control", :rows =>5,  value:@gallery.galleryDescription) %>
+  </div>
+
+  <div class="form-group row">
+    <label for="form-check-label" class="col-sm-2 col-form-label">Gallery Position: </label>
+    <div class="col-sm-10">
+      <%= field.select(:galleryPosition, 1..@counter, :selected => @gallery.galleryPosition) %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="form-check-label" class="col-sm-2 col-form-label">Published ? </label>
+    <div class="col-sm-10">
+      <%= field.check_box(:galleryVisibility, :class => "form-check-input", :style => "width:20px; height:20px;", :checked => @gallery.galleryVisibility) %>
+    </div>
+  </div>

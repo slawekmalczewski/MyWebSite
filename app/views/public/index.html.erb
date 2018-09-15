@@ -1,0 +1,63 @@
+<% title "Welcome :)" %>
+
+<!--
+This styling is for full screen slider, to remove any scrollbars from the browser window, it is  placed here because this styles should only be
+applied to thie particular site
+-->
+
+<style>
+  html,
+  body,
+  .carousel,
+  .carousel-inner,
+  .carousel-inner .item {
+    height: 100%;
+    overflow-y: hidden;
+  }
+</style>
+
+    <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel">
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+              <div class="carousel-caption p-3">
+                <h1 class="display-3 mb-4">About this project</h1>
+                <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <a class="btn btn-primary" href="#">Learn more</a>
+              </div>
+            </div>
+            <div class="item">
+              <div class="carousel-caption p-3">
+                <h1 class="display-3 mb-4">Image 2</h1>
+                <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <a class="btn btn-primary" href="#">Learn more</a>
+              </div>
+            </div>
+            <div class="item">
+              <div class="carousel-caption p-3">
+                <h1 class="display-3 mb-4">Image 3</h1>
+                <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <a class="btn btn-primary" href="#">Learn more</a>
+              </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carouselHacked" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carouselHacked" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+<script type="text/javascript">
+$('#carouselHacked').carousel();
+</script>

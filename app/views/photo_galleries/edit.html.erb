@@ -1,0 +1,13 @@
+<% title "Edit " + @gallery.gallerytitle + " Gallery" %>
+
+<div class="container">
+  <h1>Edit Gallery: <%= @gallery.gallerytitle %></h1>
+
+  <%= link_to("Back", {:action => 'index'}, :class => "btn btn-info", :style=>"margin:10px 0; padding:0.5rem 3rem;" ) %>
+
+    <%= form_for(:photo_gallery, :url => {:action => 'update', :id => @gallery.id}) do |field| %>
+    <%= render(:partial => "form", :locals => {:field => field}) %>
+    <%= submit_tag("Update", :class => "btn btn-primary") %>
+
+  <% end %>
+</div>
