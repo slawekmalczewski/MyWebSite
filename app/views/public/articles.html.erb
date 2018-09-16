@@ -30,7 +30,7 @@
               <div class="post-meta">
                 <i class="fa fa-pencil"></i> <%= p.Post_Author %>
                 <br/>
-                <i class="fa fa-calendar"></i> <%= local_time(p.created_at, '%d %B %Y, %A %H:%M') %>
+                <i class="fa fa-calendar"></i> <%= local_time(p.created_at, '%d %B %Y, %A @ %H:%M') %>
               </div>
               <%= link_to 'Read <i class="glyphicon glyphicon-chevron-right"></i><i class="glyphicon glyphicon-chevron-right"></i>'.html_safe, {:controller => 'public', :action => 'articleView', :id => p.id}, :class => "btn btn-success btn-md pull-right p-3 m-3" %>
             </div>
