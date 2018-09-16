@@ -1,32 +1,41 @@
 <% title "My Posts |" %>
 
-<div class="container mt-5 pt-5 w-100">
+<div class="container">
 
-  <div class="row">
+  <div class="row pt-5">
     <% @post.each do |p| %>
-        <div class="col-md-6">
-          <!-- Post-->
-          <div class="post-module mb-5">
-            <!-- Thumbnail-->
-            <div class="thumbnail">
-              <div class="date">
-                <div class="day"><%= p.created_at.day %></div>
-                <div class="month"><%= p.created_at.strftime('%B') %></div>
-              </div>
-              <%= image_tag(p.postHeaderPhoto) %>
-
+      <div class="col-10 col-md-5">
+          <div class="card">
+            <div class="datecircle">
+              <div class="day"><%= p.created_at.day %></div>
+              <div class="month"><%= p.created_at.strftime('%b') %></div>
             </div>
-            <!-- Post Content-->
-            <div class="post-content">
-              <div class="category"><%= p.post_category.postcategoryname %></div>
-              <h1 class="title"><%= p.Post_Title %></h1>
-              <h2 class="sub_title"><%= first_sentence(p.Post_Body) %></h2>
-              <p class="description"><%= article_preview(p.Post_Body) %></p>
-              <div class="post-meta"><span class="timestamp"><i class="fa fa-calendar"></i> <%= local_time(p.created_at, '%A %d %B, %Y %H:%M') %></span><span class="comments"><i class="fa fa-pencil"></i> <%= p.Post_Author %></span></div>
-              <%= link_to("Read...", {:controller => 'public', :action => 'articleView', :id => p.id}, :class => "btn btn-success btn-lg pull-right") %>
+            <div class="img-card">
+              <%= image_tag(p.postHeaderPhoto, :class=>"img-responsive") %>
+              <div class="category text-center">
+                <%= p.post_category.postcategoryname %>
+              </div>
+            </div>
+
+            <br/>
+            <div class="card-content">
+              <h4 class="card-title">
+                <%= p.Post_Title %>
+              </h4>
+              <div class="">
+                <%= article_preview(p.Post_Body) %>
+              </div>
+            </div>
+            <div class="card-read-more">
+              <div class="post-meta">
+                <i class="fa fa-pencil"></i> <%= p.Post_Author %>
+                <br/>
+                <i class="fa fa-calendar"></i> <%= local_time(p.created_at, '%d %B %Y, %A %H:%M') %>
+              </div>
+              <%= link_to 'Read <i class="glyphicon glyphicon-chevron-right"></i><i class="glyphicon glyphicon-chevron-right"></i>'.html_safe, {:controller => 'public', :action => 'articleView', :id => p.id}, :class => "btn btn-success btn-md pull-right p-3 m-3" %>
             </div>
           </div>
-        </div>
+      </div>
     <% end %>
   </div>
 

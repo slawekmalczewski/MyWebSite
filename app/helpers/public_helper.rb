@@ -1,7 +1,7 @@
 module PublicHelper
 
   def article_preview(toTruncate)
-    textTruncated = truncate(toTruncate, :length => 150, :omission => "[...]", :escape => false)
+    textTruncated = truncate(toTruncate, :length => 200, :omission => "[...]", :escape => false)
     strip_tags(textTruncated)
   end
 
