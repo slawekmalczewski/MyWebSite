@@ -24,13 +24,18 @@ applied to thie particular site
               <div class="carousel-caption">
                 <h1 class="slideimagetitle">About this project</h1>
                 <p class="slideimagedesc">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                <a class="btn btn-primary btn-md" href="#">Learn more</a>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-md btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                  Read more...
+                </button>
               </div>
             </div>
+
+
             <div class="item">
               <div class="carousel-caption">
-                <h1 class="slideimagetitle">Image 2</h1>
-                <p class="slideimagedesc">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <h1 class="slideimagetitle">NEW !!!</h1>
+                <p class="slideimagedesc"><%= @latestpost.last.Post_Title %></p>
                 <a class="btn btn-primary btn-md" href="#">Learn more</a>
               </div>
             </div>
@@ -53,6 +58,30 @@ applied to thie particular site
             <span class="sr-only">Next</span>
         </a>
     </div>
+
+
+    <!-- Modal window message -->
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">About my project</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 

@@ -2,9 +2,9 @@
 
 <div class="container">
 
-  <div class="row pt-5 pb-5 justify-content-center">
+  <div class="row pt-5 pb-5 justify-content-center" style="background-color:black;">
     <% @gallery.each do |g| %>
-      <div class="col-sm-10 col-md-5 mb-5">
+      <div class="col-sm-10 col-md-4 mb-3">
           <div class="card">
             <div class="datecircle">
               <div class="day"><%= g.created_at.day %></div>

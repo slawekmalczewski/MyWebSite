@@ -3,6 +3,7 @@ class PublicController < ApplicationController
   layout "public"
 
   def index
+    @latestpost = Post.published.last(1)
     render layout: 'publicIndex'
   end
 
