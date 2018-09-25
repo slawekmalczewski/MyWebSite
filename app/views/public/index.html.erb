@@ -34,9 +34,9 @@ applied to thie particular site
 
             <div class="item">
               <div class="carousel-caption">
-                <h1 class="slideimagetitle">NEW !!!</h1>
-                <p class="slideimagedesc"><%= @latestpost.last.Post_Title %></p>
-                <a class="btn btn-primary btn-md" href="#">Learn more</a>
+                <h1 class="slideimagetitle"><%= @latestpost.last.Post_Title %> <span class="badge badge-pill badge-danger">New</span></h1>
+                <p class="slideimagedesc"><%= first_sentence(@latestpost.last.Post_Body) %></p>
+                <%= link_to 'Learn more', {:controller => 'public', :action => 'articleView', :id => @latestpost.last}, :class => "btn btn-primary btn-md" %>
               </div>
             </div>
             <div class="item">
