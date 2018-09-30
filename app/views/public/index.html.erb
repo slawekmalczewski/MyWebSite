@@ -25,7 +25,7 @@ applied to thie particular site
                 <h1 class="slideimagetitle">About this project</h1>
                 <p class="slideimagedesc">A little bit of information about this project...</p>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-md btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                <button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#exampleModalLong">
                   Read more...
                 </button>
               </div>
@@ -36,14 +36,14 @@ applied to thie particular site
               <div class="carousel-caption">
                 <h1 class="slideimagetitle"><%= @latestpost.last.Post_Title %> <span class="badge badge-pill badge-danger">New</span></h1>
                 <p class="slideimagedesc"><%= first_sentence(@latestpost.last.Post_Body) %></p>
-                <%= link_to 'Learn more', {:controller => 'public', :action => 'articleView', :id => @latestpost.last}, :class => "btn btn-primary btn-md" %>
+                <%= link_to 'Read more...', {:controller => 'public', :action => 'articleView', :id => @latestpost.last}, :class => "btn btn-primary btn-lg" %>
               </div>
             </div>
             <div class="item">
               <div class="carousel-caption">
-                <h1 class="slideimagetitle">Image 3</h1>
-                <p class="slideimagedesc">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                <a class="btn btn-primary btn-md" href="#">Learn more</a>
+                <h1 class="slideimagetitle"><%= @latestgallery.last.gallerytitle %> <span class="badge badge-pill badge-danger">New</span></h1>
+                <p class="slideimagedesc"><%= first_sentence(@latestgallery.last.galleryDescription) %></p>
+                <%= link_to 'View', {:controller => 'public', :action => 'galleryView', :id => @latestgallery.last}, :class => "btn btn-primary btn-lg" %>
               </div>
             </div>
         </div>
