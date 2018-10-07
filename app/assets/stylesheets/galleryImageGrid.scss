@@ -1,11 +1,13 @@
   // img {
-  //   max-width: 400px;
+  //   max-width: 300px;
   // }
 
   .overlay-container {
+    max-width: 300px;
     overflow: hidden;
     display: block;
     position: relative;
+    background-color: black;
     &::before {
       content: attr(data-overlay-text);
       font: 1.5em/2em 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

@@ -11,7 +11,7 @@
               <div class="month"><%= g.created_at.strftime('%b') %></div>
             </div>
             <div class="img-card">
-              <%= image_tag(g.galleryImageHeader, :class=>"img-responsive") %>
+              <%= image_tag(g.galleryImageHeader.variant(combine_options: {resize: '350x150^', gravity: 'center', extent: '350x150'}).processed, :class=>"img-responsive") %>
               <div class="category text-center">
                 <%= g.country %>
               </div>
@@ -28,6 +28,8 @@
             </div>
             <div class="card-read-more">
               <div class="post-meta">
+                <i class="glyphicon glyphicon-picture"></i> <%= g.myPhotos.count %> photographs        
+                <br/>
                 <i class="fa fa-pencil"></i> <%= g.galleryAuthor %>
                 <br/>
                 <i class="fa fa-calendar"></i> <%= local_time(g.created_at, '%d %B %Y, %A @ %H:%M') %>
