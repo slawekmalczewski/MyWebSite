@@ -44,6 +44,8 @@ gem 'aws-sdk'
 
 gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 
+gem 'image_processing'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

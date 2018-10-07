@@ -22,6 +22,7 @@ class MyPhotosController < ApplicationController
       flash[:success] = "Photograph added sucessfully"
       redirect_to(:controller => 'photo_galleries', :action => 'index')
     else
+      flash[:danger] = "Error, could not add the photo"
       @myPhotoCategory = PhotoGallery.order('galleryPosition ASC')
       @counter = MyPhoto.count + 1
       render('new')

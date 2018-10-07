@@ -22,7 +22,7 @@
 
     <div class="col-md-3 align-items-center p-2 m-1">
       <div class="overlay-container" data-overlay-text="<%= photo.myPhotoTitle %>">
-        <%= link_to image_tag(photo.myPhotograph, :class => "img-responsive overlay-img"), photo.myPhotograph, data: {lightbox: 'roadtrip', title: photo.myPhotoTitle+photo.myPhotoDescription}%>
+        <%= link_to image_tag(photo.myPhotograph.variant(combine_options: {resize: '300x300^', gravity: 'center', extent: '300x300'}).processed, :class => "img-responsive overlay-img"), photo.myPhotograph, data: {lightbox: 'roadtrip', title: photo.myPhotoTitle+photo.myPhotoDescription}%>
       </div>
     </div>
 
