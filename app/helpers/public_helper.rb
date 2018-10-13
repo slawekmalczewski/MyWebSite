@@ -6,7 +6,7 @@ module PublicHelper
   end
 
   def first_sentence(toTruncate)
-    sentence = toTruncate.split(".").first + "."
+    sentence = toTruncate.split(".").first
     strip_tags(sentence)
   end
 

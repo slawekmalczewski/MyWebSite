@@ -7,7 +7,7 @@
     overflow: hidden;
     display: block;
     position: relative;
-    background-color: black;
+    box-shadow: 3px 5px 5px 0 rgba(0, 0, 0, 0.6), 3px 16px 10px 0 rgba(0, 0, 0, 0.19);
     &::before {
       content: attr(data-overlay-text);
       font: 1.5em/2em 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -18,7 +18,7 @@
       width: 100%;
       text-align: center;
       color: #fff;
-      background: rgba(51, 56, 59, 0.80);
+      background: rgba(41,44,47, 0.75);
       opacity: 0;
       -moz-transform: translateY(0);
       -ms-transform: translateY(0);
@@ -39,6 +39,8 @@
       transform: translateY(20px);
     }
     .overlay-img {
+      -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+      filter: grayscale(100%);
       -moz-transform: scale(1);
       -ms-transform: scale(1);
       -o-transform: scale(1);
@@ -50,6 +52,8 @@
       transition: all 0.3s;
     }
     &:hover .overlay-img {
+      -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+      filter: grayscale(0%);
       -moz-transform: scale(1.2);
       -ms-transform: scale(1.2);
       -o-transform: scale(1.2);
