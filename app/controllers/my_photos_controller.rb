@@ -4,7 +4,6 @@ class MyPhotosController < ApplicationController
 
   before_action :check_login, :except => [:login, :loginProcess, :logout]
 
-
   def index
     @galleryid = PhotoGallery.find(params[:id])
     @myPhotography = MyPhoto.all.where(:photo_gallery_id => @galleryid)
@@ -13,7 +12,9 @@ class MyPhotosController < ApplicationController
   def new
     @myPhotography = MyPhoto.new({:myPhotoTitle => "Enter Photo Title"})
     @myPhotoCategory = PhotoGallery.all
-    @counter = MyPhoto.count + 1
+    #This will know to which gallery user wants to add photo, so the select field will be automatically positioned at the gallery name from which the request to add new photo was called
+    @chosen_gallery = PhotoGallery.find(params[:id])
+    @counter = MyPhoto.all.where(:photo_gallery_id => @chosen_gallery).count + 1
   end
 
   def create
@@ -31,8 +32,9 @@ class MyPhotosController < ApplicationController
 
   def edit
     @myPhotography = MyPhoto.find(params[:id])
+    gallery_where_photo_belongs_to = @myPhotography.photo_gallery_id
     @myPhotoCategory = PhotoGallery.order('gallerytitle')
-    @counter = MyPhoto.count
+    @counter = MyPhoto.all.where(:photo_gallery_id => gallery_where_photo_belongs_to).count
   end
 
   def update

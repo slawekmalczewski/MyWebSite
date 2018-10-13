@@ -18,7 +18,7 @@
       <div class="form-group row">
         <label for="photo_gallery_id" class="col-sm-2 col-form-label">Photo Gallery: </label>
         <div class="col-sm-10">
-          <%= field.select(:photo_gallery_id, @myPhotoCategory.map{|t| [t.gallerytitle, t.id]}) %>
+          <%= field.select(:photo_gallery_id, @myPhotoCategory.map{|t| [t.gallerytitle, t.id]}, :selected => @chosen_gallery.id) %>
         </div>
       </div>
 
