@@ -18,7 +18,7 @@ class PostCategoriesController < ApplicationController
   def create
     @post_category = PostCategory.new(required_parameters)
     if @post_category.save
-      flash[:success] = "Post Category sucessfully created"
+      flash[:alert] = "Post Category sucessfully created"
       redirect_to(:action => 'index')
     else
       render('new')
@@ -28,7 +28,7 @@ class PostCategoriesController < ApplicationController
   def update
     @post_category = PostCategory.find(params[:id])
     if @post_category.update_attributes(required_parameters)
-      flash[:success] = "Post Category sucessfully updated"
+      flash[:alert] = "Post Category sucessfully updated"
       redirect_to(:action => 'show', :id => @post_category.id)
     else
       render('edit')
@@ -46,10 +46,10 @@ class PostCategoriesController < ApplicationController
 
   def confirm_deletion
     if post_category = PostCategory.find(params[:id]).destroy
-      flash[:success] = "Post Category sucessfully deleted"
+      flash[:alert] = "Post Category sucessfully deleted"
       redirect_to(:action => 'index')
     else
-      flash[:danger] = "Post Category could NOT be deleted as there are elements depending on it !!!"
+      flash[:alert] = "Post Category could NOT be deleted as there are elements depending on it !!!"
       redirect_to(:action => 'index')
     end
   end

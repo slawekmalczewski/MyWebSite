@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(required_parameters)
     if @post.save
-      flash[:success] = "Post sucessfully created"
+      flash[:alert] = "Post sucessfully created"
       redirect_to(:action => 'index')
     else
       render('new')
@@ -30,7 +30,7 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update_attributes(required_parameters)
-      flash[:success] = "Post sucessfully updated"
+      flash[:alert] = "Post sucessfully updated"
       redirect_to(:action => 'show', :id => @post.id)
     else
       render('edit')
@@ -48,7 +48,7 @@ class PostsController < ApplicationController
 
   def confirm_deletion
     post = Post.find(params[:id]).destroy
-    flash[:success] = "Post sucessfully deleted"
+    flash[:alert] = "Post sucessfully deleted"
     redirect_to(:action => 'index')
   end
 

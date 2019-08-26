@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'users/show'
   get 'users/edit'
   get 'users/delete'
-  root "public#index"
+  root to: 'public#index'
   # get 'administrators', :to=>"administrators#index"
   resources :photos
 

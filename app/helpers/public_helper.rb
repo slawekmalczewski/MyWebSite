@@ -10,4 +10,8 @@ module PublicHelper
     strip_tags(sentence)
   end
 
+  def sort_gallery_by_photo_position(gallery)
+    gallery.sort_by { |a| a.myPhotoPosition }
+  end
+
 end

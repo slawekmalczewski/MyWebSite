@@ -16,37 +16,9 @@
 
   <body>
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark myNavbar">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <%= link_to(image_tag("logos/MenuLogo.png", :style => "max-width:200px; margin-top:10px;"), {:controller => 'public', :action => 'index'}, :class => "navbar-brand") %>
+    <%= render "shared/application_nav" %>
 
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="<%= 'nav-item active' if params[:controller] == 'public' && params[:action] == 'index' %>"><%= link_to("Home", {:controller => 'public', :action => 'index'},:class => "nav-link") %></li>
-            <li class="<%= 'nav-item active' if params[:controller] == 'public' && params[:action] == 'articles' %>"><%= link_to("Posts", {:controller => 'public', :action => 'articles'},:class => "nav-link") %></li>
-            <li class="<%= 'nav-item active' if params[:controller] == 'public' && params[:action] == 'galleriesIndex' %>"><%= link_to("Galleries", {:controller => 'public', :action => 'galleriesIndex'},:class => "nav-link") %></li>
-
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Other Projects
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Graphic Design</a>
-                <a class="dropdown-item" href="#">Motion Design</a>
-                <a class="dropdown-item" href="#">Coming Soon...</a>
-              </div>
-            </li>
-            <li class="<%= 'nav-item active' if params[:controller] == 'static_pages' && params[:action] == 'about' %>"><%= link_to("About", {:controller => 'static_pages', :action => 'about'},:class => "nav-link") %></li>
-            <li class="<%= 'nav-item active' if params[:controller] == 'administrators' %>"><%= link_to("Admin", {:controller => 'administrators', :action => 'login'},:class => "nav-link") %></li>
-          </ul>
-        </div>
-    </nav>
-
-    <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %> display-4 mt-3 mb-3 text-dark" style="text-align: center;"><%= value %></div>
-    <% end %>
+    <%= render "shared/alerts" %>
 
     <%= yield %>
 
@@ -54,36 +26,7 @@
     </div>
 
 
-      <footer class="footer-distributed">
-
-        <div class="footer-right">
-
-          <a href="http://www.facebook.com/slawekphotography"><i class="fa fa-facebook"></i></a>
-          <a href="http://500px.com/sawekmalczewski"><i class="fa fa-500px"></i></a>
-          <a href="http://linkedin.com/in/slawomir-malczewski-8798048b"><i class="fa fa-linkedin"></i></a>
-          <a href="http://github.com/slawekmalczewski"><i class="fa fa-github"></i></a>
-
-        </div>
-
-        <div class="footer-left">
-
-          <p class="footer-links pb-5">
-            <%= link_to("Home", {:controller => 'public', :action => 'index'},:class => "nav-link") %>
-            ·
-            <%= link_to("Posts", {:controller => 'public', :action => 'articles'},:class => "nav-link") %>
-            ·
-            <%= link_to("Galleries", {:controller => 'public', :action => 'galleriesIndex'},:class => "nav-link") %>
-            ·
-            <%= link_to("About", {:controller => 'static_pages', :action => 'about'},:class => "nav-link") %>
-            ·
-            <a href="#">Contact</a>
-          </p>
-
-          <hr class="separationLine2">
-          <p class="lead text-center text-muted">Slawomir Malczewski &copy; 2018</p>
-        </div>
-
-      </footer>
+    <%= render "shared/application_footer" %>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 

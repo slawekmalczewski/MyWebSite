@@ -14,7 +14,8 @@
   </div>
   <hr class="separationLine1 mb-5">
 
-<% @gallery.myPhotos.published.each_slice(3) do |row| %>
+
+<% sort_gallery_by_photo_position(@gallery.myPhotos.published).each_slice(3) do |row| %>
   <div class ="row justify-content-center">
     <% row.each do |photo| %>
 

@@ -1,7 +1,7 @@
 class PostAttachmentsController < ApplicationController
 
   layout "admin"
-  
+
   before_action :check_login, :except => [:login, :loginProcess, :logout]
 
   def index
@@ -12,7 +12,7 @@ class PostAttachmentsController < ApplicationController
     fileToDelete.purge
     #refresh the page after deleting attached file
     redirect_to request.referrer
-    flash[:attachmentNotice] = "File attachment(s) sucessfully delted"
+    flash[:alert] = "File attachment(s) sucessfully delted"
   end
 
   def show

@@ -45,6 +45,8 @@ gem 'aws-sdk'
 gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 
 gem 'image_processing'
+gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
+gem 'gritter', '~> 1.2'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -63,6 +65,8 @@ end
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
+  gem 'rails-erd'
+  gem 'railroady'
 end
 
 group :test do

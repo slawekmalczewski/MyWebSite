@@ -25,10 +25,10 @@ class AdministratorsController < ApplicationController
       session[:user_id] = admin_authorization.id
       session[:Username] = admin_authorization.Username
       admin_name = User.where(:Username => session[:Username]).first.User_FirstName
-      flash[:success] = "Welcome back " + admin_name
+      flash[:alert] = "Welcome back " + admin_name
       redirect_to(:action=>'index')
     else
-      flash[:danger] = "Wrong Username or Password"
+      flash[:alert] = "Wrong Username or Password"
       redirect_to(:action=>'login')
     end
   end
@@ -36,7 +36,7 @@ class AdministratorsController < ApplicationController
   def logout
     session[:user_id] = nil
     session[:user] = nil
-    flash[:success] = "You have been succesfully logged out"
+    flash[:alert] = "You have been succesfully logged out"
     redirect_to(:controller=>'administrators', :action=>'login')
   end
 

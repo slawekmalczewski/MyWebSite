@@ -19,5 +19,6 @@
 //= require publicArticles
 //= require lightbox
 //= require local-time
+//= require gritter
 //= xxxrequire turbolinks
 //= require_tree .
