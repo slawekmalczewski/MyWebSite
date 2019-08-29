@@ -1,8 +1,9 @@
 class PhotosController < ApplicationController
 
   layout "admin"
-  
+
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
+  access all: [], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
 
   # GET /photos
   # GET /photos.json

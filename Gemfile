@@ -47,6 +47,8 @@ gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 gem 'image_processing'
 gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
 gem 'gritter', '~> 1.2'
+gem 'devise', '~> 4.2'
+gem 'petergate', '~> 1.6', '>= 1.6.3'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

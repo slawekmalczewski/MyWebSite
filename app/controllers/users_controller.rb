@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   layout "admin"
 
-  before_action :check_login, :except => [:login, :loginProcess, :logout]
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
 
 
   def index

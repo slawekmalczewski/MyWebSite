@@ -2,7 +2,7 @@ class MyPhotosController < ApplicationController
 
   layout "admin"
 
-  before_action :check_login, :except => [:login, :loginProcess, :logout]
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :delete, :confirm_deletion]}, site_admin: :all
 
   def index
     @galleryid = PhotoGallery.find(params[:id])

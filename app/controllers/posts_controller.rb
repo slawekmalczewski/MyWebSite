@@ -1,10 +1,14 @@
 class PostsController < ApplicationController
 
   layout "admin"
-
-  before_action :check_login, :except => [:login, :loginProcess, :logout]
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
 
   def index
+    @post = Post.where(:Post_Visibility => true).paginate(:page => params[:page], :per_page => 6).order('created_at DESC')
+    @category = PostCategory.all
+  end
+
+  def admin_post_index
     @post = Post.paginate(:page => params[:page], :per_page => 4)
   end
 

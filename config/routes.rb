@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
-  get 'users/index'
-  get 'users/new'
-  get 'users/show'
-  get 'users/edit'
-  get 'users/delete'
+  #routes for devise and changed default paths for sign_in to login, sign_out to logout etc
+  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
+
+
   root to: 'public#index'
-  # get 'administrators', :to=>"administrators#index"
+
+
   resources :photos
 
   match ':controller(/:action(/:id))', :via => [:get, :post]

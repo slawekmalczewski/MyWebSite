@@ -3,7 +3,7 @@
   <h1>You are in the <span class="label label-info"><%= @galleryid.gallerytitle %></span> gallery | <span class="label label-info"><%= @myPhotography.size %></span> photographs</h1>
   <br/>
   <br/>
-  <%= link_to("Back", {:controller => 'photo_galleries', :action => 'index'}, :class => "btn btn-warning btn-lg") %>
+  <%= link_to("Back", {:controller => 'photo_galleries', :action => 'admin_gallery_index'}, :class => "btn btn-warning btn-lg") %>
   <%= link_to("Add new Photo", {:action => 'new', :id => @galleryid}, :class => 'btn btn-lg btn-info') %>
   <table class="table table-striped table-bordered mt-3">
     <thead>

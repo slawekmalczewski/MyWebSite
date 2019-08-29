@@ -12,7 +12,7 @@
         was created on: <span class="font-weight-bold text-info"><%= @post.order("created_at ASC").last.created_at %> </li>
       </ul>
       <div class="card-body bg-light">
-        <%= link_to("Manage Posts", {:controller => 'posts', :action => 'index'}, :class => "btn btn-info btn-lg w-100") %>
+        <%= link_to("Manage Posts", {:controller => 'posts', :action => 'admin_post_index'}, :class => "btn btn-info btn-lg w-100") %>
       </div>
     </div>
   </div>
@@ -29,7 +29,7 @@
       was created on: <span class="font-weight-bold text-info"><%= @gallery.order("created_at ASC").last.created_at %></li>
     </ul>
     <div class="card-body bg-light">
-      <%= link_to("Manage Galleries", {:controller => 'photo_galleries', :action => 'index'}, :class => "btn btn-info btn-lg w-100") %>
+      <%= link_to("Manage Galleries", {:controller => 'photo_galleries', :action => 'admin_gallery_index'}, :class => "btn btn-info btn-lg w-100") %>
     </div>
   </div>
 </div>
@@ -51,6 +51,7 @@
   </div>
 </div>
 
+<% if false %>
 <div class="col-xs-10 col-md-4 col-lg-3 m-3">
   <div class="card h-100">
     <div class="card-header">
@@ -67,9 +68,9 @@
   </div>
 </div>
 
+<% end %>
 
 </div>
 
-  <%= link_to("Log Out", {:controller => 'administrators', :action => 'logout'}, :class => "btn btn-danger btn-lg w-100") %>
 
 </div>

@@ -2,6 +2,8 @@ class PublicController < ApplicationController
 
   layout "public"
 
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
+
   def index
     @latestpost = Post.published.last(1)
     @latestgallery = PhotoGallery.published.last(1)

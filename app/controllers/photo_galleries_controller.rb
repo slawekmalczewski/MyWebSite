@@ -2,9 +2,13 @@ class PhotoGalleriesController < ApplicationController
 
   layout "admin"
 
-  before_action :check_login, :except => [:login, :loginProcess, :logout]
+  access all: [:index, :show], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
 
   def index
+    @gallery = PhotoGallery.all
+  end
+
+  def admin_gallery_index
     @gallery = PhotoGallery.all
   end
 
