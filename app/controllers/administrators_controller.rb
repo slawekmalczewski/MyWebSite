@@ -6,7 +6,7 @@ class AdministratorsController < ApplicationController
 
   def index
     @post = Post.all
-    @newestPost = Post.recent
+    @newestPost = Post.first
     @gallery = PhotoGallery.all
     @photographs = MyPhoto.all
     @categories = PostCategory.all

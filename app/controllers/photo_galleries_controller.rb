@@ -1,11 +1,13 @@
 class PhotoGalleriesController < ApplicationController
 
-  layout "admin"
+  layout "application"
+  layout "admin", :only => "admin_gallery_index"
 
-  access all: [:index, :show], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :delete, :confirm_deletion]}, site_admin: :all
 
   def index
-    @gallery = PhotoGallery.all
+    @gallery = PhotoGallery.where(:galleryVisibility => true).paginate(:page => params[:page], :per_page => 6).order('created_at DESC')
+    @numberOfImages = PhotoGallery.count
   end
 
   def admin_gallery_index

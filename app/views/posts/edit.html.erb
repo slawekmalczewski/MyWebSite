@@ -2,8 +2,9 @@
 
 <div class="container">
   <h1>Edit Post: <%= @post.Post_Title %></h1>
+  <h3>Currently signed user is: <%= current_user.first_name %></h3>
 
-  <%= link_to("Back", {:action => 'index'}, :class => "btn btn-info", :style=>"margin:10px 0; padding:0.5rem 3rem;" ) %>
+  <%= link_to("Back", :back, :class => "btn btn-info", :style=>"margin:10px 0; padding:0.5rem 3rem;" ) %>
 
     <%= form_for(:post, :url => {:action => 'update', :id => @post.id}) do |field| %>
     <%= render(:partial => "form", :locals => {:field => field}) %>

@@ -34,7 +34,7 @@
                 <br/>
                 <i class="fa fa-calendar"></i> <%= local_time(g.created_at, '%d %B %Y, %A @ %H:%M') %>
               </div>
-              <%= link_to 'View <i class="glyphicon glyphicon-chevron-right"></i><i class="glyphicon glyphicon-chevron-right"></i>'.html_safe, {:controller => 'public', :action => 'galleryView', :id => g.id}, :class => "btn btn-success btn-md pull-right p-3 m-3" %>
+              <%= link_to 'View <i class="glyphicon glyphicon-chevron-right"></i><i class="glyphicon glyphicon-chevron-right"></i>'.html_safe, {:controller => 'photo_galleries', :action => 'show', :id => g.id}, :class => "btn btn-success btn-md pull-right p-3 m-3" %>
             </div>
           </div>
       </div>

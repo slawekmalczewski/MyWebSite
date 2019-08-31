@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
 
-  layout "admin"
-  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
+  layout "application"
+  layout "admin", :only => "admin_post_index"
+
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :delete, :confirm_deletion]}, site_admin: :all
 
   def index
     @post = Post.where(:Post_Visibility => true).paginate(:page => params[:page], :per_page => 6).order('created_at DESC')
@@ -20,8 +22,9 @@ class PostsController < ApplicationController
     @post = Post.new(required_parameters)
     if @post.save
       flash[:alert] = "Post sucessfully created"
-      redirect_to(:action => 'index')
+      redirect_to(:controller => "administrators", :action => 'index')
     else
+      flash[:notice] = "Problem saving the post"
       render('new')
     end
   end
@@ -37,6 +40,7 @@ class PostsController < ApplicationController
       flash[:alert] = "Post sucessfully updated"
       redirect_to(:action => 'show', :id => @post.id)
     else
+      flash[:alert] = "Problem with saving changes"
       render('edit')
     end
   end

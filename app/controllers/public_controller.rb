@@ -1,8 +1,8 @@
 class PublicController < ApplicationController
 
-  layout "public"
+  layout "application"
 
-  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :delete, :confirm_deletion]}, site_admin: :all
 
   def index
     @latestpost = Post.published.last(1)
@@ -25,7 +25,7 @@ class PublicController < ApplicationController
     @gallery = PhotoGallery.find(params[:id])
   end
 
-  def articleView
+  def post_view
     @post = Post.find(params[:id])
   end
 

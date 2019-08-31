@@ -213,7 +213,7 @@
 <path fill="none" stroke="#000000" d="M410.2751,-76.5C410.2751,-76.5 493.2751,-76.5 493.2751,-76.5 499.2751,-76.5 505.2751,-82.5 505.2751,-88.5 505.2751,-88.5 505.2751,-262.5 505.2751,-262.5 505.2751,-268.5 499.2751,-274.5 493.2751,-274.5 493.2751,-274.5 410.2751,-274.5 410.2751,-274.5 404.2751,-274.5 398.2751,-268.5 398.2751,-262.5 398.2751,-262.5 398.2751,-88.5 398.2751,-88.5 398.2751,-82.5 404.2751,-76.5 410.2751,-76.5"/>
 <text text-anchor="middle" x="451.7751" y="-259.3" font-family="Times,serif" font-size="14.00" fill="#000000">PublicController</text>
 <polyline fill="none" stroke="#000000" points="398.2751,-251.5 505.2751,-251.5 "/>
-<text text-anchor="start" x="406.2751" y="-236.3" font-family="Times,serif" font-size="14.00" fill="#000000">articleView</text>
+<text text-anchor="start" x="406.2751" y="-236.3" font-family="Times,serif" font-size="14.00" fill="#000000">post_view</text>
 <text text-anchor="start" x="406.2751" y="-221.3" font-family="Times,serif" font-size="14.00" fill="#000000">articles</text>
 <text text-anchor="start" x="406.2751" y="-206.3" font-family="Times,serif" font-size="14.00" fill="#000000">categories</text>
 <text text-anchor="start" x="406.2751" y="-191.3" font-family="Times,serif" font-size="14.00" fill="#000000">galleriesIndex</text>

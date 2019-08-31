@@ -55,3 +55,73 @@
 	  border-top-right-radius: 0;
 	}
 }
+
+// SideBar styles
+body {
+  overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+  min-height: 90vh;
+  margin-left: -15rem;
+  -webkit-transition: margin .25s ease-out;
+  -moz-transition: margin .25s ease-out;
+  -o-transition: margin .25s ease-out;
+  transition: margin .25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+  padding: 2em;
+  margin-bottom: 250px;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+    padding: 2em;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+}
+
+// Round Buttons
+.row .vertical-center{
+  display: flex;
+  align-items: center;
+}
+.btn-circle.btn-xl {
+    width: 3.5em;
+    height: 3.5em;
+    //padding: 10px 16px;
+    border-radius: 1.75em;
+    font-size: 2.3em;
+    //line-height: 1.33;
+    margin-right: 0.35em;
+}
+
+.btn-circle.btn-xl p {
+  text-align: center;
+  font-size: 0.45em;
+  font-weight: bold;
+}
