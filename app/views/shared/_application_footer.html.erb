@@ -1,28 +1,42 @@
 <footer class="footer-distributed">
 
-  <div class="footer-right">
-
-    <a href="http://www.facebook.com/slawekphotography"><%= fa_icon "facebook" %></a>
-    <a href="http://500px.com/sawekmalczewski"><%= fa_icon "500px" %></a>
-    <a href="#"><%= fa_icon "instagram" %></a>
-    <a href="http://linkedin.com/in/slawomir-malczewski-8798048b"><%= fa_icon "linkedin" %></a>
-    <a href="http://github.com/slawekmalczewski"><%= fa_icon "github" %></a>
-
-  </div>
-
   <div class="footer-left">
 
     <p class="footer-links">
       <%= link_to("Home", root_path, class: "nav-link") %>
+      ·
       <%= link_to("Posts", {:controller => 'public', :action => 'articles'}, class: "nav-link") %>
+      ·
       <%= link_to("Galleries", {:controller => 'public', :action => 'galleriesIndex'}, class: "nav-link") %>
+      ·
       <%= link_to("About", {:controller => 'static_pages', :action => 'about'}, class: "nav-link") %>
+      ·
       <a href="#">Contact</a>
+
     </p>
 
+    <p class="lead text-center text-muted">
+      <%= copyright_generator('Slawomir Malczewski','All rights reserved') %>
+    </p>
+  </div>
 
-    <hr class="separationLine2">
-    <p class="lead text-center text-muted"><%= copyright_generator('Slawomir Malczewski','All rights reserved') %></p>
+
+  <div class="footer-right">
+
+    <p class="footer-other-platforms">
+      <span>Please visit me on another platforms </span>
+    </p>
+
+    <div class="footer-icons">
+
+      <a href="http://www.facebook.com/slawekphotography"><%= fa_icon "facebook" %></a>
+      <a href="http://500px.com/sawekmalczewski"><%= fa_icon "500px" %></a>
+      <a href="#"><%= fa_icon "instagram" %></a>
+      <a href="http://linkedin.com/in/slawomir-malczewski-8798048b"><%= fa_icon "linkedin" %></a>
+      <a href="http://github.com/slawekmalczewski"><%= fa_icon "github" %></a>
+
+    </div>
+
   </div>
 
 </footer>
