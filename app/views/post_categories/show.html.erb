@@ -1,16 +1,19 @@
-<h1>Post Category</h1>
+<div class="container p-5">
+  <h1>Post Category</h1>
 
-<div class="row">
-  <div class="col-md-6">
-    <div class="card">
-      <div class = "card-header">
-        <h2><%= @post_category.postcategoryname %></h2>
-      </div>
-      <div class="card-body">
-        <h5 class="card-subtitle mb-2 text-muted"><%= @post_category.created_at %></h5>
-        <p class="card-text h3"><%= @post_category.PostCategory_Description %></p>
-        <a href="#" class="card-link">Card link</a>
-        <a href="#" class="card-link">Another link</a>
+  <div class="row mt-5">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h2><%= @post_category.postcategoryname %> <small><%= @post_category.created_at %></small></h2>
+        </div>
+        <div class="card-body">
+          <h4><%= @post_category.PostCategory_Description %></h4>
+        </div>
+        <div class="card-footer">
+          <%= link_to("Edit", {:controller => 'post_categories', :action => 'edit', :id => @post_category.id}, class: "btn btn-lg btn-warning pull-right ml-3") %>
+          <%= link_to("Back", :back, class: "btn btn-lg btn-primary pull-right") %>
+        </div>
       </div>
     </div>
   </div>

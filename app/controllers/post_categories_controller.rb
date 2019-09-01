@@ -1,11 +1,12 @@
 class PostCategoriesController < ApplicationController
+# Categories should be only accessible to administrators
+  layout "admin"
 
-  layout "application"
-
-  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :delete, :confirm_deletion]}, site_admin: :all
+  access all: [], user: {except: [:destroy, :new, :create, :update, :edit, :delete, :confirm_deletion]}, site_admin: :all
 
   def index
     @post_category = PostCategory.newest
+    @post = Post.all
   end
 
   def show

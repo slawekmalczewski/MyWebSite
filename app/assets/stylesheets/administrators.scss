@@ -83,6 +83,7 @@ body {
   min-width: 100vw;
   padding: 2em;
   margin-bottom: 250px;
+  background-color: blue;
 }
 
 #wrapper.toggled #sidebar-wrapper {
@@ -98,6 +99,7 @@ body {
     min-width: 0;
     width: 100%;
     padding: 2em;
+    margin-bottom: 250px;
   }
 
   #wrapper.toggled #sidebar-wrapper {
