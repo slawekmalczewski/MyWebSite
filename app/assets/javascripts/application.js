@@ -17,6 +17,7 @@
 //= require activestorage
 //= require trix
 //= require publicArticles
+//= require admin_sidebar
 //= require lightbox
 //= require local-time
 //= require gritter

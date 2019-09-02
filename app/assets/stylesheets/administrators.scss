@@ -4,6 +4,7 @@
 
 @import "gritter";
 
+
 .signInBody {
   background: #eee !important;
 }
@@ -63,7 +64,7 @@ body {
 
 #sidebar-wrapper {
   min-height: 90vh;
-  margin-left: -15rem;
+  margin-left: -20rem;
   -webkit-transition: margin .25s ease-out;
   -moz-transition: margin .25s ease-out;
   -o-transition: margin .25s ease-out;
@@ -72,11 +73,14 @@ body {
 
 #sidebar-wrapper .sidebar-heading {
   padding: 0.875rem 1.25rem;
-  font-size: 1.2rem;
+  font-size: 1.7rem;
+  font-weight: bold;
 }
 
 #sidebar-wrapper .list-group {
-  width: 15rem;
+  width: 20rem;
+  font-size: 1.40rem;
+  font-weight: bold;
 }
 
 #page-content-wrapper {
@@ -102,7 +106,7 @@ body {
   }
 
   #wrapper.toggled #sidebar-wrapper {
-    margin-left: -15rem;
+    margin-left: -20rem;
   }
 }
 
@@ -125,4 +129,33 @@ body {
   text-align: center;
   font-size: 0.45em;
   font-weight: bold;
+}
+
+//Admin Tables styles
+.admin-table{
+  font-size: 1vw;
+}
+
+.admin-table .table-header-text {
+  font-size: 1.15vw;
+}
+
+.admin-table .icon-size{
+  font-size: 1.3vw;
+}
+
+.admin-table .w-5{
+  width:5%;
+}
+
+.admin-table .w-10{
+  width:10%;
+}
+
+.admin-table .w-20{
+  width:20%;
+}
+
+.admin-table .w-30{
+  width:30%;
 }
