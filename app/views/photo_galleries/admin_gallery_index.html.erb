@@ -1,23 +1,36 @@
 <% title "Galleries" %>
 
-  <div class="container-fluid">
-    <br/>
-    <h1 class="display-2">Photo Galleries <sup><span class = "badge badge-success"><%= @gallery.size %></span></sup></h1>
-    <br/>
-    <%= link_to("Back", {:controller => "administrators", :action => 'index'}, :class => "btn btn-warning btn-lg") %>
-    <%= link_to("Create new Gallery", {:action => 'new'}, :class => "btn btn-info btn-lg") %>
-    <br/>
+<div id="page-content-wrapper">
+  <div class="conatiner-fluid">
+    <div class="row">
+        <div class="col col-md-6 mb-5">
+          <h1 class="display-3">Galleries | <span class="label label-info"><%= @gallery.size %></span></h1>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col col-sm-3 col-md-4 col-lg-2 mb-2">
+        <button class="btn btn-primary btn-lg btn-block" id="menu-toggle">
+          Toggle Menu
+        </button>
+      </div>
+      <div class="col2 col-sm-3 col-md-4 col-lg-2 mb-2">
+        <%= link_to("Back", {:controller => "administrators", :action => 'index'}, :class => "btn btn-warning btn-lg btn-block") %>
+      </div>
+      <div class="col col-sm-3 col-md-4 col-lg-2 mb-2">
+        <%= link_to("Create new Gallery", {:action => 'new'}, :class => "btn btn-success btn-lg btn-block") %>
+      </div>
+    </div>
 
 
-    <table class="table table-striped table-bordered mt-3">
+    <table class="table table-bordered table-striped mt-1 admin-table">
       <thead>
         <tr>
-          <th class="span1 align-middle text-center h5">Gallery Position</th>
-          <th class="span2 align-middle text-center h5">Gallery Title</th>
-          <th class="span1 align-middle text-center h5">No. photographs</th>
-          <th class="span1 align-middle text-center h5">Published ?</th>
-          <th class="span1 align-middle text-center h5">Created</th>
-          <th class="span3 align-middle text-center h5">Actions</th>
+          <th class="align-middle text-center table-header-text w-15">Gallery Position</th>
+          <th class="align-middle text-center table-header-text w-25">Gallery Title</th>
+          <th class="align-middle text-center table-header-text w-15">No. photographs</th>
+          <th class="align-middle text-center table-header-text w-15">Status</th>
+          <th class="align-middle text-center table-header-text w-15">Created</th>
+          <th class="align-middle text-center table-header-text w-15">Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -26,10 +39,10 @@
         <td class="span1 align-middle text-center"><%= gal.galleryPosition %></td>
         <td class="span2 align-middle text-center"><%= gal.gallerytitle %></td>
         <td class="span1 align-middle text-center"><%= gal.myPhotos.size %></td>
-        <td class="span1 align-middle text-center"><%= gal.galleryVisibility %></td>
+        <td class="span1 align-middle text-center"><%= iconStatus(gal.galleryVisibility) %></td>
         <td class="span1 align-middle text-center"><%= local_time(gal.created_at, '%d %b, %Y %H:%M')  %></td>
         <td class="span3 align-middle text-center btn-group-vertical d-block">
-          <%= link_to("Manage Photos", {:controller => 'my_photos', :action => 'index', :id => gal.id}, :class => "btn btn-success btn-small m-1") %>
+          <%= link_to("Manage Photos", {:controller => 'my_photos', :action => 'index', :id => gal.id}, :class => "btn btn-info btn-small m-1") %>
           <%= link_to("Edit Gallery Details", {:action => 'edit', :id => gal.id}, :class => "btn btn-warning btn-small m-1") %>
           <%= link_to("Preview", {:controller => 'photo_galleries', :action => 'show', :id => gal.id}, :class => "btn btn-success btn-small m-1") %>
           <%= link_to("Delete", {:action => 'delete', :id => gal.id}, :class => "btn btn-danger btn-small m-1") %>
@@ -39,6 +52,7 @@
     </tbody>
     </table>
   </div>
+</div>
 
 <!-- Close Administration nav -->
 </div>

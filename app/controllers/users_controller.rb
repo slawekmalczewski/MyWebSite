@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   layout "admin"
 
-  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
+  access all: [], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
 
 
   def index

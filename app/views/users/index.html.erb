@@ -1,31 +1,46 @@
 <% title "Users" %>
 
-<div class="container-fluid">
-  <br/>
-  <h1>Users | <span class="label label-info"><%= @user.size %></span></h1>
-  <br/>
-  <br/>
-  <%= link_to("Back", :back, :class => "btn btn-warning btn-lg") %>
-  <%= link_to("Add new User", {:action => 'new'}, :class => "btn btn-info btn-lg") %>
+<div id="page-content-wrapper">
+  <div class="conatiner-fluid">
+    <div class="row">
+        <div class="col col-md-6 mb-5">
+          <h1 class="display-3">Users | <span class="label label-info"><%= @user.size %></span></h1>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col col-sm-3 col-md-4 col-lg-2 mb-2">
+        <button class="btn btn-primary btn-lg btn-block" id="menu-toggle">
+          Toggle Menu
+        </button>
+      </div>
+      <div class="col2 col-sm-3 col-md-4 col-lg-2 mb-2">
+        <%= link_to("Back", {:controller => "administrators", :action => 'index'}, :class => "btn btn-warning btn-lg btn-block") %>
+      </div>
+      <div class="col col-sm-3 col-md-4 col-lg-2 mb-2">
+        <%= link_to("Add new User", {:action => 'new'}, :class => "btn btn-success btn-lg btn-block") %>
+      </div>
+    </div>
 
-  <table class="table table-bordered table-striped mt-3">
+  <table class="table table-bordered table-striped mt-1 admin-table">
     <thead>
       <tr>
-        <th class="span1 align-middle text-center h5">First Name</th>
-        <th class="span1 align-middle text-center h5">Surname</th>
-        <th class="span2 align-middle text-center h5">Username</th>
-        <th class="span2 align-middle text-center h5">Email</th>
-        <th class="span1 align-middle text-center h5">Joined</th>
-        <th class="span4 align-middle text-center h5">Actions</th>
+        <th class="align-middle text-center table-header-text w-15">First Name</th>
+        <th class="align-middle text-center table-header-text w-15">Surname</th>
+        <th class="align-middle text-center table-header-text w-15">Role</th>
+        <th class="align-middle text-center table-header-text w-15">Email</th>
+        <th class="align-middle text-center table-header-text w-15">Last Logged In</th>
+        <th class="align-middle text-center table-header-text w-10">Joined</th>
+        <th class="align-middle text-center table-header-text w-15">Actions</th>
       </tr>
     </thead>
     <tbody>
   <% @user.each do |u| %>
     <tr>
-      <td class="span1 align-middle text-center"><%= u.User_FirstName %></td>
-      <td class="span1 align-middle text-center"><%= u.User_Surname %></td>
-      <td class="span2 align-middle text-center"><%= u.Username %></td>
-      <td class="span2 align-middle text-center"><%= u.Email %></td>
+      <td class="span1 align-middle text-center"><%= u.first_name %></td>
+      <td class="span1 align-middle text-center"><%= u.last_name %></td>
+      <td class="span2 align-middle text-center"><%= u.roles %></td>
+      <td class="span2 align-middle text-center"><%= u.email %></td>
+      <td class="span2 align-middle text-center"><%= u.last_sign_in_at %></td>
       <td class="span1 align-middle text-center"><%= local_time(u.created_at, '%d %b, %Y %H:%M') %></td>
       <td class="span4 align-middle text-center btn-group-vertical d-block">
         <%= link_to("Show", {:action => 'show', :id => u.id}, :class => "btn btn-success btn-small m-1") %>
@@ -38,11 +53,15 @@
   </tbody>
   </table>
 
-  <!-- Here is pagination using will_paginate gem -->
-  <div class="row">
-    <div class="col-sm-12 col-md-12 d-flex justify-content-center">
-      <%= will_paginate @user, renderer: BootstrapPagination::Rails, :class => "font-weight-bold" %>
+    <!-- Here is pagination using will_paginate gem -->
+    <div class="row">
+      <div class="col-sm-12 col-md-12 d-flex justify-content-center">
+        <%= will_paginate @user, renderer: BootstrapPagination::Rails, :class => "font-weight-bold" %>
+      </div>
     </div>
-  </div>
 
+  </div>
+</div>
+
+<!-- Close Administration nav -->
 </div>
