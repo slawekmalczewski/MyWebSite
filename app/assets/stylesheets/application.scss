@@ -48,3 +48,22 @@ Add a scroll bar when writing a long posts-articles on the bootstrap card-body
     overflow-y: scroll;
     height: 100px;
 }
+
+/*
+Custom Styles for Devise module
+*/
+.log_in_card{
+  max-width: 350px;
+  margin: 10% auto auto auto;
+  padding: 12px;
+}
+
+.log_in_card a {
+  color: black;
+  margin: 12px 0 12px 0;
+}
+
+.card-block{
+  text-align: left;
+  font-size: 1.2vh;
+}

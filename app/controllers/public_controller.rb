@@ -1,6 +1,6 @@
 class PublicController < ApplicationController
 
-  layout "application"
+  layout "no_footer"
 
   access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :delete, :confirm_deletion]}, site_admin: :all
 

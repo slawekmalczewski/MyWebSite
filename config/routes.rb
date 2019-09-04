@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   root to: 'public#index'
 
+  get 'about', to:'static_pages#about'
+
   resources :photos
 
   match ':controller(/:action(/:id))', :via => [:get, :post]

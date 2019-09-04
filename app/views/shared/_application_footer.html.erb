@@ -5,9 +5,9 @@
     <p class="footer-links">
       <%= link_to("Home", root_path, class: "nav-link") %>
       ·
-      <%= link_to("Posts", {:controller => 'public', :action => 'articles'}, class: "nav-link") %>
+      <%= link_to("Posts", {:controller => 'posts', :action => 'index'}, class: "nav-link") %>
       ·
-      <%= link_to("Galleries", {:controller => 'public', :action => 'galleriesIndex'}, class: "nav-link") %>
+      <%= link_to("Galleries", {:controller => 'photo_galleries', :action => 'index'}, class: "nav-link") %>
       ·
       <%= link_to("About", {:controller => 'static_pages', :action => 'about'}, class: "nav-link") %>
       ·
