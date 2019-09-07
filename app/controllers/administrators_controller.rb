@@ -2,7 +2,7 @@ class AdministratorsController < ApplicationController
 
   layout "admin"
 
-  access all: [], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
+  access all: [], user: {except: [:destroy, :new, :create, :update, :edit, :index]}, site_admin: :all
 
   def index
     @post = Post.all

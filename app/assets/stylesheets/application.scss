@@ -67,3 +67,16 @@ Custom Styles for Devise module
   text-align: left;
   font-size: 1.2vh;
 }
+
+/*
+Custom Styles for authentication links in the menu - login,register,logout,admin panel
+*/
+.nav-link-auth a{
+  color:rgba(255,255,255,.5);
+  text-decoration: none;
+}
+
+.nav-link-auth a:hover{
+  color:#f8f9fa;
+  text-decoration: none;
+}

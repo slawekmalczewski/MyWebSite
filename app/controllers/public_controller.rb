@@ -7,7 +7,7 @@ class PublicController < ApplicationController
   def index
     @latestpost = Post.published.last(1)
     @latestgallery = PhotoGallery.published.last(1)
-    render layout: 'publicIndex'
+    render layout: 'application'
   end
 
   def articles

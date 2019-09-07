@@ -5,17 +5,20 @@
 				<h1>
 					Welcome back <%= current_user.first_name %>
 				</h1>
+				<button class="btn btn-primary btn-lg btn-block" id="menu-toggle">
+					Toggle Menu
+				</button>
 			</div>
 		</div>
 		<div class="col-md-6 vertical-center d-flex align-items-center justify-content-center">
 			<div class="page-header">
-				<button type="button" class="btn btn-success btn-circle btn-xl"><%= number_of_posts %>
+				<button type="button" class="btn btn-success btn-circle btn-xl mb-2"><%= number_of_posts %>
 					<br/><p>Posts</p>
 				</button>
-				<button type="button" class="btn btn-warning btn-circle btn-xl"><%= number_of_galleries %>
+				<button type="button" class="btn btn-warning btn-circle btn-xl mb-2"><%= number_of_galleries %>
 					<br/><p>Galleries</p>
 				</button>
-				<button type="button" class="btn btn-primary btn-circle btn-xl"><%= number_of_photographs %>
+				<button type="button" class="btn btn-primary btn-circle btn-xl mb-2"><%= number_of_photographs %>
 					<br/><p>Photos</p>
 				</button>
 			</div>

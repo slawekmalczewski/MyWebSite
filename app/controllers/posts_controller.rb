@@ -24,7 +24,7 @@ class PostsController < ApplicationController
       flash[:alert] = "Post sucessfully created"
       redirect_to(:controller => "administrators", :action => 'index')
     else
-      flash[:notice] = "Problem saving the post"
+      flash[:alert] = "Problem with saving your post"
       render('new')
     end
   end
@@ -40,14 +40,14 @@ class PostsController < ApplicationController
       flash[:alert] = "Post sucessfully updated"
       redirect_to(:action => 'show', :id => @post.id)
     else
-      flash[:alert] = "Problem with saving changes"
+      flash[:alert] = "Problem with saving your changes"
       render('edit')
     end
   end
 
   def show
     @post = Post.find(params[:id])
-    render layout: 'public'
+    render layout: 'application'
   end
 
   def delete

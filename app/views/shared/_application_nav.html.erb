@@ -21,14 +21,7 @@
           </div>
         </li>
         <li class="<%= 'nav-item active' if params[:controller] == 'static_pages' && params[:action] == 'about' %>"><%= link_to("About", {:controller => 'static_pages', :action => 'about'},:class => "nav-link") %></li>
-
-        <% if current_user %>
-          <li> <%= link_to "Admin Panel", "/administrators/index", class: "nav-link" %> </li>
-          <li> <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link" %> </li>
-        <% else %>
-          <li> <%= link_to "Register", new_user_registration_path, class: "nav-link" %> </li>
-          <li> <%= link_to "Login", new_user_session_path, class: "nav-link" %> </li>
-        <% end %>
       </ul>
+      <%= login_helper %>
     </div>
 </nav>
