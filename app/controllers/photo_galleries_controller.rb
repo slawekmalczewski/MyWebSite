@@ -1,10 +1,16 @@
 class PhotoGalleriesController < ApplicationController
 
-  layout "admin"
+  layout "application"
+  layout "admin", :only => "admin_gallery_index"
 
-  before_action :check_login, :except => [:login, :loginProcess, :logout]
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :delete, :confirm_deletion]}, site_admin: :all
 
   def index
+    @gallery = PhotoGallery.where(:galleryVisibility => true).paginate(:page => params[:page], :per_page => 6).order('created_at DESC')
+    @numberOfImages = PhotoGallery.count
+  end
+
+  def admin_gallery_index
     @gallery = PhotoGallery.all
   end
 
@@ -16,7 +22,7 @@ class PhotoGalleriesController < ApplicationController
   def create
     @gallery = PhotoGallery.new(required_parameters)
       if @gallery.save
-        flash[:success] = "Photo Gallery sucessfully created"
+        flash[:alert] = "Photo Gallery sucessfully created"
         redirect_to(:action => 'index')
       else
         @counter = PhotoGallery.count + 1
@@ -32,7 +38,7 @@ class PhotoGalleriesController < ApplicationController
   def update
     @gallery = PhotoGallery.find(params[:id])
     if @gallery.update_attributes(required_parameters)
-      flash[:success] = "Photo Gallery sucessfully updated"
+      flash[:alert] = "Photo Gallery sucessfully updated"
       redirect_to(:action => 'show', :id => @gallery.id)
     else
       @counter = PhotoGallery.count
@@ -50,7 +56,7 @@ class PhotoGalleriesController < ApplicationController
 
   def confirm_deletion
     gallery = PhotoGallery.find(params[:id]).destroy
-    flash[:success] = "Photo Gallery sucessfully deleted"
+    flash[:alert] = "Photo Gallery sucessfully deleted"
     redirect_to(:action => 'index')
   end
 

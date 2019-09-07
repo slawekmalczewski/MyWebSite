@@ -1,11 +1,13 @@
 class PublicController < ApplicationController
 
-  layout "public"
+  layout "no_footer"
+
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :delete, :confirm_deletion]}, site_admin: :all
 
   def index
     @latestpost = Post.published.last(1)
     @latestgallery = PhotoGallery.published.last(1)
-    render layout: 'publicIndex'
+    render layout: 'application'
   end
 
   def articles
@@ -23,7 +25,7 @@ class PublicController < ApplicationController
     @gallery = PhotoGallery.find(params[:id])
   end
 
-  def articleView
+  def post_view
     @post = Post.find(params[:id])
   end
 

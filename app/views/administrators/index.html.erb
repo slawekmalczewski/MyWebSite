@@ -1,75 +1,172 @@
-<div class="container mt-3">
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-6 vertical-center d-flex align-items-center justify-content-center">
+			<div class="page-header">
+				<h1>
+					Welcome back <%= current_user.first_name %>
+				</h1>
+				<button class="btn btn-primary btn-lg btn-block" id="menu-toggle">
+					Toggle Menu
+				</button>
+			</div>
+		</div>
+		<div class="col-md-6 vertical-center d-flex align-items-center justify-content-center">
+			<div class="page-header">
+				<button type="button" class="btn btn-success btn-circle btn-xl mb-2"><%= number_of_posts %>
+					<br/><p>Posts</p>
+				</button>
+				<button type="button" class="btn btn-warning btn-circle btn-xl mb-2"><%= number_of_galleries %>
+					<br/><p>Galleries</p>
+				</button>
+				<button type="button" class="btn btn-primary btn-circle btn-xl mb-2"><%= number_of_photographs %>
+					<br/><p>Photos</p>
+				</button>
+			</div>
+		</div>
+	</div>
 
-<div class="row justify-content-center p-2 mb-3">
-  <div class="col-xs-10 col-md-4 col-lg-3 m-3">
-    <div class="card h-100">
-      <div class="card-header">
-        <h2>Posts</h2>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">So far you have created: <span class="font-weight-bold text-info"><%= @post.size %> Posts</span></li>
-        <li class="list-group-item">The latest post: <span class="font-weight-bold text-info"><%= @post.order("created_at ASC").last.Post_Title %></span><br/>
-        was created on: <span class="font-weight-bold text-info"><%= @post.order("created_at ASC").last.created_at %> </li>
-      </ul>
-      <div class="card-body bg-light">
-        <%= link_to("Manage Posts", {:controller => 'posts', :action => 'index'}, :class => "btn btn-info btn-lg w-100") %>
-      </div>
-    </div>
-  </div>
 
-<div class="col-xs-10 col-md-4 col-lg-3 m-3">
-  <div class="card h-100">
-    <div class="card-header">
-      <h2>Galleries</h2>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">So far you have created: <span class="font-weight-bold text-info"><%= @gallery.count %> Photo Galleries</span></li>
-      <li class="list-group-item">In total there is: <span class="font-weight-bold text-info"><%= @photographs.count %> photographs</span></li>
-      <li class="list-group-item">The latest gallery: <span class="font-weight-bold text-info"><%= @gallery.order("created_at ASC").last.gallerytitle %></span><br/>
-      was created on: <span class="font-weight-bold text-info"><%= @gallery.order("created_at ASC").last.created_at %></li>
-    </ul>
-    <div class="card-body bg-light">
-      <%= link_to("Manage Galleries", {:controller => 'photo_galleries', :action => 'index'}, :class => "btn btn-info btn-lg w-100") %>
-    </div>
-  </div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<h2 class="card-header">
+					Latest Draft | <small><%= latest_draft_updated_at %></small>
+				</h2>
+				<div class="card-body">
+					<h4><%= latest_draft %></h4>
+				</div>
+				<div class="card-text p-3">
+					<%= latest_draft_link_button %>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+
+		<div class="col-md-4">
+			<div class="card">
+				<h5 class="card-header">
+					Post Summary
+				</h5>
+				<div class="card-body">
+					<table class="table table-striped">
+					  <thead>
+					    <tr>
+					      <th scope="col">Total Number</th>
+					      <th scope="col"><%= number_of_posts %></th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr>
+					      <th scope="col">Published</th>
+					      <th scope="col"><%= number_of_published_posts %></th>
+					    </tr>
+					    <tr>
+					      <th scope="col">Not Published</th>
+					      <th scope="col"><%= number_of_unpublished_posts %></th>
+					    </tr>
+					    <tr>
+					      <th scope="col">Most Recent One</th>
+					      <th scope="col"><%= most_recent_post_title %></th>
+					    </tr>
+							<tr>
+								<th scope="col">Creation Date</th>
+					      <th scope="col"><%= most_recent_post_date %></th>
+							</tr>
+					  </tbody>
+					</table>
+				</div>
+				<div class="card-footer">
+					<%= link_to("Show Latest", {:controller => 'posts', :action => 'show', :id => latest_post_link_button}, class: "btn btn-success btn-lg pull-right mx-2") %>
+					<%= link_to("Edit Latest", {:controller => 'posts', :action => 'edit', :id => latest_post_link_button}, class: "btn btn-warning btn-lg pull-right") %>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="col-md-4">
+			<div class="card">
+				<h5 class="card-header">
+					Gallery Summary
+				</h5>
+				<div class="card-body">
+					<table class="table table-striped">
+					  <thead>
+					    <tr>
+					      <th scope="col">Total Number</th>
+					      <th scope="col"><%= number_of_galleries %></th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr>
+					      <th scope="col">Published</th>
+					      <th scope="col"><%= number_of_published_galleries %></th>
+					    </tr>
+					    <tr>
+					      <th scope="col">Not Published</th>
+					      <th scope="col"><%= number_of_unpublished_galleries %></th>
+					    </tr>
+					    <tr>
+					      <th scope="col">Most Recent One</th>
+					      <th scope="col"><%= most_recent_gallery_title %></th>
+					    </tr>
+							<tr>
+								<th scope="col">Creation Date</th>
+					      <th scope="col"><%= most_recent_gallery_date %></th>
+							</tr>
+					  </tbody>
+					</table>
+				</div>
+				<div class="card-footer">
+					<%= link_to("Show Latest", {:controller => 'photo_galleries', :action => 'show', :id => latest_gallery_link_button}, class: "btn btn-success btn-lg pull-right mx-2") %>
+					<%= link_to("Edit Latest", {:controller => 'photo_galleries', :action => 'edit', :id => latest_gallery_link_button}, class: "btn btn-warning btn-lg pull-right") %>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="col-md-4">
+			<div class="card">
+				<h5 class="card-header">
+					Photo Summary
+				</h5>
+				<div class="card-body">
+					<table class="table table-striped">
+					  <thead>
+					    <tr>
+					      <th scope="col">Total Number</th>
+					      <th scope="col"><%= number_of_photographs %></th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    <tr>
+					      <th scope="col">Published</th>
+					      <th scope="col"><%= number_of_published_photographs %></th>
+					    </tr>
+					    <tr>
+					      <th scope="col">Not Published</th>
+					      <th scope="col"><%= number_of_unpublished_photographs %></th>
+					    </tr>
+					    <tr>
+					      <th scope="col">Most Recent One</th>
+					      <th scope="col"><%= most_recent_photograph_title %></th>
+					    </tr>
+							<tr>
+								<th scope="col">Creation Date</th>
+					      <th scope="col"><%= most_recent_photograph_date %></th>
+							</tr>
+					  </tbody>
+					</table>
+				</div>
+				<div class="card-footer">
+					<%= link_to("Show Latest", {:controller => 'my_photos', :action => 'show', :id => latest_photo_link_button}, class: "btn btn-success btn-lg pull-right mx-2") %>
+					<%= link_to("Edit Latest", {:controller => 'my_photos', :action => 'edit', :id => latest_photo_link_button}, class: "btn btn-warning btn-lg pull-right") %>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
-
-<div class="col-xs-10 col-md-4 col-lg-3 m-3">
-  <div class="card h-100">
-    <div class="card-header">
-      <h2>Post Categories</h2>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">So far you have: <span class="font-weight-bold text-info"><%= @categories.count %> Categories</span></li>
-      <li class="list-group-item">The latest category: <span class="font-weight-bold text-info"><%= @categories.order("created_at ASC").last.postcategoryname %></span><br/>
-      was created on: <span class="font-weight-bold text-info"><%= @categories.order("created_at ASC").last.created_at %></li>
-    </ul>
-    <div class="card-body bg-light">
-      <%= link_to("Manage Categories", {:controller => 'post_categories', :action => 'index'}, :class => "btn btn-info btn-lg w-100") %>
-    </div>
-  </div>
-</div>
-
-<div class="col-xs-10 col-md-4 col-lg-3 m-3">
-  <div class="card h-100">
-    <div class="card-header">
-      <h2>Users</h2>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">So far there is: <span class="font-weight-bold text-info"><%= @user.count %> User(s)</span></li>
-      <li class="list-group-item">User: <span class="font-weight-bold text-info"><%= @user.order("created_at ASC").last.Username %></span><br/>
-      joined: <span class="font-weight-bold text-info"><%= @user.order("created_at ASC").last.created_at %></li>
-    </ul>
-    <div class="card-body bg-light">
-      <%= link_to("Manage Users", {:controller => 'users', :action => 'index'}, :class => "btn btn-info btn-lg w-100") %>
-    </div>
-  </div>
-</div>
-
-
-</div>
-
-  <%= link_to("Log Out", {:controller => 'administrators', :action => 'logout'}, :class => "btn btn-danger btn-lg w-100") %>
-
+<!-- Close Administration nav -->
 </div>

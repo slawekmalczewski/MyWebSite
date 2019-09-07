@@ -16,6 +16,8 @@ applied to thie particular site
   }
 </style>
 
+
+
     <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel">
 
         <!-- Wrapper for slides -->
@@ -36,7 +38,7 @@ applied to thie particular site
               <div class="carousel-caption">
                 <h1 class="slideimagetitle"><%= @latestpost.last.Post_Title %> <span class="badge badge-pill badge-danger">New</span></h1>
                 <p class="slideimagedesc"><%= first_sentence(@latestpost.last.Post_Body) %></p>
-                <%= link_to 'Read more...', {:controller => 'public', :action => 'articleView', :id => @latestpost.last}, :class => "btn btn-primary btn-lg" %>
+                <%= link_to 'Read more...', {:controller => 'public', :action => 'post_view', :id => @latestpost.last}, :class => "btn btn-primary btn-lg" %>
               </div>
             </div>
             <div class="item">
@@ -58,6 +60,7 @@ applied to thie particular site
             <span class="sr-only">Next</span>
         </a>
     </div>
+
 
 
     <!-- Modal window message -->

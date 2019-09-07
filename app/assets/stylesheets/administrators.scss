@@ -2,54 +2,108 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.signInBody {
-  background: #eee !important;
+@import "gritter";
+
+
+// SideBar styles
+body {
+  overflow-x: hidden;
 }
 
-.signin-container{
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10%;
-  max-width: 30%;
+#sidebar-wrapper {
+  min-height: 90vh;
+  margin-left: -20rem;
+  -webkit-transition: margin .25s ease-out;
+  -moz-transition: margin .25s ease-out;
+  -o-transition: margin .25s ease-out;
+  transition: margin .25s ease-out;
 }
 
-.form-signin {
-  max-width: 380px;
-  padding: 15px 35px 45px;
-  margin: 0 auto;
-  background-color: #fff;
-  border: 1px solid rgba(0,0,0,0.1);
-  
-  .form-signin-heading,
-	.checkbox {
-	  margin-bottom: 30px;
-	}
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.7rem;
+  font-weight: bold;
+}
 
-	.checkbox {
-	  font-weight: normal;
-	}
+#sidebar-wrapper .list-group {
+  width: 20rem;
+  font-size: 1.40rem;
+  font-weight: bold;
+}
 
-	.form-control {
-	  position: relative;
-	  font-size: 16px;
-	  height: auto;
-	  padding: 10px;
-		// @include box-sizing(border-box);
+#page-content-wrapper {
+  min-width: 100vw;
+  padding: 2em;
+  margin-bottom: 250px;
+}
 
-		&:focus {
-		  z-index: 2;
-		}
-	}
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
 
-	input[type="text"] {
-	  margin-bottom: -1px;
-	  border-bottom-left-radius: 0;
-	  border-bottom-right-radius: 0;
-	}
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
 
-	input[type="password"] {
-	  margin-bottom: 20px;
-	  border-top-left-radius: 0;
-	  border-top-right-radius: 0;
-	}
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+    padding: 2em;
+    //margin-bottom: 250px;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -20rem;
+  }
+}
+
+// Round Buttons
+.row .vertical-center{
+  display: flex;
+  align-items: center;
+}
+.btn-circle.btn-xl {
+    width: 3.5em;
+    height: 3.5em;
+    //padding: 10px 16px;
+    border-radius: 1.75em;
+    font-size: 2.3em;
+    //line-height: 1.33;
+    margin-right: 0.35em;
+}
+
+.btn-circle.btn-xl p {
+  text-align: center;
+  font-size: 0.45em;
+  font-weight: bold;
+}
+
+//Admin Tables styles
+.admin-table{
+  font-size: 1vw;
+}
+
+.admin-table .table-header-text {
+  font-size: 1.15vw;
+}
+
+.admin-table .icon-size{
+  font-size: 1.3vw;
+}
+
+.admin-table .w-5{
+  width:5%;
+}
+
+.admin-table .w-10{
+  width:10%;
+}
+
+.admin-table .w-20{
+  width:20%;
+}
+
+.admin-table .w-30{
+  width:30%;
 }

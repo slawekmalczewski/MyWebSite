@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   layout "admin"
 
-  before_action :check_login, :except => [:login, :loginProcess, :logout]
+  access all: [], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
 
 
   def index
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(required_parameters)
     if @user.save
-      flash[:success] = "User sucessfully created"
+      flash[:alert] = "User sucessfully created"
       redirect_to(:action => 'index')
     else
       render('new')
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(required_parameters)
-      flash[:success] = "User's details sucessfully updated"
+      flash[:alert] = "User's details sucessfully updated"
       redirect_to(:action => 'show', :id => @user.id)
     else
       render('edit')
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
 
   def confirm_deletion
     user = User.find(params[:id]).destroy
-    flash[:success] = "User sucessfully deleted"
+    flash[:alert] = "User sucessfully deleted"
     redirect_to(:action => 'index')
   end
 

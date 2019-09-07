@@ -1,10 +1,16 @@
 class PostsController < ApplicationController
 
-  layout "admin"
+  layout "application"
+  layout "admin", :only => "admin_post_index"
 
-  before_action :check_login, :except => [:login, :loginProcess, :logout]
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :delete, :confirm_deletion]}, site_admin: :all
 
   def index
+    @post = Post.where(:Post_Visibility => true).paginate(:page => params[:page], :per_page => 6).order('created_at DESC')
+    @category = PostCategory.all
+  end
+
+  def admin_post_index
     @post = Post.paginate(:page => params[:page], :per_page => 4)
   end
 
@@ -15,9 +21,10 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(required_parameters)
     if @post.save
-      flash[:success] = "Post sucessfully created"
-      redirect_to(:action => 'index')
+      flash[:alert] = "Post sucessfully created"
+      redirect_to(:controller => "administrators", :action => 'index')
     else
+      flash[:alert] = "Problem with saving your post"
       render('new')
     end
   end
@@ -30,16 +37,17 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update_attributes(required_parameters)
-      flash[:success] = "Post sucessfully updated"
+      flash[:alert] = "Post sucessfully updated"
       redirect_to(:action => 'show', :id => @post.id)
     else
+      flash[:alert] = "Problem with saving your changes"
       render('edit')
     end
   end
 
   def show
     @post = Post.find(params[:id])
-    render layout: 'public'
+    render layout: 'application'
   end
 
   def delete
@@ -48,7 +56,7 @@ class PostsController < ApplicationController
 
   def confirm_deletion
     post = Post.find(params[:id]).destroy
-    flash[:success] = "Post sucessfully deleted"
+    flash[:alert] = "Post sucessfully deleted"
     redirect_to(:action => 'index')
   end
 

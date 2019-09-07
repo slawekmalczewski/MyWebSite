@@ -1,8 +1,8 @@
 class MyPhotosController < ApplicationController
 
-  layout "admin"
+  layout "application"
 
-  before_action :check_login, :except => [:login, :loginProcess, :logout]
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :delete, :confirm_deletion]}, site_admin: :all
 
   def index
     @galleryid = PhotoGallery.find(params[:id])
@@ -20,10 +20,10 @@ class MyPhotosController < ApplicationController
   def create
     @myPhotography = MyPhoto.new(required_parameters)
     if @myPhotography.save
-      flash[:success] = "Photograph added sucessfully"
+      flash[:alert] = "Photograph added sucessfully"
       redirect_to(:controller => 'photo_galleries', :action => 'index')
     else
-      flash[:danger] = "Error, could not add the photo"
+      flash[:alert] = "Error, could not add the photo"
       @myPhotoCategory = PhotoGallery.order('galleryPosition ASC')
       @counter = MyPhoto.count + 1
       render('new')
@@ -40,11 +40,12 @@ class MyPhotosController < ApplicationController
   def update
     @myPhotography = MyPhoto.find(params[:id])
     if @myPhotography.update_attributes(required_parameters)
-      flash[:success] = "Photograph's information sucessfully updated"
+      flash[:alert] = "Photograph's information sucessfully updated"
       redirect_to(:action => 'show', :id => @myPhotography.id)
     else
       @myPhotoCategory = PhotoGallery.order('gallerytitle')
       @counter = MyPhoto.count
+      flash[:error] = "There is a problem with updating information"
       render('edit')
     end
   end
@@ -57,7 +58,7 @@ class MyPhotosController < ApplicationController
     @test = MyPhoto.find(params[:id]).photo_gallery_id
     @myPhotography = MyPhoto.find(params[:id]).destroy
     redirect_to(:controller => 'my_photos', :action => 'index', :id => @test)
-    flash[:success] = "Photograph delted sucessfully"
+    flash[:alert] = "Photograph delted sucessfully"
   end
 
   def show

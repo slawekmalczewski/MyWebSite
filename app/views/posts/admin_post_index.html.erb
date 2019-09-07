@@ -1,0 +1,65 @@
+<% title "Posts" %>
+
+  <div id="page-content-wrapper">
+    <div class="conatiner-fluid">
+      <div class="row">
+          <div class="col col-md-6 mb-5">
+            <h1 class="display-3">Posts | <span class="label label-info"><%= @post.size %></span></h1>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col col-sm-3 col-md-4 col-lg-2 mb-2">
+          <button class="btn btn-primary btn-lg btn-block" id="menu-toggle">
+            Toggle Menu
+          </button>
+        </div>
+        <div class="col2 col-sm-3 col-md-4 col-lg-2 mb-2">
+          <%= link_to("Back", {:controller => "administrators", :action => 'index'}, :class => "btn btn-warning btn-lg btn-block") %>
+        </div>
+        <div class="col col-sm-3 col-md-4 col-lg-2 mb-2">
+          <%= link_to("Add new Post", {:action => 'new'}, :class => "btn btn-success btn-lg btn-block") %>
+        </div>
+      </div>
+
+      <table class="table table-bordered table-striped mt-1 admin-table">
+        <thead>
+          <tr>
+            <th class="align-middle text-center table-header-text w-15">Title</th>
+            <th class="align-middle text-center table-header-text w-10">Category</th>
+            <th class="align-middle text-center table-header-text w-10">Author</th>
+            <th class="align-middle text-center table-header-text w-35">Preview</th>
+            <th class="align-middle text-center table-header-text w-5">Status</th>
+            <th class="align-middle text-center table-header-text w-10">Created</th>
+            <th class="align-middle text-center table-header-text w-15">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @post.each do |p| %>
+          <tr>
+            <td class="align-middle text-center"><%= p.Post_Title %></td>
+            <td class="align-middle text-center"><%= p.post_category.postcategoryname %></td>
+            <td class="align-middle text-center"><%= p.Post_Author %></td>
+            <td class="align-middle text-center"><%= article_preview(p.Post_Body) %></td>
+            <td class="align-middle text-center icon-size"><%= iconStatus(p.Post_Visibility) %></td>
+            <td class="align-middle text-center"><%= local_time(p.created_at, '%d %b, %Y %H:%M') %></td>
+            <td class="align-middle text-center btn-group-vertical d-block">
+              <%= link_to("Show", {:action => 'show', :id => p.id}, :class => "btn btn-success btn-small m-1") %>
+              <%= link_to("Edit", {:action => "edit", :id => p.id}, :class => "btn btn-warning btn-small m-1") %>
+              <%= link_to("Delete", {:action => "delete", :id => p.id}, :class => "btn btn-danger btn-small m-1") %>
+              <%= link_to("Files", {:controller => "post_attachments" , :action => "index", :id => p.id}, :class => "btn btn-info btn-small m-1") %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <!-- Here is pagination using will_paginate gem -->
+      <div class="row">
+        <div class="col-sm-12 col-md-12 d-flex justify-content-center">
+          <%= will_paginate @post, renderer: BootstrapPagination::Rails, :class => "font-weight-bold" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Close Administration nav -->
+</div>
