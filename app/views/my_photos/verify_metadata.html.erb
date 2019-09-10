@@ -1,0 +1,83 @@
+<% title "Image Metadata |" %>
+
+<div id="page-content-wrapper">
+  <div class="container-fluid">
+
+    <h1>Here are the metadata for the <span style="color:red;"><%= @latestPhoto.myPhotoTitle %></span> photo</h1>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Metadata</th>
+          <th scope="col">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Longitude</th>
+          <td><%= @latestPhoto.myPhotograph.blob.metadata.fetch(:longitude,nil) %></td>
+        </tr>
+
+        <tr>
+          <th scope="row">Longitude Reference</th>
+          <td><%= @latestPhoto.myPhotograph.blob.metadata.fetch(:long_ref,nil) %></td>
+        </tr>
+
+        <tr>
+          <th scope="row">Latitude</th>
+          <td><%= @latestPhoto.myPhotograph.blob.metadata.fetch(:latitude,nil) %></td>
+        </tr>
+
+        <tr>
+          <th scope="row">Latitude Reference</th>
+          <td><%= @latestPhoto.myPhotograph.blob.metadata.fetch(:lat_ref,nil) %></td>
+        </tr>
+
+        <tr>
+          <th scope="row">Aperture</th>
+          <td><%= @latestPhoto.myPhotograph.blob.metadata.fetch(:aperture_value,nil) %></td>
+        </tr>
+
+        <tr>
+          <th scope="row">Shutter Speed</th>
+          <td><%= @latestPhoto.myPhotograph.blob.metadata.fetch(:shutter_speed,nil) %></td>
+        </tr>
+
+        <tr>
+          <th scope="row">ISO</th>
+          <td><%= @latestPhoto.myPhotograph.blob.metadata.fetch(:ISO,nil) %></td>
+        </tr>
+
+        <tr>
+          <th scope="row">Camera Make</th>
+          <td><%= @latestPhoto.myPhotograph.blob.metadata.fetch(:camera_make,nil) %></td>
+        </tr>
+
+        <tr>
+          <th scope="row">Camera Model</th>
+          <td><%= @latestPhoto.myPhotograph.blob.metadata.fetch(:camera_model,nil) %></td>
+        </tr>
+
+        <tr>
+          <th scope="row">Original Date & Time</th>
+          <td><%= @latestPhoto.myPhotograph.blob.metadata.fetch(:original_date,nil) %></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <div class="row">
+      <div class="col-md-3 mb-3">
+        <%= button_to "Back", :back, class: 'btn btn-lg btn-warning btn-block' %>
+      </div>
+      <div class="col-md-3 mb-3">
+        <%= button_tag 'Read In Metadata', type: 'button', onclick: "load_metadata_on_refresh()", class: 'btn btn-lg btn-primary btn-block' %>
+      </div>
+      <div class="col-md-3 mb-3">
+        <%= link_to 'Save Metadata', {:controller => 'my_photos', :action => 'save_metadata'}, :class => 'btn btn-lg btn-success btn-block' %>
+      </div>
+
+    </div>
+
+  </div>
+</div>

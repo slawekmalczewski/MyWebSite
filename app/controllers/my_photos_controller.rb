@@ -21,7 +21,7 @@ class MyPhotosController < ApplicationController
     @myPhotography = MyPhoto.new(required_parameters)
     if @myPhotography.save
       flash[:alert] = "Photograph added sucessfully"
-      redirect_to(:controller => 'photo_galleries', :action => 'index')
+      redirect_to(:controller => 'my_photos', :action => 'verify_metadata')
     else
       flash[:alert] = "Error, could not add the photo"
       @myPhotoCategory = PhotoGallery.order('galleryPosition ASC')
@@ -63,6 +63,19 @@ class MyPhotosController < ApplicationController
 
   def show
     @myPhotography = MyPhoto.find(params[:id])
+  end
+
+  def verify_metadata
+    @latestPhoto = MyPhoto.last
+    @lon = MyPhoto.last.myPhotograph.blob.metadata.fetch(:longitude,nil)
+  end
+
+  def save_metadata
+    @latestPhoto = MyPhoto.last
+    lon = MyPhoto.last.myPhotograph.blob.metadata.fetch(:longitude,nil)
+    lat = MyPhoto.last.myPhotograph.blob.metadata.fetch(:latitude,nil)
+    MyPhoto.last.update_attributes(:latitude => lat, :longitude => lon)
+    redirect_to(:action => 'show', :id => @latestPhoto.id)
   end
 
 private

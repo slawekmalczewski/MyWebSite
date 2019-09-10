@@ -36,6 +36,14 @@
               <td><%= @myPhotography.myPhotoShutterSpeed %></td>
             </tr>
             <tr>
+              <td>Longitude</td>
+              <td><%= @myPhotography.longitude %></td>
+            </tr>
+            <tr>
+              <td>Latitude</td>
+              <td><%= @myPhotography.latitude %></td>
+            </tr>
+            <tr>
               <td></td>
               <td class="pull-right">
                 <%= link_to("Back", {:controller => 'my_photos', :action => 'index', :id => @myPhotography.photo_gallery_id}, :class => "btn btn-success btn-lg") %>

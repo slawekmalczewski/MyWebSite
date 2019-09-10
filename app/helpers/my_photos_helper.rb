@@ -6,6 +6,4 @@ module MyPhotosHelper
     end
   end
 
-
-
 end
