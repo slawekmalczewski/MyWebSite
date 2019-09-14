@@ -17,17 +17,17 @@
         <%= link_to("Back", {:controller => "administrators", :action => 'index'}, :class => "btn btn-warning btn-lg btn-block") %>
       </div>
       <div class="col col-sm-3 col-md-4 col-lg-2 mb-2">
-        <%= link_to("Create new Gallery", {:action => 'new'}, :class => "btn btn-success btn-lg btn-block") %>
+        <%= link_to("Add new Gallery", {:action => 'new'}, :class => "btn btn-success btn-lg btn-block") %>
       </div>
     </div>
 
 
-    <table class="table table-bordered table-striped mt-1 admin-table">
+    <table class="table table-responsive table-bordered table-striped mt-1 admin-table">
       <thead>
         <tr>
           <th class="align-middle text-center table-header-text w-15">Gallery Position</th>
           <th class="align-middle text-center table-header-text w-25">Gallery Title</th>
-          <th class="align-middle text-center table-header-text w-15">No. photographs</th>
+          <th class="align-middle text-center table-header-text w-5">No. photographs</th>
           <th class="align-middle text-center table-header-text w-15">Status</th>
           <th class="align-middle text-center table-header-text w-15">Created</th>
           <th class="align-middle text-center table-header-text w-15">Actions</th>

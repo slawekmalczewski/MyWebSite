@@ -50,6 +50,8 @@ gem 'gritter', '~> 1.2'
 gem 'devise', '~> 4.2'
 gem 'petergate', '~> 1.6', '>= 1.6.3'
 
+gem 'exifr', '~> 1.2', '>= 1.2.5'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

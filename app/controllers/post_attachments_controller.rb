@@ -3,7 +3,7 @@ class PostAttachmentsController < ApplicationController
   layout "application"
   layout "admin", :only => "show"
 
-  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :delete, :confirm_deletion]}, site_admin: :all
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :delete, :confirm_deletion]}, site_admin: :all, editor: :all
 
   def index
   end
