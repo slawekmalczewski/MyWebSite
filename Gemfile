@@ -52,6 +52,8 @@ gem 'petergate', '~> 1.6', '>= 1.6.3'
 
 gem 'exifr', '~> 1.2', '>= 1.2.5'
 
+gem 'geocoder', '~> 1.3', '>= 1.3.7'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
