@@ -28,6 +28,7 @@ class UsersController < ApplicationController
       flash[:alert] = "User's details sucessfully updated"
       redirect_to(:action => 'show', :id => @user.id)
     else
+      flash[:alert] = "Problem with updating User details !!!"
       render('edit')
     end
   end
@@ -54,7 +55,7 @@ class UsersController < ApplicationController
   private
 
     def required_parameters
-      params.require(:user).permit(:User_FirstName, :User_Surname, :Username, :Email, :password, :password_confirmation)
+      params.require(:user).permit(:first_name, :last_name, :email, :roles, :password, :password_confirmation)
     end
 
 end

@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   layout "application"
   layout "admin", :only => "admin_post_index"
 
-  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :delete, :confirm_deletion]}, site_admin: :all
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :delete, :confirm_deletion]}, site_admin: :all, editor: :all
 
   def index
     @post = Post.where(:Post_Visibility => true).paginate(:page => params[:page], :per_page => 6).order('created_at DESC')

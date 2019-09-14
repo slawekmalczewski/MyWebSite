@@ -1,64 +1,86 @@
-<div class="container pt-5">
-  <div class="card mx-auto">
-    <div class="card-header">
-      <h1 class="display-4 text-center"><%= @myPhotography.myPhotoTitle %></h1>
-    </div>
+<% title "Image Summary |" %>
 
-    <div class="row p-5">
-      <div class="col md-6">
-        <%= image_tag(@myPhotography.myPhotograph, width: "100%") %>
-      </div>
-      <div class="col md-6">
-        <table class="table table-striped">
-          <tbody>
-            <tr>
-              <td>Published</td>
-              <td><%= @myPhotography.myPhotoVisibility %></td>
-            </tr>
-            <tr>
-              <td>Location</td>
-              <td><i class="fa fa-map-marker"> <%= @myPhotography.myPhotoLocation %></td>
-            </tr>
-            <tr>
-              <td>Photo position</td>
-              <td><%= @myPhotography.myPhotoPosition %></td>
-            </tr>
-            <tr>
-              <td>ISO</td>
-              <td><%= @myPhotography.myPhotoISO%></td>
-            </tr>
-            <tr>
-              <td>Aperture</td>
-              <td><%= @myPhotography.myPhotoAperture %></td>
-            </tr>
-            <tr>
-              <td>Shutter Speed</td>
-              <td><%= @myPhotography.myPhotoShutterSpeed %></td>
-            </tr>
-            <tr>
-              <td>Longitude</td>
-              <td><%= @myPhotography.longitude %></td>
-            </tr>
-            <tr>
-              <td>Latitude</td>
-              <td><%= @myPhotography.latitude %></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td class="pull-right">
-                <%= link_to("Back", {:controller => 'my_photos', :action => 'index', :id => @myPhotography.photo_gallery_id}, :class => "btn btn-success btn-lg") %>
-                <%= link_to("Edit", {:action => 'edit', :id => @myPhotography.id}, :class => "btn btn-lg btn-warning") %>
-                <%= link_to("Delete", {:action => 'delete'}, :class => "btn btn-lg btn-danger") %>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+<div id="page-content-wrapper">
+  <div class="container-fluid">
 
-    </div>
+    <div class="card mx-auto">
+      <div class="card-header">
+        <h1 class="display-4 text-center"><%= @myPhotography.myPhotoTitle %></h1>
+      </div>
+
+      <div class="row p-5">
+        <div class="col md-6">
+          <%= image_tag(@myPhotography.myPhotograph, width: "100%") %>
+        </div>
+        <div class="col md-6">
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <td>Published</td>
+                <td><%= @myPhotography.myPhotoVisibility %></td>
+              </tr>
+              <tr>
+                <td>Photo position</td>
+                <td><%= @myPhotography.myPhotoPosition %></td>
+              </tr>
+              <tr>
+                <td>Location</td>
+                <td><i class="fa fa-map-marker"> <%= @myPhotography.myPhotoLocation %></td>
+              </tr>
+              <tr>
+                <td>Aperture</td>
+                <td><%= @myPhotography.myPhotoAperture %></td>
+              </tr>
+              <tr>
+                <td>Shutter Speed</td>
+                <td><%= @myPhotography.myPhotoShutterSpeed %></td>
+              </tr>
+              <tr>
+                <td>ISO</td>
+                <td><%= @myPhotography.myPhotoISO%></td>
+              </tr>
+              <tr>
+                <td>Longitude</td>
+                <td><%= @myPhotography.longitude %></td>
+              </tr>
+              <tr>
+                <td>Longitude Reference</td>
+                <td><%= @myPhotography.longitude_reference %></td>
+              </tr>
+              <tr>
+                <td>Latitude</td>
+                <td><%= @myPhotography.latitude %></td>
+              </tr>
+              <tr>
+                <td>Latitude Reference</td>
+                <td><%= @myPhotography.latitude_reference %></td>
+              </tr>
+              <tr>
+                <td>Camera Make</td>
+                <td><%= @myPhotography.camera_make %></td>
+              </tr>
+              <tr>
+                <td>Camera Model</td>
+                <td><%= @myPhotography.camera_model %></td>
+              </tr>
+              <tr>
+                <td>Original Date & Time</td>
+                <td><%= @myPhotography.original_date_time %></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td class="pull-right">
+                  <%= link_to("Back", {:controller => 'my_photos', :action => 'index', :id => @myPhotography.photo_gallery_id}, :class => "btn btn-success btn-lg") %>
+                  <%= link_to("Edit", {:controller => 'my_photos', :action => 'edit', :id => @myPhotography.id}, :class => "btn btn-lg btn-warning") %>
+                  <%= link_to("Delete", {:controller => 'my_photos', :action => 'delete', :id => @myPhotography.id}, :class => "btn btn-lg btn-danger") %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      </div>
 
   </div>
-
-
 </div>

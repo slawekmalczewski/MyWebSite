@@ -1,6 +1,7 @@
 class MyPhotosController < ApplicationController
 
   layout "application"
+  layout "admin", :only => "index"
 
   access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :delete, :confirm_deletion]}, site_admin: :all
 
@@ -72,10 +73,34 @@ class MyPhotosController < ApplicationController
 
   def save_metadata
     @latestPhoto = MyPhoto.last
+    #Retrive data from the blob object that has been uploaded
     lon = MyPhoto.last.myPhotograph.blob.metadata.fetch(:longitude,nil)
     lat = MyPhoto.last.myPhotograph.blob.metadata.fetch(:latitude,nil)
-    MyPhoto.last.update_attributes(:latitude => lat, :longitude => lon)
+    lat_ref = MyPhoto.last.myPhotograph.blob.metadata.fetch(:lat_ref,nil)
+    long_ref = MyPhoto.last.myPhotograph.blob.metadata.fetch(:long_ref,nil)
+    camera_model = MyPhoto.last.myPhotograph.blob.metadata.fetch(:camera_model,nil)
+    camera_make = MyPhoto.last.myPhotograph.blob.metadata.fetch(:camera_make,nil)
+    aperture_value = MyPhoto.last.myPhotograph.blob.metadata.fetch(:aperture_value,nil)
+    shutter_speed = MyPhoto.last.myPhotograph.blob.metadata.fetch(:shutter_speed,nil)
+    iso = MyPhoto.last.myPhotograph.blob.metadata.fetch(:ISO,nil)
+    original_date = MyPhoto.last.myPhotograph.blob.metadata.fetch(:original_date,nil)
+
+    #update the table with the photo metadata
+    MyPhoto.last.update_attributes(
+      :latitude => lat,
+      :latitude_reference => lat_ref,
+      :longitude => lon,
+      :longitude_reference => long_ref,
+      :myPhotoISO => iso,
+      :myPhotoAperture => aperture_value,
+      :myPhotoShutterSpeed => shutter_speed,
+      :camera_make => camera_make,
+      :camera_model => camera_model,
+      :original_date_time => original_date
+    )
+
     redirect_to(:action => 'show', :id => @latestPhoto.id)
+    flash[:alert] = "Photograph's metadata sucessfully saved"
   end
 
 private
