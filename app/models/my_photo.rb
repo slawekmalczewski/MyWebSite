@@ -20,15 +20,15 @@ class MyPhoto < ApplicationRecord
   end
 
   def verify_coordinates
-    if self.longitude_reference == 'W' && self.latitude_reference == 'N'
+    if self.longitude_reference == 'W' && self.longitude > 0
       self.longitude = (-1)*self.longitude
       [latitude,longitude].compact.join(", ")
-    elsif self.longitude_reference == 'E' && self.latitude_reference == 'S'
+    elsif self.longitude_reference == 'W' && self.longitude < 0
+      [latitude,longitude].compact.join(", ")
+    elsif self.latitude_reference == 'N' && self.latitude < 0
       self.latitude = (-1)*self.latitude
       [latitude,longitude].compact.join(", ")
-    elsif self.longitude_reference == 'W' && self.latitude_reference == 'S'
-      self.latitude = (-1)*self.latitude
-      self.longitude = (-1)*self.longitude
+    elsif self.latitude_reference == 'N' && self.latitude > 0
       [latitude,longitude].compact.join(", ")
     else
       [latitude,longitude].compact.join(", ")
