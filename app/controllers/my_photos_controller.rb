@@ -3,7 +3,7 @@ class MyPhotosController < ApplicationController
   layout "application"
   layout "admin", :only => "index"
 
-  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :delete, :confirm_deletion]}, site_admin: :all
+  access all: [:show, :index, :photomap], user: {except: [:destroy, :new, :create, :update, :edit, :delete, :confirm_deletion]}, site_admin: :all
 
   def index
     @galleryid = PhotoGallery.find(params[:id])
@@ -103,10 +103,49 @@ class MyPhotosController < ApplicationController
     flash[:alert] = "Photograph's metadata sucessfully saved"
   end
 
+  def edit_metadata
+    @myPhotography = MyPhoto.find(params[:id])
+  end
+
+  def reset_metadata
+    @currentPhoto = MyPhoto.find(params[:id])
+    lon = MyPhoto.find(params[:id]).myPhotograph.blob.metadata.fetch(:longitude,nil)
+    lat = MyPhoto.find(params[:id]).myPhotograph.blob.metadata.fetch(:latitude,nil)
+    lat_ref = MyPhoto.find(params[:id]).myPhotograph.blob.metadata.fetch(:lat_ref,nil)
+    long_ref = MyPhoto.find(params[:id]).myPhotograph.blob.metadata.fetch(:long_ref,nil)
+    camera_model = MyPhoto.find(params[:id]).myPhotograph.blob.metadata.fetch(:camera_model,nil)
+    camera_make = MyPhoto.find(params[:id]).myPhotograph.blob.metadata.fetch(:camera_make,nil)
+    aperture_value = MyPhoto.find(params[:id]).myPhotograph.blob.metadata.fetch(:aperture_value,nil)
+    shutter_speed = MyPhoto.find(params[:id]).myPhotograph.blob.metadata.fetch(:shutter_speed,nil)
+    iso = MyPhoto.find(params[:id]).myPhotograph.blob.metadata.fetch(:ISO,nil)
+    original_date = MyPhoto.find(params[:id]).myPhotograph.blob.metadata.fetch(:original_date,nil)
+
+    @currentPhoto.update_attributes(
+      :latitude => lat,
+      :latitude_reference => lat_ref,
+      :longitude => lon,
+      :longitude_reference => long_ref,
+      :myPhotoISO => iso,
+      :myPhotoAperture => aperture_value,
+      :myPhotoShutterSpeed => shutter_speed,
+      :camera_make => camera_make,
+      :camera_model => camera_model,
+      :original_date_time => original_date
+    )
+
+    redirect_to(:action => 'show', :id => @currentPhoto.id)
+    flash[:alert] = "Photograph's metadata sucessfully reset"
+  end
+
+  def photomap
+    @photomarkers = MyPhoto.all.where(:show_on_map => true)
+    @galleries = PhotoGallery.all
+  end
+
 private
 
   def required_parameters
-    params.require(:my_photo).permit(:photo_gallery_id, :myPhotoTitle, :myPhotoDescription, :myPhotoPosition, :myPhotoVisibility, :myPhotoLocation, :myPhotoISO, :myPhotoAperture, :myPhotoShutterSpeed, :myPhotograph)
+    params.require(:my_photo).permit(:photo_gallery_id, :myPhotoTitle, :myPhotoDescription, :myPhotoPosition, :myPhotoVisibility, :myPhotoLocation, :myPhotoISO, :myPhotoAperture, :myPhotoShutterSpeed, :myPhotograph, :latitude, :latitude_reference, :longitude, :longitude_reference, :camera_make, :camera_model, :original_date_time, :show_on_map)
   end
 
 end

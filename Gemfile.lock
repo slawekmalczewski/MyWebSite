@@ -826,6 +826,8 @@ GEM
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
+    bootstrap3-datetimepicker-rails (4.14.30)
+      momentjs-rails (>= 2.8.1)
     builder (3.2.3)
     byebug (11.0.1)
     capybara (3.28.0)
@@ -907,6 +909,8 @@ GEM
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
+    momentjs-rails (2.20.1)
+      railties (>= 3.1)
     msgpack (1.3.1)
     msgpack (1.3.1-x64-mingw32)
     nio4r (2.5.1)
@@ -928,6 +932,8 @@ GEM
     public_suffix (3.1.1)
     puma (3.12.1)
     rack (2.0.7)
+    rack-proxy (0.6.5)
+      rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     railroady (1.5.3)
@@ -1024,6 +1030,10 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
+    webpacker (4.0.7)
+      activesupport (>= 4.2)
+      rack-proxy (>= 0.6.1)
+      railties (>= 4.2)
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.4)
@@ -1042,6 +1052,7 @@ DEPENDENCIES
   bcrypt (~> 3.1, >= 3.1.11)
   bootsnap (>= 1.1.0)
   bootstrap-sass (~> 3.3, >= 3.3.6)
+  bootstrap3-datetimepicker-rails (~> 4.14.30)
   byebug
   capybara (>= 2.15, < 4.0)
   chromedriver-helper
@@ -1059,6 +1070,7 @@ DEPENDENCIES
   jquery-ui-rails (~> 5.0, >= 5.0.5)
   local_time
   mini_magick (~> 4.5, >= 4.5.1)
+  momentjs-rails (>= 2.9.0)
   paperclip
   petergate (~> 1.6, >= 1.6.3)
   pg
@@ -1075,6 +1087,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+  webpacker (~> 4.x)
   will_paginate (~> 3.1, >= 3.1.6)
   will_paginate-bootstrap (~> 1.0, >= 1.0.1)
 

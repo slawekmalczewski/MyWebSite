@@ -4,12 +4,12 @@
     </button>
     <%= link_to(image_tag("logos/MenuLogo.png", :style => "max-width:200px; margin-top:10px;"), {:controller => 'public', :action => 'index'}, :class => "navbar-brand") %>
 
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <div class="collapse navbar-collapse" id="navbarNavDropdown" data-turbolinks="false">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="<%= 'nav-item active' if params[:controller] == 'public' && params[:action] == 'index' %>"><%= link_to("Home", {:controller => 'public', :action => 'index'},:class => "nav-link") %></li>
-        <li class="<%= 'nav-item active' if params[:controller] == 'public' && params[:action] == 'articles' %>"><%= link_to("Posts", {:controller => 'posts', :action => 'index'},:class => "nav-link") %></li>
-        <li class="<%= 'nav-item active' if params[:controller] == 'public' && params[:action] == 'galleriesIndex' %>"><%= link_to("Galleries", {:controller => 'photo_galleries', :action => 'index'},:class => "nav-link") %></li>
-
+        <li class="<%= 'nav-item active' if params[:controller] == 'posts' && params[:action] == 'index' %>"><%= link_to("Posts", {:controller => 'posts', :action => 'index'},:class => "nav-link") %></li>
+        <li class="<%= 'nav-item active' if params[:controller] == 'photo_galleries' && params[:action] == 'index' %>"><%= link_to("Galleries", {:controller => 'photo_galleries', :action => 'index'},:class => "nav-link") %></li>
+        <li class="<%= 'nav-item active' if params[:controller] == 'my_photos' && params[:action] == 'photomap' %>"><%= link_to("Photomap", {:controller => 'my_photos', :action => 'photomap'},:class => "nav-link") %></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Other Projects

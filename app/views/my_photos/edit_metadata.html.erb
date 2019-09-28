@@ -1,0 +1,108 @@
+<% title "Edit Metadata |" %>
+
+
+<div class="container">
+  <div class="card mt-5 cardShadow">
+    <div class="card-header bg-light">
+      <h1>Edit Photo Metadata</h1>
+    </div>
+
+    <div class = "card-body">
+
+      <%= form_for(:my_photo, :url => {:controller => 'my_photos', :action => 'update', :id => @myPhotography.id}) do |field| %>
+
+      <div class="form-group row">
+        <label for="longitude" class="col-sm-2 col-form-label">Longitude: </label>
+        <div class="col-sm-4">
+          <%= field.text_field(:longitude, :class => "form-control", value: @myPhotography.longitude) %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="long_ref" class="col-sm-2 col-form-label">Longitude Reference: </label>
+        <div class="col-sm-4">
+          <%= field.select :longitude_reference, ['W','E'], :selected => @myPhotography.longitude_reference %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="latitude" class="col-sm-2 col-form-label">Latitude: </label>
+        <div class="col-sm-4">
+          <%= field.text_field(:latitude, :class => "form-control", value: @myPhotography.latitude) %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="lat_ref" class="col-sm-2 col-form-label">Latitude Reference: </label>
+        <div class="col-sm-4">
+          <%= field.select :latitude_reference, ['N','S'], :selected => @myPhotography.latitude_reference  %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="myPhotoAperture" class="col-sm-2 col-form-label">Aperture: </label>
+        <div class="col-sm-4">
+          <%= field.text_field(:myPhotoAperture, :class => "form-control", value: @myPhotography.myPhotoAperture) %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="myPhotoShutterSpeed" class="col-sm-2 col-form-label">Shutter Speed: </label>
+        <div class="col-sm-4">
+          <%= field.text_field(:myPhotoShutterSpeed, :class => "form-control", value: @myPhotography.myPhotoShutterSpeed) %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="myPhotoISO" class="col-sm-2 col-form-label">ISO: </label>
+        <div class="col-sm-4">
+          <%= field.text_field(:myPhotoISO, :class => "form-control", value: @myPhotography.myPhotoISO) %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="camera_make" class="col-sm-2 col-form-label">Camera Make: </label>
+        <div class="col-sm-4">
+          <%= field.text_field(:camera_make, :class => "form-control", value: @myPhotography.camera_make) %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="camera_model" class="col-sm-2 col-form-label">Camera Model: </label>
+        <div class="col-sm-4">
+          <%= field.text_field(:camera_model, :class => "form-control", value: @myPhotography.camera_model) %>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="original_date_time" class="col-sm-2 col-form-label">Original Date & Time: </label>
+        <div class="col-sm-4">
+          <div class="input-group date" id='datetimepicker1'>
+            <%= field.text_field(:original_date_time, :class => "form-control", value: @myPhotography.original_date_time) %>
+            <span class="input-group-addon custom-input-group"><i class="glyphicon glyphicon-calendar"></i></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="form-group d-flex row bg-dark mx-auto mt-5 p-3 w-100 justify-content-end">
+      <%= link_to("Back", :back, :class => "btn btn-lg btn-info pull-right ml-2") %>
+      <%= link_to 'Reset Metadata', {:controller => 'my_photos', :action => 'reset_metadata', :id => params[:id]}, :class => 'btn btn-lg btn-warning pull-right ml-2' %>
+      <%= submit_tag("Update", :class => "btn btn-lg btn-success pull-right ml-2") %>
+    </div>
+
+    </div>
+
+<% end %>
+
+</div>
+
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker1').datetimepicker();
+    });
+</script>

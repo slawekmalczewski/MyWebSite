@@ -18,6 +18,7 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'bootstrap-datetimepicker';
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "footer";
@@ -79,4 +80,19 @@ Custom Styles for authentication links in the menu - login,register,logout,admin
 .nav-link-auth a:hover{
   color:#f8f9fa;
   text-decoration: none;
+}
+
+/*
+Maps styling chapter
+*/
+
+#map {
+  height: 400px;
+}
+
+/*
+Custom Input Group used mainly for properly displaying calendar icon in the Edit Metada form
+*/
+.custom-input-group {
+  width: auto;
 }
