@@ -69,25 +69,14 @@ Custom Styles for Devise module
   font-size: 1.2vh;
 }
 
-/*
-Custom Styles for authentication links in the menu - login,register,logout,admin panel
-*/
-.nav-link-auth a{
-  color:rgba(255,255,255,.5);
-  text-decoration: none;
-}
 
-.nav-link-auth a:hover{
-  color:#f8f9fa;
-  text-decoration: none;
-}
 
 /*
 Maps styling chapter
 */
 
 #map {
-  height: 400px;
+  height: 60vh;
 }
 
 /*
@@ -96,3 +85,7 @@ Custom Input Group used mainly for properly displaying calendar icon in the Edit
 .custom-input-group {
   width: auto;
 }
+
+/*
+Change navbar breakpoints
+*/

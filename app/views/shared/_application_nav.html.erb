@@ -2,26 +2,18 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <%= link_to(image_tag("logos/MenuLogo.png", :style => "max-width:200px; margin-top:10px;"), {:controller => 'public', :action => 'index'}, :class => "navbar-brand") %>
+    <%= link_to(image_tag("logos/MenuLogo.png", :class => 'd-flex brandLogo'), {:controller => 'public', :action => 'index'}, :class => "navbar-brand") %>
 
     <div class="collapse navbar-collapse" id="navbarNavDropdown" data-turbolinks="false">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="<%= 'nav-item active' if params[:controller] == 'public' && params[:action] == 'index' %>"><%= link_to("Home", {:controller => 'public', :action => 'index'},:class => "nav-link") %></li>
-        <li class="<%= 'nav-item active' if params[:controller] == 'posts' && params[:action] == 'index' %>"><%= link_to("Posts", {:controller => 'posts', :action => 'index'},:class => "nav-link") %></li>
-        <li class="<%= 'nav-item active' if params[:controller] == 'photo_galleries' && params[:action] == 'index' %>"><%= link_to("Galleries", {:controller => 'photo_galleries', :action => 'index'},:class => "nav-link") %></li>
-        <li class="<%= 'nav-item active' if params[:controller] == 'my_photos' && params[:action] == 'photomap' %>"><%= link_to("Photomap", {:controller => 'my_photos', :action => 'photomap'},:class => "nav-link") %></li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Other Projects
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Graphic Design</a>
-            <a class="dropdown-item" href="#">Motion Design</a>
-            <a class="dropdown-item" href="#">Coming Soon...</a>
-          </div>
-        </li>
-        <li class="<%= 'nav-item active' if params[:controller] == 'static_pages' && params[:action] == 'about' %>"><%= link_to("About", {:controller => 'static_pages', :action => 'about'},:class => "nav-link") %></li>
+      <ul class="navbar-nav">
+        <li class="<%= 'd-flex nav-item active align-items-baseline' if params[:controller] == 'public' && params[:action] == 'index' %>"><%= link_to("Home", {:controller => 'public', :action => 'index'},:class => "nav-link") %></li>
+        <li class="<%= 'd-flex nav-item active align-items-baseline' if params[:controller] == 'posts' && params[:action] == 'index' %>"><%= link_to("Posts", {:controller => 'posts', :action => 'index'},:class => "nav-link") %></li>
+        <li class="<%= 'd-flex nav-item active align-items-baseline' if params[:controller] == 'photo_galleries' && params[:action] == 'index' %>"><%= link_to("Galleries", {:controller => 'photo_galleries', :action => 'index'},:class => "nav-link") %></li>
+        <li class="<%= 'd-flex nav-item active align-items-baseline' if params[:controller] == 'my_photos' && params[:action] == 'photomap' %>"><%= link_to("Photomap", {:controller => 'my_photos', :action => 'photomap'},:class => "nav-link") %></li>
+        <li class="<%= 'd-flex nav-item active align-items-baseline' if params[:controller] == 'static_pages' && params[:action] == 'about' %>"><%= link_to("About", {:controller => 'static_pages', :action => 'about'},:class => "nav-link") %></li>
+        <%= login_helper %>
       </ul>
-      <%= login_helper %>
+
+
     </div>
 </nav>
