@@ -1,4 +1,4 @@
-<% title "Welcome :)" %>
+<% title "Welcome |" %>
 
 <!--
 This styling is for full screen slider, to remove any scrollbars from the browser window, it is  placed here because this styles should only be
@@ -26,25 +26,23 @@ applied to thie particular site
                 <h1 class="slideimagetitle">About this project</h1>
                 <p class="slideimagedesc">A little bit of information about this project...</p>
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-                  Read more...
-                </button>
+                <%= link_to 'Read more...', {:controller => 'posts', :action => 'show', :id => find_about_post}, :class => "btn btn-primary btn-lg" %>
               </div>
             </div>
-
 
             <div class="item">
               <div class="carousel-caption">
                 <h1 class="slideimagetitle"><%= @latestpost.last.Post_Title %> <span class="badge badge-pill badge-danger">New</span></h1>
                 <p class="slideimagedesc"><%= first_sentence(@latestpost.last.Post_Body) %></p>
-                <%= link_to 'Read more...', {:controller => 'public', :action => 'post_view', :id => @latestpost.last}, :class => "btn btn-primary btn-lg" %>
+                <%= link_to 'Read more...', {:controller => 'posts', :action => 'show', :id => @latestpost.last}, :class => "btn btn-primary btn-lg" %>
               </div>
             </div>
+
             <div class="item">
               <div class="carousel-caption">
                 <h1 class="slideimagetitle"><%= @latestgallery.last.gallerytitle %> <span class="badge badge-pill badge-danger">New</span></h1>
                 <p class="slideimagedesc"><%= first_sentence(@latestgallery.last.galleryDescription) %></p>
-                <%= link_to 'View', {:controller => 'public', :action => 'galleryView', :id => @latestgallery.last}, :class => "btn btn-primary btn-lg" %>
+                <%= link_to 'View', {:controller => 'photo_galleries', :action => 'show', :id => @latestgallery.last}, :class => "btn btn-primary btn-lg" %>
               </div>
             </div>
         </div>
@@ -61,24 +59,21 @@ applied to thie particular site
     </div>
 
     <!-- Modal window message -->
-    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h2 class="modal-title" id="exampleModalLongTitle">About my project</h2>
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
-            <p class="h4 p-2">This web-application is a result of my two month work, the assumption of which is to use Ruby on Rails framework supported by some of the Amazon Web Services (S3) and Heroku platform (Paas) to create and publish my web portfolio, a space in the internet where I can present outcomes of my hobby – photography.
-<br/>I use this project as a training facility to expand my knowledge about Ruby on Rails framework, Amazon Web Services as well as put in use my knowledge about databases.
-<br/>I really do hope that YOU will enjoy your visit at my website.<br/>
-<small class="text-muted pull-right mt-4 p-2">Slawomir Malczewski</small>
-</p>
+          <div class="modal-body" style="z-index:999;">
+            ...
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>
@@ -86,11 +81,5 @@ applied to thie particular site
 
 
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
-
-
-<script type="text/javascript">
-$('#carouselHacked').carousel();
-</script>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
