@@ -5,16 +5,69 @@
   min-height: 5%;
 }
 
-.navbar-nav {
-  width: 100%;
+
+// Menu font size for small mobile devices in landscape mode up
+@media screen and (max-width: 479px) {
+  .nav-link {
+    font-size: 14px;
+  }
+  .navbar-nav > li {
+    width: auto;
+    align-items: center;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: auto;
+  }
 }
 
-.navbar-nav > li {
-  margin:auto;
+// Menu font size for mobile devices in landscape mode up
+@media screen and (min-width: 480px) {
+  .nav-link {
+    font-size: 14px;
+  }
+  .navbar-nav > li {
+    width: auto;
+    margin-right: 1.25vw;
+    margin-left: 1.25vw;
+    margin-top: auto;
+  }
 }
 
-.nav-link {
-  font-size: 1.25vw;
+// Menu font size for tablets in portrait mode and up
+@media screen and (min-width: 600px) {
+  .nav-link {
+    font-size: 15px;
+  }
+  .navbar-nav > li {
+    margin:auto;
+  }
+}
+
+// Menu font size for tablets in landscape mode and up
+@media screen and (min-width: 768px) {
+  .nav-link {
+    font-size: 16px;
+  }
+  .navbar-nav > li {
+    width: auto;
+    align-items: center;
+    margin-right: 1.25vw;
+    margin-top: auto;
+    justify-content: flex-end;
+  }
+}
+
+// Menu font size for desktop view
+@media screen and (min-width: 1024px) {
+  .nav-link {
+    font-size: 21px;
+  }
+  .navbar-nav > li {
+    width: auto;
+    margin-right: 1.25vw;
+    margin-left: 1.25vw;
+    margin-top: auto;
+  }
 }
 
 /*
@@ -32,6 +85,6 @@ Custom Styles for authentication links in the menu - login,register,logout,admin
 }
 
 .brandLogo {
-  margin-top: auto;
-  height: 100%;
+  margin-top: 2%;
+  height: 80%;
 }
