@@ -3,7 +3,7 @@ class MyPhoto < ApplicationRecord
 
   has_one_attached :myPhotograph
 
-  before_save :verify_coordinates
+  before_save :verify_coordinates, :verify_possibility_to_show_on_the_map
   after_update :verify_coordinates
 
   validates :myPhotoTitle, presence: true
@@ -33,7 +33,12 @@ class MyPhoto < ApplicationRecord
     else
       [latitude,longitude].compact.join(", ")
     end
+  end
 
+  def verify_possibility_to_show_on_the_map
+    if ((self.longitude == nil) && (self.latitude == nil))
+      self.show_on_map = 0
+    end
   end
 
 

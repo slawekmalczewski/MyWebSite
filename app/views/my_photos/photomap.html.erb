@@ -18,7 +18,7 @@
             <% @photomarkers.each do |photomarker| %>
             <tr>
               <td class="span1 align-middle text-center"><%= photomarker.myPhotoTitle %></td>
-              <td class="span2 align-middle text-center"><%= photomarker.photo_gallery.gallerytitle %></td>
+              <td class="span2 align-middle text-center"><%= find_gallery_title(photomarker.photo_gallery_id) %></td>
             </tr>
             <% end %>
           </tbody>

@@ -18,7 +18,6 @@
 //= require trix
 //= require moment
 //= require bootstrap-datetimepicker
-//= require publicArticles
 //= require admin_sidebar
 //= require lightbox
 //= require local-time
