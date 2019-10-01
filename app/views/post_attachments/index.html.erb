@@ -5,34 +5,48 @@
     </div>
   <% end %>
 
-  <br/>
-  <h1>Attachments for the post: <span><%= @attachments.Post_Title %></span> post</h1>
-  <br/>
-  <br/>
-  <%= link_to("Back", :back, :class => "btn btn-warning btn-lg") %>
 
-    <table class="table table-bordered table-striped mt-3">
-      <thead>
-        <tr>
-          <th class="span1 align-middle text-center h5">File Name</th>
-          <th class="span1 align-middle text-center h5">Size [MB]</th>
-          <th class="span4 align-middle text-center h5">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @attachments.uploads.each do |attachedfile| %>
+  <% if @attachments.uploads.present? %>
+  <div class="row align-items-center mt-3 mb-5">
+    <div class="col-md-10 mx-auto my-auto text-center alert alert-success">
+      <h1>Attachments for the post: <span><%= @attachments.Post_Title %></span></h1>
+    </div>
+
+  </div>
+
+    <%= link_to("Back", {:controller => "posts", :action => "admin_post_index"}, :class => "btn btn-warning btn-lg") %>
+
+      <table class="table table-bordered table-striped mt-3">
+        <thead>
           <tr>
-            <td class="span1 align-middle text-center"><%= attachedfile.filename %></td>
-            <td class="span1 align-middle text-center"><%= converttomb(attachedfile.byte_size) %></td>
-            <td class="span4 align-middle text-center btn-group-vertical d-block">
-              <%= link_to("View", attachedfile, :class => "btn btn-info btn-small m-1") %>
-              <%= link_to("Delete", {:controller => "post_attachments", :action => "delete", :id => attachedfile.id}, :class => "btn btn-success btn-danger m-1") %>
-            </td>
+            <th class="span1 align-middle text-center h5">File Name</th>
+            <th class="span1 align-middle text-center h5">Size [MB]</th>
+            <th class="span4 align-middle text-center h5">Actions</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
-
+        </thead>
+        <tbody>
+          <% @attachments.uploads.each do |attachedfile| %>
+            <tr>
+              <td class="span1 align-middle text-center"><%= attachedfile.filename %></td>
+              <td class="span1 align-middle text-center"><%= converttomb(attachedfile.byte_size) %></td>
+              <td class="span4 align-middle text-center btn-group-vertical d-block">
+                <%= link_to("View", attachedfile, :class => "btn btn-info btn-small m-1") %>
+                <%= link_to("Delete", {:controller => "post_attachments", :action => "delete", :id => attachedfile.id}, data: {confirm: "Are you sure ?"}, :class => "btn btn-success btn-danger m-1") %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+    <div class="row align-items-center" style="height:70vh">
+      <div class="col-md-10 mx-auto my-auto text-center alert alert-danger">
+        <h1 class="display-4">No Attachments for this post !!!</h1>
+      </div>
+    </div>
+    <% end %>
+    <div class="row" style="height: 40vh">
+      <!-- Line Spacer to keep footer stick to the bottom -->
+    </div>
   </div>
 </div>
 

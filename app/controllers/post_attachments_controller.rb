@@ -6,6 +6,7 @@ class PostAttachmentsController < ApplicationController
   access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :delete, :confirm_deletion]}, site_admin: :all, editor: :all
 
   def index
+    @attachments = Post.find(params[:id])
   end
 
   def delete

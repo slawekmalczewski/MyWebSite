@@ -41,7 +41,7 @@
         <td class="span1 align-middle text-center"><%= gal.myPhotos.size %></td>
         <td class="span1 align-middle text-center"><%= iconStatus(gal.galleryVisibility) %></td>
         <td class="span1 align-middle text-center"><%= local_time(gal.created_at, '%d %b, %Y %H:%M')  %></td>
-        <td class="span3 align-middle text-center btn-group-vertical d-block">
+        <td class="span3 align-middle text-center btn-group-vertical d-block" data-turbolinks="false">
           <%= link_to("Manage Photos", {:controller => 'my_photos', :action => 'index', :id => gal.id}, :class => "btn btn-info btn-small m-1") %>
           <%= link_to("Edit Gallery Details", {:action => 'edit', :id => gal.id}, :class => "btn btn-warning btn-small m-1") %>
           <%= link_to("Preview", {:controller => 'photo_galleries', :action => 'show', :id => gal.id}, :class => "btn btn-success btn-small m-1") %>
@@ -55,4 +55,7 @@
 </div>
 
 <!-- Close Administration nav -->
+</div>
+<div class="row" style="height: 0vh">
+  <!-- Line Spacer to keep footer stick to the bottom -->
 </div>

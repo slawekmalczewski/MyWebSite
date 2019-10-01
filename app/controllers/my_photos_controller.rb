@@ -7,7 +7,7 @@ class MyPhotosController < ApplicationController
 
   def index
     @galleryid = PhotoGallery.find(params[:id])
-    @myPhotography = MyPhoto.all.where(:photo_gallery_id => @galleryid)
+    @myPhotography = MyPhoto.all.where(:photo_gallery_id => @galleryid).order(:myPhotoPosition)
   end
 
   def new
