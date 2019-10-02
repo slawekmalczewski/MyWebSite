@@ -20,8 +20,8 @@
   </div>
 
 <!-- Display body of the article, use raw to maintain text formatting from trix editor -->
-  <div class = "row justify-content-center">
-      <article class = "col-sm-5 blogPost">
+  <div class = "row justify-content-center mb-5">
+      <article class = "col-sm-8 col-md-10 col-lg-8 col-xl-4 blogPost">
         <%= raw @post.Post_Body %>
       </article>
   </div>
@@ -35,7 +35,7 @@
     <% @post.uploads.each do |upload| %>
 
           <% if upload.variable? %>
-            <div class = "col-md-4 text-center">
+            <div class = "col-md-4 text-center mb-5 mt-5">
               <div class = "card bg-dark text-white border-dark mb-3">
                 <div class="card-header">Attachment</div>
                   <%= link_to image_tag(upload.variant(resize: "350x350"), :class => "img-responsive mx-auto"),upload %>
@@ -45,7 +45,7 @@
               </div>
             </div>
           <% elsif upload.previewable? %>
-          <div class = "col-md-4 text-center">
+          <div class = "col-md-4 text-center mb-5 mt-5">
             <div class = "card bg-dark text-white border-dark mb-3">
               <div class="card-header">Attachment</div>
                 <%= link_to image_tag(upload.preview(resize: "350x350"), :class => "img-responsive mx-auto"), upload %>
@@ -55,7 +55,7 @@
             </div>
           </div>
           <% else %>
-          <div class = "col-md-4 text-center">
+          <div class = "col-md-4 text-center mb-5 mt-5">
             <div class = "card bg-dark text-white border-dark mb-3">
               <div class="card-header">Attachment</div>
               <div class="card-body">
