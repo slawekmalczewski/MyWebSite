@@ -14,9 +14,5 @@ module MyPhotosHelper
     end
   end
 
-  def find_gallery_title(passed_gallery_id)
-    g = PhotoGallery.where(:id == passed_gallery_id)
-    g.first.gallerytitle
-  end
 
 end

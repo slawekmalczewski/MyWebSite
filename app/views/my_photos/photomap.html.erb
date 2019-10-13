@@ -6,25 +6,11 @@
   <div class="container-fluid">
 
     <div class="row">
-      <div class="col-md-4">
-        <table class="table table-bordered table-striped mt-1 admin-table">
-          <thead>
-            <tr>
-              <th class="align-middle text-center table-header-text w-50">Photo Title</th>
-              <th class="align-middle text-center table-header-text w-50">Gallery</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% @photomarkers.each do |photomarker| %>
-            <tr>
-              <td class="span1 align-middle text-center"><%= photomarker.myPhotoTitle %></td>
-              <td class="span2 align-middle text-center"><%= find_gallery_title(photomarker.photo_gallery_id) %></td>
-            </tr>
-            <% end %>
-          </tbody>
-        </table>
+      <div class="col-md-1">
+
       </div>
-      <div class="col-md-8">
+
+      <div class="col-md-10">
         <%= tag.div nil, id: 'map', data: { photomarkers: @photomarkers.to_json(methods: [:address, :get_image_link])} %>
       </div>
 
