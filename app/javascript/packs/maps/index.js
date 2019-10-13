@@ -27,7 +27,7 @@ photomarkers.forEach(function(photomarker){
         ${photomarker.original_date_time}<br/>
         ${photomarker.address}<br/>
         ${"photomarker id: " + photomarker.id}<br/>
-        <h3><a href='${photomarker.moj_test}'>${photomarker.myPhotoTitle}</a></h3><br/>
+        ${photomarker.moj_test}<br/>
 
         ${photomarker.myPhotoAperture}<br/>`
       }
