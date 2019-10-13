@@ -22,17 +22,14 @@ photomarkers.forEach(function(photomarker){
       lng: photomarker.longitude,
       title: photomarker.myPhotoTitle,
       infoWindow:{
-        content: `<h3><a href='/photomarkers/${photomarker.id}'>${photomarker.myPhotoTitle}</a></h3><br/>
-        ${photomarker.myPhotoDescription}<br/>
-        ${photomarker.original_date_time}<br/>
-        ${photomarker.address}<br/>
-        ${"photomarker id: " + photomarker.id}<br/>
-        <h3><a href='${photomarker.get_image_link}'>${photomarker.myPhotoTitle}</a></h3><br/>
-
-
-        <img src='${photomarker.get_image_link}' style="width:150px; height:auto;"><br/>
-
-        ${photomarker.myPhotoAperture}<br/>`
+        content: `<h3><a href='${photomarker.get_image_link}'>${photomarker.myPhotoTitle}</a></h3>
+        <img src='${photomarker.get_image_link}' style="width:150px; height:auto; border: 1px solid #ddd; padding: 5px; margin-bottom:8px; margin-top: 8px;"><br/>
+        <h5>${photomarker.myPhotoDescription}</h5><br/><hr>
+        <p style="font-family: Arial, Sans-serif; font-size: 12px; color:rgb(77, 0, 0); line-height:16px;">
+        ${"Aperture: " + photomarker.myPhotoAperture}<br/>
+        ${"Shutter Speed: " + photomarker.myPhotoShutterSpeed}<br/>
+        ${"ISO: " + photomarker.myPhotoISO}<br/>
+        ${photomarker.original_date_time}<br/></p>`
       }
 
     });
