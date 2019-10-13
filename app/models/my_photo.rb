@@ -19,8 +19,9 @@ class MyPhoto < ApplicationRecord
     [latitude,longitude].compact.join(", ")
   end
 
-  def moj_test
-    ActiveStorage::Blob.service.send(:path_for, myPhotograph.key)
+  def get_image_link
+    Rails.application.routes.url_helpers.rails_blob_path(myPhotograph, only_path: true)
+
   end
 
   def verify_coordinates
