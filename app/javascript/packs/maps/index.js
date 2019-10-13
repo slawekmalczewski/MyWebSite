@@ -22,14 +22,15 @@ photomarkers.forEach(function(photomarker){
       lng: photomarker.longitude,
       title: photomarker.myPhotoTitle,
       infoWindow:{
-        content: `<p><a href='/photomarkers/${photomarker.id}'>
-        ${photomarker.myPhotoTitle}</a></p><br/>
+        content: `<h3><a href='/photomarkers/${photomarker.id}'>${photomarker.myPhotoTitle}</a></h3><br/>
         ${photomarker.myPhotoDescription}<br/>
         ${photomarker.original_date_time}<br/>
         ${photomarker.address}<br/>
+        ${"photomarker id: " + photomarker.id}<br/>
+        <h3><a href='${photomarker.moj_test}'>${photomarker.myPhotoTitle}</a></h3><br/>
+
         ${photomarker.myPhotoAperture}<br/>`
       }
-
 
     });
     bounds.extend(marker.position);

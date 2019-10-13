@@ -15,6 +15,6 @@
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
 
-console.log('Hello World from Webpacker2')
+console.log('Hello World - if you can see this message it means that WEBPACKER is loading correctly')
 
 require('./maps')

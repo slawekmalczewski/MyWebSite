@@ -19,6 +19,10 @@ class MyPhoto < ApplicationRecord
     [latitude,longitude].compact.join(", ")
   end
 
+  def moj_test
+    ActiveStorage::Blob.service.send(:path_for, myPhotograph.key)
+  end
+
   def verify_coordinates
     if self.longitude_reference == 'W' && self.longitude > 0
       self.longitude = (-1)*self.longitude
