@@ -20,8 +20,12 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(required_parameters)
+    @user = User.all
     if @post.save
       flash[:alert] = "Post sucessfully created"
+      # send email whenever new post is published
+      UserMailer.new_post_published(@post).deliver
+      # after creating post redirect to index site
       redirect_to(:controller => "administrators", :action => 'index')
     else
       flash[:alert] = "Problem with saving your post"
@@ -57,7 +61,7 @@ class PostsController < ApplicationController
   def confirm_deletion
     post = Post.find(params[:id]).destroy
     flash[:alert] = "Post sucessfully deleted"
-    redirect_to(:action => 'index')
+    redirect_to(:controller => 'posts', :action => 'admin_post_index')
   end
 
 private
