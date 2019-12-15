@@ -20,15 +20,17 @@
     </div>
   </div>
 
+
   <div class="form-group row">
     <label for="roles" class="col-sm-2 col-form-label">Role(s): </label>
     <div class="col-sm-10">
-      <%= field.select(:roles, options_for_select([['site_admin','site_admin'],['editor','editor'],['user','user']]) )%>
+      <%= field.select(:roles, options_for_select([['site_admin','site_admin'],['editor','editor'],['user','user']], selected: @user.roles.first))%>
     </div>
   </div>
 
+
   <div class="form-group row">
     <div class="col col-md-3">
-      <%= link_to "Change your password", edit_user_registration_path, class: 'btn btn-lg btn-primary btn-block' %>
+      <%= link_to("Change Password", {:action => 'change_password', :id => params[:id]}, :class => "btn btn-danger btn-lg btn-block") %>
     </div>
   </div>

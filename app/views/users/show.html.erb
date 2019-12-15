@@ -1,2 +1,46 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<% title "User Details"%>
+
+<div id="page-content-wrapper">
+  <div class="container-fluid">
+
+    <h1>User Details: <%= @user.first_name %> <%= @user.last_name %></h1>
+
+    <div class="row">
+      <div class="col col-md-3">
+        <%= link_to("Back", {:controller => 'users', :action => 'index'}, :class => "btn btn-lg btn-warning btn-block", :style=>"margin:10px 0; padding:0.5rem 3rem;" ) %>
+      </div>
+    </div>
+
+    <table class="table table-bordered table-striped mt-1 admin-table">
+      <thead>
+        <tr>
+          <th class="align-middle text-center table-header-text w-15">Name</th>
+          <th class="align-middle text-center table-header-text w-15">Surname</th>
+          <th class="align-middle text-center table-header-text w-15">Email</th>
+          <th class="align-middle text-center table-header-text w-10">Role</th>
+          <th class="align-middle text-center table-header-text w-15">Created</th>
+          <th class="align-middle text-center table-header-text w-15">Updated</th>
+          <th class="align-middle text-center table-header-text w-15">Last Signed In</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td class="align-middle text-center"><%= @user.first_name %></td>
+          <td class="align-middle text-center"><%= @user.last_name %></td>
+          <td class="align-middle text-center"><%= @user.email %></td>
+          <td class="align-middle text-center"><%= @user.roles %></td>
+          <td class="align-middle text-center"><%= @user.created_at %></td>
+          <td class="align-middle text-center"><%= @user.updated_at %></td>
+          <td class="align-middle text-center"><%= @user.last_sign_in_at %></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+</div>
+<!-- Close Administration nav -->
+</div>
