@@ -1,0 +1,46 @@
+<div class = "card-body">
+  <div class="form-group row">
+    <label for="first_name" class="col-sm-2 col-form-label">User First Name: </label>
+    <div class="col-sm-10">
+      <%= field.text_field(:first_name, :class => "form-control", :placeholder => "Name goes here...") %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="last_name" class="col-sm-2 col-form-label">User Surname: </label>
+    <div class="col-sm-10">
+      <%= field.text_field(:last_name, :class => "form-control", :placeholder => "Surname goes here...") %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="email" class="col-sm-2 col-form-label">Email: </label>
+    <div class="col-sm-10">
+      <%= field.text_field(:email, :class => "form-control", :placeholder => "Email goes here...") %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="password" class="col-sm-2 col-form-label">Password: </label>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <div class="col-sm-10">
+      <%= field.password_field :password, autocomplete: "new-password", class: "w-100" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="password_confirmation" class="col-sm-2 col-form-label">Confirm Password: </label><br />
+    <div class="col-sm-10">
+      <%= field.password_field :password_confirmation, autocomplete: "new-password", class: "w-100" %>
+    </div>
+  </div>
+
+
+  <div class="form-group row">
+    <label for="roles" class="col-sm-2 col-form-label">Role(s): </label>
+    <div class="col-sm-10">
+      <%= field.select(:roles, options_for_select([['site_admin','site_admin'],['editor','editor'],['user','user']]) )%>
+    </div>
+  </div>

@@ -17,3 +17,36 @@
 .semiTransparent {
   background: rgba(255, 255, 255, 0.7) !important;
 }
+
+.background_video {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  object-fit: cover;
+  top: 0;
+  z-index: -2;
+}
+
+// Styles for about_me card
+
+.avatar {
+  border: 0.3rem solid rgba(#fff, 0.3);
+  margin-top: -6rem;
+  margin-bottom: 1rem;
+  max-width: 9rem;
+}
+
+.about_me_card-text {
+  font-size: 1.65vh;
+  margin-top: 12px;
+}
+
+.about_me_card-title {
+  font-size: 2.2vh;
+  font-weight: bold;;
+}
+
+.about_me_card-subtitle {
+  font-size: 1.65vh;
+  font-weight:bolder;
+}

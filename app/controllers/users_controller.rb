@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   layout "admin"
 
-  access all: [], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
+  access all: [], user: {except: [:destroy, :new, :create, :update, :edit, :confirm_deletion]}, editor: {except: [:delete, :new, :create, :update, :edit, :confirm_deletion]}, site_admin: :all
 
 
   def index
@@ -38,6 +38,10 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
+  end
+
+  def change_password
     @user = User.find(params[:id])
   end
 
