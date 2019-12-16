@@ -41,6 +41,11 @@ hr.separationLine2 {
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.60), rgba(255, 255, 255, 0));
 }
 
+hr.separationLine3 {
+  border-top: 3px double #8c8b8b;
+  margin-bottom: 30px;
+}
+
 /*
 Add a scroll bar when writing a long posts-articles on the bootstrap card-body
 */
