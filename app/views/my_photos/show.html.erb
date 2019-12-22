@@ -1,7 +1,7 @@
 <% title "Image Summary |" %>
 
 <div id="page-content-wrapper">
-  <div class="container-fluid">
+  <div class="container-fluid" data-turbolinks="false">
 
     <div class="card mx-auto">
       <div class="card-header">
@@ -9,7 +9,7 @@
       </div>
 
       <div class="row p-5">
-        <div class="col md-6">
+        <div class="col md-6 hidden-xs">
           <%= image_tag(@myPhotography.myPhotograph, width: "100%") %>
         </div>
         <div class="col md-6">
