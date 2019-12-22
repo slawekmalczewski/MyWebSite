@@ -29,7 +29,7 @@
               </tr>
               <tr>
                 <td>Showed on Map</td>
-                <td><%= @myPhotography.show_on_map %></td>
+                <td><%= iconStatus(@myPhotography.show_on_map) %></td>
               </tr>
               <tr>
                 <td>Aperture</td>
@@ -72,11 +72,12 @@
                 <td><%= @myPhotography.original_date_time %></td>
               </tr>
               <tr>
-                <td></td>
-                <td class="pull-right">
-                  <%= link_to("Back", {:controller => 'my_photos', :action => 'index', :id => @myPhotography.photo_gallery_id}, :class => "btn btn-success btn-lg") %>
-                  <%= link_to("Edit", {:controller => 'my_photos', :action => 'edit', :id => @myPhotography.id}, :class => "btn btn-lg btn-warning") %>
-                  <%= link_to("Delete", {:controller => 'my_photos', :action => 'delete', :id => @myPhotography.id}, :class => "btn btn-lg btn-danger") %>
+                <td>
+                  <%= link_to("Delete", {:controller => 'my_photos', :action => 'delete', :id => @myPhotography.id}, :class => "btn btn-lg btn-danger btn-block") %>
+                  <%= link_to("Edit", {:controller => 'my_photos', :action => 'edit', :id => @myPhotography.id}, :class => "btn btn-lg btn-warning btn-block") %>
+                </td>
+                <td>
+                  <%= link_to("OK", {:controller => 'my_photos', :action => 'index', :id => @myPhotography.photo_gallery_id}, :class => "btn btn-success btn-lg btn-block") %>
                 </td>
               </tr>
             </tbody>

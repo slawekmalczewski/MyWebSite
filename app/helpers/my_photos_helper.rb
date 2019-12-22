@@ -8,9 +8,9 @@ module MyPhotosHelper
 
   def has_gps_data(lat)
     if (lat.is_a? Numeric)
-      return false
-    else
       return true
+    else
+      return false
     end
   end
 

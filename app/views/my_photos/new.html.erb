@@ -61,6 +61,13 @@
         </div>
       </div>
 
+      <div class="form-group row">
+        <label for="form-check-label" class="col-sm-4 col-md-2 col-form-label align-self-center">Show on Map ? </label>
+        <div class="col-sm-6 col-md-4">
+          <%= field.check_box(:show_on_map, :class => "form-check-input my-auto align-self-center", :style => "width:20px; height:20px;") %>
+        </div>
+      </div>
+
         <%= submit_tag("Create", :class => "btn btn-lg btn-success pull-right ml-2") %>
 
     </div>

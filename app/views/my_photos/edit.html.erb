@@ -59,7 +59,7 @@
     <div class="form-group row mb-4 justify-content-center">
       <label for="form-check-label" class="col-sm-4 col-md-2 col-form-label align-self-center">Show on Map ? </label>
       <div class="col-sm-6 col-md-4">
-        <%= field.check_box(:show_on_map, :class => "form-check-input my-auto align-self-center", :checked => @myPhotography.show_on_map, :disabled => has_gps_data(@myPhotography.latitude)) %>
+        <%= field.check_box(:show_on_map, :class => "form-check-input my-auto align-self-center", :checked => @myPhotography.show_on_map, :disabled => !has_gps_data(@myPhotography.latitude)) %>
       </div>
     </div>
 
