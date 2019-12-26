@@ -21,10 +21,10 @@ class MyPhotosController < ApplicationController
   def create
     @myPhotography = MyPhoto.new(required_parameters)
     if @myPhotography.save
-      flash[:alert] = "Photograph added sucessfully"
+      flash[:alert] = "Photograph uploaded sucessfully"
       redirect_to(:controller => 'my_photos', :action => 'verify_metadata')
     else
-      flash[:alert] = "Error, could not add the photo"
+      flash[:alert] = "Error, could not upload the photo"
       @myPhotoCategory = PhotoGallery.order('galleryPosition ASC')
       @counter = MyPhoto.count + 1
       render :new
@@ -100,7 +100,7 @@ class MyPhotosController < ApplicationController
     )
 
     redirect_to(:action => 'show', :id => @latestPhoto.id)
-    flash[:alert] = "Photograph's metadata sucessfully saved"
+    flash[:alert] = "Metadata saved sucessfully"
   end
 
   def edit_metadata
@@ -134,7 +134,7 @@ class MyPhotosController < ApplicationController
     )
 
     redirect_to(:action => 'show', :id => @currentPhoto.id)
-    flash[:alert] = "Photograph's metadata sucessfully reset"
+    flash[:alert] = "Metadata rest sucessfully"
   end
 
   def photomap
