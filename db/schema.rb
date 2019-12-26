@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_24_215603) do
+ActiveRecord::Schema.define(version: 2019_12_25_115126) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2019_09_24_215603) do
     t.string "camera_model"
     t.string "original_date_time"
     t.text "address"
-    t.boolean "show_on_map", default: false
+    t.boolean "show_on_map"
   end
 
   create_table "photo_galleries", force: :cascade do |t|

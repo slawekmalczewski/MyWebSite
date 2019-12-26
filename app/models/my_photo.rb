@@ -3,11 +3,11 @@ class MyPhoto < ApplicationRecord
 
   has_one_attached :myPhotograph
 
-  before_save :verify_coordinates, :verify_possibility_to_show_on_the_map
-  after_update :verify_coordinates
+  before_save :verify_coordinates
+  after_update :verify_coordinates, :verify_possibility_to_show_on_the_map
 
   validates :myPhotoTitle, presence: true
-  validates :myPhotoDescription, presence:true
+  validates :myPhotoDescription, presence: true
 
   scope :published, lambda{where(:myPhotoVisibility => true)}
 
@@ -21,7 +21,6 @@ class MyPhoto < ApplicationRecord
 
   def get_image_link
     Rails.application.routes.url_helpers.rails_blob_path(myPhotograph, only_path: true)
-
   end
 
   def verify_coordinates

@@ -12,7 +12,7 @@
                 <div class="month"><%= p.created_at.strftime('%b') %></div>
               </div>
               <div class="img-card">
-                <%= image_tag(p.postHeaderPhoto, :class=>"img-responsive") %>
+                <%= image_tag(p.postHeaderPhoto.variant(combine_options: {resize: '350x150^', gravity: 'center', extent: '350x150'}).processed, :class=>"img-responsive") %>
                 <div class="category text-center">
                   <%= p.post_category.postcategoryname %>
                 </div>

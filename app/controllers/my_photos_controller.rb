@@ -11,7 +11,7 @@ class MyPhotosController < ApplicationController
   end
 
   def new
-    @myPhotography = MyPhoto.new({:myPhotoTitle => "Enter Photo Title"})
+    @myPhotography = MyPhoto.new()
     @myPhotoCategory = PhotoGallery.all
     #This will know to which gallery user wants to add photo, so the select field will be automatically positioned at the gallery name from which the request to add new photo was called
     @chosen_gallery = PhotoGallery.find(params[:id])
@@ -27,7 +27,7 @@ class MyPhotosController < ApplicationController
       flash[:alert] = "Error, could not add the photo"
       @myPhotoCategory = PhotoGallery.order('galleryPosition ASC')
       @counter = MyPhoto.count + 1
-      render('new')
+      render :new
     end
   end
 
