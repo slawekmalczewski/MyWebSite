@@ -11,7 +11,7 @@ class MyPhotosController < ApplicationController
   end
 
   def new
-    @myPhotography = MyPhoto.new({:myPhotoTitle => "Enter Photo Title"})
+    @myPhotography = MyPhoto.new()
     @myPhotoCategory = PhotoGallery.all
     #This will know to which gallery user wants to add photo, so the select field will be automatically positioned at the gallery name from which the request to add new photo was called
     @chosen_gallery = PhotoGallery.find(params[:id])
@@ -21,13 +21,13 @@ class MyPhotosController < ApplicationController
   def create
     @myPhotography = MyPhoto.new(required_parameters)
     if @myPhotography.save
-      flash[:alert] = "Photograph added sucessfully"
+      flash[:alert] = "Photograph uploaded sucessfully"
       redirect_to(:controller => 'my_photos', :action => 'verify_metadata')
     else
-      flash[:alert] = "Error, could not add the photo"
+      flash[:alert] = "Error, could not upload the photo"
       @myPhotoCategory = PhotoGallery.order('galleryPosition ASC')
       @counter = MyPhoto.count + 1
-      render('new')
+      render :new
     end
   end
 
@@ -100,7 +100,7 @@ class MyPhotosController < ApplicationController
     )
 
     redirect_to(:action => 'show', :id => @latestPhoto.id)
-    flash[:alert] = "Photograph's metadata sucessfully saved"
+    flash[:alert] = "Metadata saved sucessfully"
   end
 
   def edit_metadata
@@ -134,7 +134,7 @@ class MyPhotosController < ApplicationController
     )
 
     redirect_to(:action => 'show', :id => @currentPhoto.id)
-    flash[:alert] = "Photograph's metadata sucessfully reset"
+    flash[:alert] = "Metadata rest sucessfully"
   end
 
   def photomap

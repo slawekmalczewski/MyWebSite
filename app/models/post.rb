@@ -5,6 +5,10 @@ class Post < ApplicationRecord
   has_one_attached :postHeaderPhoto
   has_many_attached :uploads
 
+  validates :Post_Title, presence: true
+  validates :Post_Author, presence: true
+  validates :Post_Body, presence: true
+
   scope :newest, lambda{order("posts.created_at DESC")}
   scope :recent, lambda{order("posts.created_at DESC").limit(1)}
   scope :published, lambda{where(:Post_Visibility => true)}
@@ -15,6 +19,6 @@ class Post < ApplicationRecord
     unless postHeaderPhoto.attached?
       self.postHeaderPhoto.attach(io: File.open(Rails.root.join("app", "assets", "images","defaultImage.png")), filename: 'defaultImage.png', content_type: "image/png")
     end
-  end 
+  end
 
 end

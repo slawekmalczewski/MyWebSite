@@ -21,9 +21,9 @@ module ApplicationHelper
     options[:true_text] ||= ''
     options[:false_text] ||= ''
     if boolean
-      content_tag(:span, options[:true_text], :class => "fa fa-check" )
+      content_tag(:span, options[:true_text], :class => "fa fa-check fa-lg" )
     else
-      content_tag(:span, options[:true_text], :class => "fa fa-times-circle" )
+      content_tag(:span, options[:true_text], :class => "fa fa-ban fa-lg" )
     end
   end
 

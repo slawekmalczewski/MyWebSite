@@ -22,16 +22,17 @@
       </div>
     </div>
 
-    <table class="table table-responsive table-bordered table-striped mt-1 admin-table">
+    <table class="table table-responsive table-bordered table-striped mt-3 admin-table">
       <thead>
         <tr>
-          <th scope="col" class="align-middle text-center table-header-text w-20">Thumbnail</th>
-          <th scope="col" class="align-middle text-center table-header-text w-5">Photo Position</th>
-          <th scope="col" class="align-middle text-center table-header-text w-15">Photo Title</th>
+          <th scope="col" class="align-middle text-center table-header-text w-15">Thumbnail</th>
+          <th scope="col" class="align-middle text-center table-header-text w-5">Position</th>
+          <th scope="col" class="align-middle text-center table-header-text w-20">Title</th>
           <th scope="col" class="align-middle text-center table-header-text w-10">Published ?</th>
+          <th scope="col" class="align-middle text-center table-header-text w-10">GPS data?</th>
           <th scope="col" class="align-middle text-center table-header-text w-10">On Map ?</th>
-          <th scope="col" class="align-middle text-center table-header-text w-15">Created</th>
-          <th scope="col" class="align-middle text-center table-header-text w-15">Actions</th>
+          <th scope="col" class="align-middle text-center table-header-text w-10">Created</th>
+          <th scope="col" class="align-middle text-center table-header-text w-20">Actions</th>
         </tr>
       </thead>
 
@@ -40,11 +41,12 @@
         <td class="text-center h3 align-middle"><%= displayThumbnail(p.myPhotograph) %></td>
         <td class="text-center h3 align-middle"><%= p.myPhotoPosition %></td>
         <td class="text-center h3 align-middle"><%= p.myPhotoTitle %></td>
-        <td class="text-center h3 align-middle"><%= p.myPhotoVisibility %></td>
-        <td class="text-center h3 align-middle"><%= p.show_on_map %></td>
-        <td class="text-center h3 align-middle"><%= p.created_at %></td>
+        <td class="text-center h3 align-middle"><%= iconStatus(p.myPhotoVisibility) %></td>
+                <td class="text-center h3 align-middle"><%= iconStatus(has_gps_data(p.latitude)) %></td>
+        <td class="text-center h3 align-middle"><%= iconStatus(p.show_on_map) %></td>
+        <td class="text-center h3 align-middle"><%= p.created_at.time.strftime("%d/%m/%Y") %></td>
         <td class="span4 align-middle text-center btn-group-vertical d-block">
-          <%= link_to("Show", {:controller => 'my_photos', :action => 'show', :id => p.id}, :class => "btn btn-success btn-small m-1") %>
+          <%= link_to("Details", {:controller => 'my_photos', :action => 'show', :id => p.id}, :class => "btn btn-success btn-small m-1") %>
           <%= link_to("Edit", {:action => "edit", :id => p.id}, :class => "btn btn-warning btn-small m-1") %>
           <%= link_to("Delete", {:action => "delete", :id => p.id}, :class => "btn btn-danger btn-small m-1") %>
         </td>

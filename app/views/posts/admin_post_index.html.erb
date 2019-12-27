@@ -21,16 +21,16 @@
         </div>
       </div>
 
-      <table class="table table-bordered table-striped mt-1 admin-table">
+      <table class="table table-responsive table-bordered table-striped mt-3 admin-table">
         <thead>
           <tr>
-            <th class="align-middle text-center table-header-text w-15">Title</th>
+            <th class="align-middle text-center table-header-text w-20">Title</th>
             <th class="align-middle text-center table-header-text w-10">Category</th>
             <th class="align-middle text-center table-header-text w-10">Author</th>
-            <th class="align-middle text-center table-header-text w-35">Preview</th>
-            <th class="align-middle text-center table-header-text w-5">Status</th>
+            <th class="align-middle text-center table-header-text w-25 hidden-xs">Preview</th>
+            <th class="align-middle text-center table-header-text w-5">Published?</th>
             <th class="align-middle text-center table-header-text w-10">Created</th>
-            <th class="align-middle text-center table-header-text w-15">Actions</th>
+            <th class="align-middle text-center table-header-text w-20">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -39,7 +39,7 @@
             <td class="align-middle text-center"><%= p.Post_Title %></td>
             <td class="align-middle text-center"><%= p.post_category.postcategoryname %></td>
             <td class="align-middle text-center"><%= p.Post_Author %></td>
-            <td class="align-middle text-center"><%= article_preview(p.Post_Body) %></td>
+            <td class="align-middle text-center hidden-xs"><%= article_preview(p.Post_Body) %></td>
             <td class="align-middle text-center icon-size"><%= iconStatus(p.Post_Visibility) %></td>
             <td class="align-middle text-center"><%= local_time(p.created_at, '%d %b, %Y %H:%M') %></td>
             <td class="align-middle text-center btn-group-vertical d-block">

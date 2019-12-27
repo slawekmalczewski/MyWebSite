@@ -24,7 +24,7 @@ class PostsController < ApplicationController
     if @post.save
       flash[:alert] = "Post sucessfully created"
       # send email whenever new post is published
-      UserMailer.new_post_published(@post).deliver
+      UserMailer.new_post_published(@post).deliver.where(@user.subscription => true)
       # after creating post redirect to index site
       redirect_to(:controller => "administrators", :action => 'index')
     else
