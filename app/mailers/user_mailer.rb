@@ -6,7 +6,7 @@ class UserMailer < ApplicationMailer
   #   en.user_mailer.new_post_published.subject
   #
   def new_post_published(post)
-    @user = User.all
+    @user = User.all.where(:subscription => true)
     emails = @user.collect(&:email).join(",")
     @post = post
     @greeting = "Hi, new post have been just published on my website"
