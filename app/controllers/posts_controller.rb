@@ -23,10 +23,10 @@ class PostsController < ApplicationController
     @user = User.all
     if @post.save
       flash[:alert] = "Post sucessfully created"
+      redirect_to(:controller => "administrators", :action => 'index')
       # send email whenever new post is published
       UserMailer.new_post_published(@post).deliver
       # after creating post redirect to index site
-      redirect_to(:controller => "administrators", :action => 'index')
     else
       flash[:alert] = "Problem with saving your post"
       render('new')
