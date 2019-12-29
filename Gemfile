@@ -43,7 +43,6 @@ gem 'aws-sdk'
 # gem 'rails_12factor', group: :production
 
 gem 'mini_magick', '~> 4.5', '>= 4.5.1'
-
 gem 'image_processing'
 gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
 gem 'gritter', '~> 1.2'
@@ -51,12 +50,10 @@ gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'
 gem 'devise', '~> 4.2'
 gem 'petergate', '~> 1.6', '>= 1.6.3'
-
 gem 'exifr', '~> 1.2', '>= 1.2.5'
-
 gem 'geocoder', '~> 1.3', '>= 1.3.7'
-
 gem 'webpacker', '~> 4.x'
+gem 'redis', '~> 3.3', '>= 3.3.1'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
