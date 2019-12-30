@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :comments
   #routes for devise and changed default paths for sign_in to login, sign_out to logout etc
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }, controllers: { registrations: "registrations" }
 
@@ -11,6 +10,8 @@ Rails.application.routes.draw do
   resources :photos
 
   match ':controller(/:action(/:id))', :via => [:get, :post]
+
+  mount ActionCable.server => '/cable'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
