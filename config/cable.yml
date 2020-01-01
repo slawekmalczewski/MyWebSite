@@ -7,4 +7,6 @@ test:
 production:
   adapter: redis
   url: <%= ENV['REDISTOGO_URL'] %>
+  port: 11788
+  timeout: 1
   channel_prefix: MyWebSite_production
