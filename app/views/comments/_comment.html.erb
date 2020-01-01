@@ -1,0 +1,6 @@
+<p>User <%= comment.name %><br/>,
+<%= comment.commentText %></p>
+
+<% unless current_user.is_a? GuestUser %>
+  <%= link_to 'Delete', [comment.post, comment], method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" } %>
+<% end %>

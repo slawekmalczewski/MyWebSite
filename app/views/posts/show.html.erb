@@ -67,4 +67,32 @@
           <% end %>
       <% end %>
   </div>
+
+
+    <div class="row">
+      <div class="col-3">
+
+      </div>
+      <div class="col-6">
+
+        <h3><%= current_user_name %> leave your comment:</h3>
+
+        <%= render 'comments/form' %>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-3">
+
+      </div>
+      <div class="col-6">
+
+        <h3><%= @post.comments.count %> Comments</h3>
+        <% if @post.comments.count > 0 %>
+          <%= render @post.comments %>
+        <% end %>
+      </div>
+    </div>
+
 </div>

@@ -5,6 +5,8 @@ class Post < ApplicationRecord
   has_one_attached :postHeaderPhoto
   has_many_attached :uploads
 
+  has_many :comments
+
   validates :Post_Title, presence: true
   validates :Post_Author, presence: true
   validates :Post_Body, presence: true
