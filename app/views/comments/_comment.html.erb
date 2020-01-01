@@ -1,14 +1,23 @@
-<div class="comment-card">
-  <div class="card">
-    <div class="card-block">
       <div class="row">
-        <div class="col-md-1">
-
+        <div class="col-12">
+          <%= comment.user.first_name + " " + comment.user.last_name + " commented:"%>
         </div>
-        <div class="col-md-11">
+      </div>
+
+      <div class="row">
+        <div class="col-md-10 ml-5 font-italic">
           <%= comment.content %>
         </div>
       </div>
-    </div>
-  </div>
-</div>
+
+      <div class="row text-right">
+        <div class="col-12 small mt-3 mb-1">
+          <%= local_time(comment.created_at, '%d %b, %Y %H:%M') %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <hr class="separationLine3">
+        </div>
+      </div>

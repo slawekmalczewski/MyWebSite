@@ -21,7 +21,7 @@
 
 <!-- Display body of the article, use raw to maintain text formatting from trix editor -->
   <div class = "row justify-content-center mb-5">
-      <article class = "col-sm-8 col-md-10 col-lg-8 col-xl-4 blogPost">
+      <article class = "col-sm-8 col-md-10 col-lg-8 col-xl-6 blogPost">
         <%= raw @post.Post_Body %>
       </article>
   </div>
@@ -69,12 +69,26 @@
       <% end %>
   </div>
 
+  <div class="row">
+    <div class="col-3">
 
-  <%= render 'comments/comment_form' %>
-
-  <div id="comments" data-post-id="<%= @post.id %>">
-    <%= render @post.comments %>
+    </div>
+    <div class="col-6">
+      <%= render 'comments/comment_form' %>
+    </div>
   </div>
+
+  <div class="row">
+    <div class="col-3">
+
+    </div>
+    <div class="col-6">
+      <div id="comments" data-post-id="<%= @post.id %>">
+        <%= render @post.comments %>
+      </div>
+    </div>
+  </div>
+
 
 
 </div>
