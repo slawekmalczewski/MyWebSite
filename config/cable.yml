@@ -6,4 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://redistogo:64aeb8861ea6fcf41c1ac30d70fe8942@porgy.redistogo.com:11788/
+  url: <%= ENV['REDIS_PROVIDER'] %>
+  channel_prefix: MyWebSite_production
