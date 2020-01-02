@@ -85,7 +85,7 @@
 
     <div class="row d-flex justify-content-center">
       <div class="col-12">
-        <% if @post.comments.any? %>
+        <% if @post.comments.count > 0 %>
           <%= render @post.comments %>
         <% end %>
       </div>
