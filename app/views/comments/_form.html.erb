@@ -1,7 +1,6 @@
 <% unless current_user.is_a? GuestUser %>
   <%= simple_form_for([@post, @post.comments.build]) do |f| %>
 
-
   <div class="form-group">
     <%= f.text_field :name, class: 'form-control hidden', value: current_user_name %>
   </div>
@@ -11,8 +10,6 @@
     <%= f.text_area :commentText, class: 'form-control' %>
   </div>
 
-
-
-  <%= f.button :submit, 'Leave a reply', class: "button is-primary" %>
+  <%= f.button :submit, 'Add Comment', class: "btn btn-lg btn-success btn-block pull-right" %>
   <% end %>
 <% end %>
