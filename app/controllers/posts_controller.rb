@@ -37,6 +37,7 @@ class PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     @post_category = PostCategory.all
+    @user = User.all
   end
 
   def update
