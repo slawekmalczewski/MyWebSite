@@ -5,15 +5,14 @@ Rails.application.routes.draw do
 
   root to: 'public#index'
 
-  get 'about', to:'static_pages#about'
-
   resources :posts do
-    resources :comments
+    resources :comments, except: [:show, :admin_post_index]
   end
 
   resources :photos
 
-  # match ':controller(/:action(/:id))', :via => [:get, :post]
+  get 'about', to:'static_pages#about'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  match ':controller(/:action(/:id))', :via => [:get, :post]
+
 end

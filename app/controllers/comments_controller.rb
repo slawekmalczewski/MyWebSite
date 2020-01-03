@@ -3,9 +3,12 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(required_parameters)
+
     redirect_to post_path(@post)
     flash[:alert] = "Comment sucessfully added"
   end
+
+
 
   def destroy
     @post = Post.find(params[:post_id])

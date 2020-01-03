@@ -12,6 +12,7 @@ class PostsController < ApplicationController
 
   def admin_post_index
     @post = Post.paginate(:page => params[:page], :per_page => 4)
+    @comments = Comment.all
   end
 
   def new
@@ -51,6 +52,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+
     render layout: 'application'
   end
 
