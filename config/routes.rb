@@ -5,11 +5,12 @@ Rails.application.routes.draw do
 
   root to: 'public#index'
 
-  get 'about', to:'static_pages#about'
+  resources :posts do
+    resources :comments
+  end
 
-  resources :photos
+  get 'about', to:'static_pages#about'
 
   match ':controller(/:action(/:id))', :via => [:get, :post]
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

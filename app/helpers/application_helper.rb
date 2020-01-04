@@ -35,4 +35,12 @@ module ApplicationHelper
     "&copy; #{Time.now.year} | <b>#{name}</b> #{msg}".html_safe
   end
 
+  def is_admin?
+    current_user.has_roles?(:site_admin)
+  end
+
+  def is_editor?
+    current_user.has_roles?(:editor)
+  end
+
 end
