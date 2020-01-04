@@ -44,8 +44,8 @@
             <td class="align-middle text-center"><%= local_time(p.created_at, '%d %b, %Y %H:%M') %></td>
             <td class="align-middle text-center btn-group-vertical d-block">
               <%= link_to("Show", {:action => 'show', :id => p.id}, :class => "btn btn-success btn-small m-1") %>
-              <%= link_to("Edit", {:action => "edit", :id => p.id}, :class => "btn btn-warning btn-small m-1") %>
-              <%= link_to("Delete", {:action => "delete", :id => p.id}, :class => "btn btn-danger btn-small m-1") %>
+              <%= link_to("Edit", {:controller => 'posts', :action => "edit", :id => p.id}, :class => "btn btn-warning btn-small m-1") %>
+              <%= link_to("Delete", {:controller => 'posts', :action => "delete", :id => p.id}, :class => "btn btn-danger btn-small m-1") %>
               <%= link_to("Files", {:controller => "post_attachments" , :action => "index", :id => p.id}, :class => "btn btn-info btn-small m-1") %>
             </td>
           </tr>

@@ -8,6 +8,10 @@ class CommentsController < ApplicationController
     flash[:alert] = "Comment sucessfully added"
   end
 
+  def edit
+    @comment = Comment.find(params[:id])
+  end
+
 
 
   def destroy

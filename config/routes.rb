@@ -6,10 +6,8 @@ Rails.application.routes.draw do
   root to: 'public#index'
 
   resources :posts do
-    resources :comments, except: [:show, :admin_post_index]
+    resources :comments
   end
-
-  resources :photos
 
   get 'about', to:'static_pages#about'
 

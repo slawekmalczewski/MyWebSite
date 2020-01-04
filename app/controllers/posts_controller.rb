@@ -16,6 +16,7 @@ class PostsController < ApplicationController
   end
 
   def new
+    @comment = Comment.new(post_id: params[:post_id])
     @post_category = PostCategory.all
   end
 
@@ -42,9 +43,11 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+    @comment = Comment.new(post_id: params[:post_id])
+    # @comment = @post.comments.find(params[:id])
     if @post.update_attributes(required_parameters)
       flash[:alert] = "Post sucessfully updated"
-      redirect_to(:action => 'show', :id => @post.id)
+      redirect_to post_path(@post)
     else
       flash[:alert] = "Problem with saving your changes"
       render('edit')
@@ -53,7 +56,6 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-
     render layout: 'application'
   end
 
@@ -62,9 +64,9 @@ class PostsController < ApplicationController
   end
 
   def confirm_deletion
-    post = Post.find(params[:id]).destroy
+    @post = Post.find(params[:id]).destroy
     flash[:alert] = "Post sucessfully deleted"
-    redirect_to(:controller => 'posts', :action => 'admin_post_index')
+    redirect_to(:controller => 'posts', :action => 'admin_post_index', :id => 'show')
   end
 
 private
