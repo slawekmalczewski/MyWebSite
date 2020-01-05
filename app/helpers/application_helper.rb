@@ -7,6 +7,13 @@ module ApplicationHelper
       "</li>".html_safe +
       "<li class = 'd-flex nav-link nav-link-auth align-items-baseline'>".html_safe + (link_to "Login", new_user_session_path) +
       "</li>".html_safe
+    elsif is_registered_user?
+      "<li class = 'd-flex nav-link nav-link-auth align-items-baseline'>".html_safe +
+      (link_to "User Panel", controller: 'administrators', action: 'user_index') +
+      "</li>".html_safe +
+      "<li class = 'd-flex nav-link nav-link-auth align-items-baseline'>".html_safe +
+      (link_to "Logout", destroy_user_session_path, method: :delete) +
+      "</li>".html_safe
     else
       "<li class = 'd-flex nav-link nav-link-auth align-items-baseline'>".html_safe +
       (link_to "Admin Panel", controller: 'administrators', action: 'index') +
@@ -41,6 +48,10 @@ module ApplicationHelper
 
   def is_editor?
     current_user.has_roles?(:editor)
+  end
+
+  def is_registered_user?
+    current_user.has_roles?(:user)
   end
 
 end
