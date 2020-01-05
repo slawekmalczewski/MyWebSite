@@ -10,6 +10,11 @@ module PublicHelper
     strip_tags(sentence)
   end
 
+  def first_hundred_words(toTruncate)
+    sentence = truncate(toTruncate, :length => 100, :omission => "[...]", :escape => false)
+    strip_tags(sentence)
+  end
+
   def sort_gallery_by_photo_position(gallery)
     gallery.sort_by { |a| a.myPhotoPosition }
   end

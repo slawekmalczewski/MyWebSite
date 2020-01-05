@@ -78,24 +78,30 @@ now override the 3.3 new styles for modern browsers & apply opacity
     }
 
     .carousel-caption {
-      top: 65%;
+      width: 70vw;
+      margin-top: 60vh;
+      margin-bottom: 15vh;
       background: rgba(0, 0, 0, 0.45);
       clear: both;
-      height: 20%;
-      border-radius: 5%;
-      min-height: 15%;
-      max-height: 25%;
+      // height: 20%;
+      border-radius: 2%;
+      // min-height: 15%;
+      // max-height: 25%;
       margin-left: auto;
       margin-right: auto;
       overflow:hidden;
     }
 
+    .carousel-caption h1, h2 {
+      display: inline;
+    }
+
     .slideimagetitle {
-      font-size: 4vh;
-      margin-bottom: 1.2vh;
+      // font-size: 4vh;
+      // margin-bottom: 1.2vh;
     }
 
     .slideimagedesc {
-      font-size: 1.7vh;
-      margin-bottom: 1.5vh;
+      margin: 12px;
+
     }

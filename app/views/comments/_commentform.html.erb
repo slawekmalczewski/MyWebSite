@@ -1,4 +1,4 @@
-<% if (is_admin? || is_editor?) %>
+<% if (is_admin? || is_editor? || is_registered_user?) %>
   <%= simple_form_for([@post, @post.comments.build]) do |f| %>
 
   <div class="form-group">

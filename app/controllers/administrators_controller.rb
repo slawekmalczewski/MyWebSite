@@ -13,4 +13,17 @@ class AdministratorsController < ApplicationController
     @user = User.all
   end
 
+  def user_index
+    render layout: 'application'
+    @user = User.all
+  end
+
+  def subscription_on_off
+    # render layout: 'application'
+    @user = current_user
+    @user.update_attributes(:subscription => !@user.subscription)
+    redirect_to request.referrer
+    flash[:alert] = "Subscription status has been changed"
+  end
+
 end
