@@ -21,46 +21,46 @@
       </div>
     </div>
 
-  <table class="table table-responsive table-bordered table-striped mt-3 admin-table">
-    <thead>
-      <tr>
-        <th class="align-middle text-center table-header-text w-10">Name</th>
-        <th class="align-middle text-center table-header-text w-10">Surname</th>
-        <th class="align-middle text-center table-header-text w-15">Role</th>
-        <th class="align-middle text-center table-header-text w-15">Email</th>
-        <th class="align-middle text-center table-header-text w-10">Subscription</th>
-        <th class="align-middle text-center table-header-text w-10 hidden-xs">Last Logged In</th>
-        <th class="align-middle text-center table-header-text w-10 hidden-xs">Joined</th>
-        <th class="align-middle text-center table-header-text w-20">Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-  <% @user.each do |u| %>
-    <tr>
-      <td class="span1 align-middle text-center"><%= u.first_name %></td>
-      <td class="span1 align-middle text-center"><%= u.last_name %></td>
-      <td class="span2 align-middle text-center"><%= u.roles %></td>
-      <td class="span2 align-middle text-center"><%= u.email %></td>
-      <td class="span2 align-middle text-center"><%= iconStatus(u.subscription) %></td>
-      <td class="span1 align-middle text-center hidden-xs"><%= u.last_sign_in_at %></td>
-      <td class="span1 align-middle text-center hidden-xs"><%= local_time(u.created_at, '%d %b, %Y %H:%M') %></td>
-      <td class="span4 align-middle text-center btn-group-vertical d-block">
-        <%= link_to("Show", {:action => 'show', :id => u.id}, :class => "btn btn-success btn-small m-1") %>
-        <%= link_to("Edit", {:action => "edit", :id => u.id}, :class => "btn btn-warning btn-small m-1") %>
-        <%= link_to("Delete", {:action => "delete", :id => u.id}, :class => "btn btn-danger btn-small m-1") %>
-      </td>
-    </tr>
-  <% end %>
-  </tbody>
-  </table>
-
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped mt-3 admin-table">
+        <thead>
+          <tr>
+            <th class="align-middle text-center table-header-text w-10">Name</th>
+            <th class="align-middle text-center table-header-text w-10">Surname</th>
+            <th class="align-middle text-center table-header-text w-15">Role</th>
+            <th class="align-middle text-center table-header-text w-15">Email</th>
+            <th class="align-middle text-center table-header-text w-10">Subscription</th>
+            <th class="align-middle text-center table-header-text w-10 hidden-xs">Last Logged In</th>
+            <th class="align-middle text-center table-header-text w-10 hidden-xs">Joined</th>
+            <th class="align-middle text-center table-header-text w-20">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+      <% @user.each do |u| %>
+        <tr>
+          <td class="span1 align-middle text-center"><%= u.first_name %></td>
+          <td class="span1 align-middle text-center"><%= u.last_name %></td>
+          <td class="span2 align-middle text-center"><%= u.roles %></td>
+          <td class="span2 align-middle text-center"><%= u.email %></td>
+          <td class="span2 align-middle text-center"><%= iconStatus(u.subscription) %></td>
+          <td class="span1 align-middle text-center hidden-xs"><%= u.last_sign_in_at %></td>
+          <td class="span1 align-middle text-center hidden-xs"><%= local_time(u.created_at, '%d %b, %Y %H:%M') %></td>
+          <td class="span4 align-middle text-center btn-group-vertical d-block">
+            <%= link_to("Show", {:action => 'show', :id => u.id}, :class => "btn btn-success btn-small m-1") %>
+            <%= link_to("Edit", {:action => "edit", :id => u.id}, :class => "btn btn-warning btn-small m-1") %>
+            <%= link_to("Delete", {:action => "delete", :id => u.id}, :class => "btn btn-danger btn-small m-1") %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+      </table>
+    </div>
     <!-- Here is pagination using will_paginate gem -->
     <div class="row">
       <div class="col-sm-12 col-md-12 d-flex justify-content-center">
         <%= will_paginate @user, renderer: BootstrapPagination::Rails, :class => "font-weight-bold" %>
       </div>
     </div>
-
   </div>
 </div>
 

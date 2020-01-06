@@ -24,13 +24,30 @@
               </div>
               <% end %>
 
-              <div class="form-group">
-                <%= f.submit "Log in", class: 'btn btn-primary btn-lg' %>
+              <div class="d-flex flex-row">
+                <div class="col-1 align-self-center">
+
+                </div>
+                <div class="col-4 align-self-center">
+                  <div class="form-group" style="display:inline;">
+                    <%= f.submit "Log in", class: 'btn btn-primary btn-lg btn-block' %>
+                  </div>
+                </div>
+
+                <div class="col-2 align-self-center">
+
+                </div>
+
+                <div class="col-4 align-self-center">
+                  <div class="form-group" style="display:inline;">
+                    <%= link_to 'Cancel', :back, class: 'btn btn-danger btn-lg btn-block' %>
+                  </div>
+                </div>
               </div>
 
               <div class="border-top my-4">
               </div>
-              
+
               <% end %>
             </div>
 
@@ -38,6 +55,9 @@
 
           <%= render "devise/shared/links" %>
         </div>
+      </div>
+      <div class="row" style="height: 50vh">
+        <!-- Line Spacer to keep footer stick to the bottom -->
       </div>
     </div>
   </div>

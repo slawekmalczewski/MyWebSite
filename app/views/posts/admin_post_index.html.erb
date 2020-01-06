@@ -21,37 +21,39 @@
         </div>
       </div>
 
-      <table class="table table-responsive table-bordered table-striped mt-3 admin-table">
-        <thead>
-          <tr>
-            <th class="align-middle text-center table-header-text w-20">Title</th>
-            <th class="align-middle text-center table-header-text w-10">Category</th>
-            <th class="align-middle text-center table-header-text w-10">Author</th>
-            <th class="align-middle text-center table-header-text w-25 hidden-xs">Preview</th>
-            <th class="align-middle text-center table-header-text w-5">Published?</th>
-            <th class="align-middle text-center table-header-text w-10">Created</th>
-            <th class="align-middle text-center table-header-text w-20">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @post.each do |p| %>
-          <tr>
-            <td class="align-middle text-center"><%= p.Post_Title %></td>
-            <td class="align-middle text-center"><%= p.post_category.postcategoryname %></td>
-            <td class="align-middle text-center"><%= p.Post_Author %></td>
-            <td class="align-middle text-center hidden-xs"><%= article_preview(p.Post_Body) %></td>
-            <td class="align-middle text-center icon-size"><%= iconStatus(p.Post_Visibility) %></td>
-            <td class="align-middle text-center"><%= local_time(p.created_at, '%d %b, %Y %H:%M') %></td>
-            <td class="align-middle text-center btn-group-vertical d-block">
-              <%= link_to("Show", {:action => 'show', :id => p.id}, :class => "btn btn-success btn-small m-1") %>
-              <%= link_to("Edit", {:controller => 'posts', :action => "edit", :id => p.id}, :class => "btn btn-warning btn-small m-1") %>
-              <%= link_to("Delete", {:controller => 'posts', :action => "delete", :id => p.id}, :class => "btn btn-danger btn-small m-1") %>
-              <%= link_to("Files", {:controller => "post_attachments" , :action => "index", :id => p.id}, :class => "btn btn-info btn-small m-1") %>
-            </td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+      <div class="table-responsive">
+            <table class="table  table-bordered table-striped mt-3 admin-table">
+              <thead>
+                <tr>
+                  <th class="align-middle text-center table-header-text w-20">Title</th>
+                  <th class="align-middle text-center table-header-text w-10">Category</th>
+                  <th class="align-middle text-center table-header-text w-10">Author</th>
+                  <th class="align-middle text-center table-header-text w-25 hidden-xs">Preview</th>
+                  <th class="align-middle text-center table-header-text w-5">Published?</th>
+                  <th class="align-middle text-center table-header-text w-10">Created</th>
+                  <th class="align-middle text-center table-header-text w-20">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @post.each do |p| %>
+                <tr>
+                  <td class="align-middle text-center"><%= p.Post_Title %></td>
+                  <td class="align-middle text-center"><%= p.post_category.postcategoryname %></td>
+                  <td class="align-middle text-center"><%= p.Post_Author %></td>
+                  <td class="align-middle text-center hidden-xs"><%= article_preview(p.Post_Body) %></td>
+                  <td class="align-middle text-center icon-size"><%= iconStatus(p.Post_Visibility) %></td>
+                  <td class="align-middle text-center"><%= local_time(p.created_at, '%d %b, %Y %H:%M') %></td>
+                  <td class="align-middle text-center btn-group-vertical d-block">
+                    <%= link_to("Show", {:action => 'show', :id => p.id}, :class => "btn btn-success btn-small m-1") %>
+                    <%= link_to("Edit", {:controller => 'posts', :action => "edit", :id => p.id}, :class => "btn btn-warning btn-small m-1") %>
+                    <%= link_to("Delete", {:controller => 'posts', :action => "delete", :id => p.id}, :class => "btn btn-danger btn-small m-1") %>
+                    <%= link_to("Files", {:controller => "post_attachments" , :action => "index", :id => p.id}, :class => "btn btn-info btn-small m-1") %>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
+      </div>
       <!-- Here is pagination using will_paginate gem -->
       <div class="row">
         <div class="col-sm-12 col-md-12 d-flex justify-content-center">
