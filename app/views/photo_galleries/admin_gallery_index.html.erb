@@ -21,36 +21,37 @@
       </div>
     </div>
 
-
-    <table class="table table-responsive table-bordered table-striped mt-3 admin-table">
-      <thead>
-        <tr>
-          <th class="align-middle text-center table-header-text w-5">Position</th>
-          <th class="align-middle text-center table-header-text w-25">Title</th>
-          <th class="align-middle text-center table-header-text w-15">Photographs</th>
-          <th class="align-middle text-center table-header-text w-15">Published</th>
-          <th class="align-middle text-center table-header-text w-15">Created</th>
-          <th class="align-middle text-center table-header-text w-25">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-    <% @gallery.each do |gal| %>
-      <tr>
-        <td class="span1 align-middle text-center"><%= gal.galleryPosition %></td>
-        <td class="span2 align-middle text-center"><%= gal.gallerytitle %></td>
-        <td class="span1 align-middle text-center"><%= gal.myPhotos.size %></td>
-        <td class="span1 align-middle text-center"><%= iconStatus(gal.galleryVisibility) %></td>
-        <td class="span1 align-middle text-center"><%= local_time(gal.created_at, '%d %b, %Y %H:%M')  %></td>
-        <td class="span3 align-middle text-center btn-group-vertical d-block" data-turbolinks="false">
-          <%= link_to("Manage Photos", {:controller => 'my_photos', :action => 'index', :id => gal.id}, :class => "btn btn-info btn-small m-1") %>
-          <%= link_to("Edit Gallery Details", {:action => 'edit', :id => gal.id}, :class => "btn btn-warning btn-small m-1") %>
-          <%= link_to("Preview", {:controller => 'photo_galleries', :action => 'show', :id => gal.id}, :class => "btn btn-success btn-small m-1") %>
-          <%= link_to("Delete", {:action => 'delete', :id => gal.id}, :class => "btn btn-danger btn-small m-1") %>
-        </td>
-      </tr>
-    <% end %>
-    </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped mt-3 admin-table">
+          <thead>
+            <tr>
+              <th class="align-middle text-center table-header-text w-5">Position</th>
+              <th class="align-middle text-center table-header-text w-25">Title</th>
+              <th class="align-middle text-center table-header-text w-15">Photographs</th>
+              <th class="align-middle text-center table-header-text w-15">Published</th>
+              <th class="align-middle text-center table-header-text w-15">Created</th>
+              <th class="align-middle text-center table-header-text w-25">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+        <% @gallery.each do |gal| %>
+          <tr>
+            <td class="span1 align-middle text-center"><%= gal.galleryPosition %></td>
+            <td class="span2 align-middle text-center"><%= gal.gallerytitle %></td>
+            <td class="span1 align-middle text-center"><%= gal.myPhotos.size %></td>
+            <td class="span1 align-middle text-center"><%= iconStatus(gal.galleryVisibility) %></td>
+            <td class="span1 align-middle text-center"><%= local_time(gal.created_at, '%d %b, %Y %H:%M')  %></td>
+            <td class="span3 align-middle text-center btn-group-vertical d-block" data-turbolinks="false">
+              <%= link_to("Manage Photos", {:controller => 'my_photos', :action => 'index', :id => gal.id}, :class => "btn btn-info btn-small m-1") %>
+              <%= link_to("Edit Gallery Details", {:action => 'edit', :id => gal.id}, :class => "btn btn-warning btn-small m-1") %>
+              <%= link_to("Preview", {:controller => 'photo_galleries', :action => 'show', :id => gal.id}, :class => "btn btn-success btn-small m-1") %>
+              <%= link_to("Delete", {:action => 'delete', :id => gal.id}, :class => "btn btn-danger btn-small m-1") %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+        </table>
+    </div>
   </div>
 </div>
 

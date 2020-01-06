@@ -28,6 +28,19 @@
 }
 
 // Styles for about_me card
+.container-fluid {
+  max-width: 900px;
+}
+
+.card-img-top {
+  object-fit: cover;
+}
+
+@media only screen and (max-height: 670px){
+  .card-img-top{
+    max-height: 20vh;
+  }
+}
 
 .avatar {
   border: 0.3rem solid rgba(#fff, 0.3);
@@ -37,16 +50,16 @@
 }
 
 .about_me_card-text {
-  font-size: 1.65vh;
+  font-size: 1.40rem;
   margin-top: 12px;
 }
 
 .about_me_card-title {
-  font-size: 2.2vh;
+  font-size: 1.60rem;
   font-weight: bold;;
 }
 
 .about_me_card-subtitle {
-  font-size: 1.65vh;
+  font-size: 1.45rem;
   font-weight:bolder;
 }

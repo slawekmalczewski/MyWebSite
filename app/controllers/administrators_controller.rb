@@ -18,6 +18,11 @@ class AdministratorsController < ApplicationController
     @user = User.all
   end
 
+  def welcome
+    render layout: 'application'
+    @user = User.all
+  end
+
   def subscription_on_off
     # render layout: 'application'
     @user = current_user
