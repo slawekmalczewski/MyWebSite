@@ -34,7 +34,7 @@
             </tr>
           </thead>
           <tbody>
-        <% sort_gallery_by_gallery_position(@gallery).each do |gal| %>
+        <% @gallery.each do |gal| %>
           <tr>
             <td class="span1 align-middle text-center"><%= gal.galleryPosition %></td>
             <td class="span2 align-middle text-center"><%= gal.gallerytitle %></td>
