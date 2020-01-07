@@ -11,7 +11,7 @@ class PhotoGalleriesController < ApplicationController
   end
 
   def admin_gallery_index
-    @gallery = PhotoGallery.order('galleryPosition ASC')
+    @gallery = PhotoGallery.all
   end
 
   def new
