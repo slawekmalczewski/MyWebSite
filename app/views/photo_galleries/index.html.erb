@@ -4,7 +4,7 @@
   <div class="conatiner-fluid">
     <div class="row pt-5 pb-5 justify-content-center">
       <% @gallery.each do |g| %>
-        <div class="col-sm-10 col-md-4 mb-3" style="max-width:450px;">
+        <div class="col-sm-10 col-md-5 col-lg-5 col-xl-3 mb-3 ml-2 mr-2" style="max-width:450px;">
             <div class="card">
               <div class="datecircle">
                 <div class="day"><%= g.created_at.day %></div>
@@ -48,8 +48,8 @@
       </div>
     </div>
 
-    <div class="row" style="height: 50vh">
-      <!-- Line Spacer to keep footer stick to the bottom -->
+    <div class="row" style="height:75vh;">
+      <!-- SPACER -->
     </div>
 
   </div>

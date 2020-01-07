@@ -11,7 +11,7 @@ class PhotoGalleriesController < ApplicationController
   end
 
   def admin_gallery_index
-    @gallery = PhotoGallery.all
+    @gallery = PhotoGallery.all.order('galleryPosition')
   end
 
   def new
@@ -23,7 +23,7 @@ class PhotoGalleriesController < ApplicationController
     @gallery = PhotoGallery.new(required_parameters)
       if @gallery.save
         flash[:alert] = "Photo Gallery sucessfully created"
-        redirect_to(:action => 'index')
+        redirect_to(:controller => 'photo_galleries', :action => 'admin_gallery_index')
       else
         @counter = PhotoGallery.count + 1
         render('new')
@@ -39,7 +39,7 @@ class PhotoGalleriesController < ApplicationController
     @gallery = PhotoGallery.find(params[:id])
     if @gallery.update_attributes(required_parameters)
       flash[:alert] = "Photo Gallery sucessfully updated"
-      redirect_to(:action => 'show', :id => @gallery.id)
+      redirect_to(:controller => 'photo_galleries', :action => 'admin_gallery_index')
     else
       @counter = PhotoGallery.count
       render('edit')

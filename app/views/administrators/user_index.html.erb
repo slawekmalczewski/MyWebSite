@@ -17,34 +17,36 @@
       <!-- SPACER -->
     </div>
     <div class="col-10">
-      <table class="table table-responsive table-bordered table-striped mt-3 admin-table">
-        <thead>
-          <tr>
-            <th class="align-middle text-center table-header-text w-10">Name</th>
-            <th class="align-middle text-center table-header-text w-10">Surname</th>
-            <th class="align-middle text-center table-header-text w-15">Role</th>
-            <th class="align-middle text-center table-header-text w-15">Email</th>
-            <th class="align-middle text-center table-header-text w-10">Subscription</th>
-            <th class="align-middle text-center table-header-text w-10 hidden-xs">Last Logged In</th>
-            <th class="align-middle text-center table-header-text w-10 hidden-xs">Joined</th>
-            <th class="align-middle text-center table-header-text w-20">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="span1 align-middle text-center"><%= current_user.first_name %></td>
-            <td class="span1 align-middle text-center"><%= current_user.last_name %></td>
-            <td class="span2 align-middle text-center"><%= current_user.roles %></td>
-            <td class="span2 align-middle text-center"><%= current_user.email %></td>
-            <td class="span2 align-middle text-center"><%= iconStatus(current_user.subscription) %></td>
-            <td class="span1 align-middle text-center hidden-xs"><%= current_user.last_sign_in_at %></td>
-            <td class="span1 align-middle text-center hidden-xs"><%= local_time(current_user.created_at, '%d %b, %Y %H:%M') %></td>
-            <td class="span4 align-middle text-center btn-group-vertical d-block">
-              <%= link_to("Subscription On/Off", {:action => "subscription_on_off", :id => current_user.id}, :class => "btn btn-warning btn-lg m-1") %>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+			<div class="table-responsive">
+				<table class="table table-bordered table-striped mt-3 admin-table">
+					<thead>
+						<tr>
+							<th class="align-middle text-center table-header-text w-10">Name</th>
+							<th class="align-middle text-center table-header-text w-10">Surname</th>
+							<th class="align-middle text-center table-header-text w-15">Role</th>
+							<th class="align-middle text-center table-header-text w-15">Email</th>
+							<th class="align-middle text-center table-header-text w-10">Subscription</th>
+							<th class="align-middle text-center table-header-text w-10 hidden-xs">Last Logged In</th>
+							<th class="align-middle text-center table-header-text w-10 hidden-xs">Joined</th>
+							<th class="align-middle text-center table-header-text w-20">Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="span1 align-middle text-center"><%= current_user.first_name %></td>
+							<td class="span1 align-middle text-center"><%= current_user.last_name %></td>
+							<td class="span2 align-middle text-center"><%= current_user.roles %></td>
+							<td class="span2 align-middle text-center"><%= current_user.email %></td>
+							<td class="span2 align-middle text-center"><%= iconStatus(current_user.subscription) %></td>
+							<td class="span1 align-middle text-center hidden-xs"><%= current_user.last_sign_in_at %></td>
+							<td class="span1 align-middle text-center hidden-xs"><%= local_time(current_user.created_at, '%d %b, %Y %H:%M') %></td>
+							<td class="span4 align-middle text-center btn-group-vertical d-block">
+								<%= link_to("Subscription On/Off", {:action => "subscription_on_off", :id => current_user.id}, :class => "btn btn-warning btn-lg m-1") %>
+							</td>
+						</tr>
+					</tbody>
+				</table>	
+			</div>
     </div>
 
   </div>

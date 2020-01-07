@@ -22,7 +22,9 @@
       </div>
     </div>
 
-    <table class="table table-responsive table-bordered table-striped mt-3 admin-table">
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped mt-3 admin-table">
       <thead>
         <tr>
           <th scope="col" class="align-middle text-center table-header-text w-15">Thumbnail</th>
@@ -36,13 +38,13 @@
         </tr>
       </thead>
 
-    <% @myPhotography.each do |p| %>
+      <% @myPhotography.each do |p| %>
       <tr>
         <td class="text-center h3 align-middle"><%= displayThumbnail(p.myPhotograph) %></td>
         <td class="text-center h3 align-middle"><%= p.myPhotoPosition %></td>
         <td class="text-center h3 align-middle"><%= p.myPhotoTitle %></td>
         <td class="text-center h3 align-middle"><%= iconStatus(p.myPhotoVisibility) %></td>
-                <td class="text-center h3 align-middle"><%= iconStatus(has_gps_data(p.latitude)) %></td>
+        <td class="text-center h3 align-middle"><%= iconStatus(has_gps_data(p.latitude)) %></td>
         <td class="text-center h3 align-middle"><%= iconStatus(p.show_on_map) %></td>
         <td class="text-center h3 align-middle"><%= p.created_at.time.strftime("%d/%m/%Y") %></td>
         <td class="span4 align-middle text-center btn-group-vertical d-block">
@@ -51,8 +53,9 @@
           <%= link_to("Delete", {:action => "delete", :id => p.id}, :class => "btn btn-danger btn-small m-1") %>
         </td>
       </tr>
-    <% end %>
+      <% end %>
     </table>
+  </div>
 
   </div>
 </div>
