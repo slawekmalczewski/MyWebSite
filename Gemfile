@@ -55,7 +55,7 @@ gem 'petergate', '~> 1.6', '>= 1.6.3'
 
 gem 'exifr', '~> 1.2', '>= 1.2.5'
 
-gem 'geocoder', '~> 1.3', '>= 1.3.7'
+gem 'geocoder', '~> 1.6'
 
 gem 'webpacker', '~> 4.x'
 
