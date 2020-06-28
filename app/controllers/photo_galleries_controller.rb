@@ -47,7 +47,7 @@ class PhotoGalleriesController < ApplicationController
   end
 
   def show
-    @gallery = PhotoGallery.find(params[:id])
+    @gallery = PhotoGallery.friendly.find(params[:id])
   end
 
   def delete
