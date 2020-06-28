@@ -1,5 +1,8 @@
 class Post < ApplicationRecord
 
+  extend FriendlyId
+  friendly_id :Post_Title, use: [:slugged, :finders]
+
   belongs_to :post_category
 
   has_one_attached :postHeaderPhoto
