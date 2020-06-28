@@ -1,5 +1,8 @@
 class PhotoGallery < ApplicationRecord
 
+  extend FriendlyId
+  friendly_id :gallerytitle, use: [:slugged, :finders]
+
   has_many :myPhotos, :dependent => :destroy
   has_one_attached :galleryImageHeader
 
