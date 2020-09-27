@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
       <% @post.each do |p| %>
         <div class="col-sm-10 col-md-3 col-lg-4 col-xl-3 mb-3 ml-2 mr-2" style="max-width:450px;">
-            <div class="card" style="max-width:600px; min-width:350px; max-height:450px;">
+            <div class="card" style="max-width:600px; min-width:350px; min-height:450px; max-height:450px;">
               <div class="datecircle">
                 <div class="day"><%= p.created_at.day %></div>
                 <div class="month"><%= p.created_at.strftime('%b') %></div>
