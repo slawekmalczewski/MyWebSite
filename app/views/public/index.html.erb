@@ -43,11 +43,12 @@ applied to thie particular site
               <div class="carousel-caption">
                 <h1 class="slideimagetitle"><%= MyPhoto.get_latest_photo_uploaded_and_published.myPhotoTitle %></h1> &nbsp;&nbsp;<h2><span class="badge badge-pill badge-danger">New Photo</span></h2>
                 <h3 class="slideimagedesc"><%= MyPhoto.get_latest_photo_uploaded_and_published.photo_gallery.gallerytitle %></h3>
-                <%= link_to 'Read more...', {:controller => 'posts', :action => 'show', :id => @latestpost.last}, :class => "btn btn-primary btn-lg" %>
+                <%= link_to 'View', {:controller => 'photo_galleries', :action => 'show', :id => MyPhoto.get_latest_photo_uploaded_and_published.photo_gallery_id}, :class => "btn btn-primary btn-lg" %>
               </div>
             </div>
 
             <div class="item">
+              <%= image_tag(@latestgallery.last.galleryImageHeader, class: "carousel-image") %>
               <div class="carousel-caption">
                 <h1 style="slideimagetitle"><%= @latestgallery.last.gallerytitle %></h1>&nbsp;&nbsp;<h2><span class="badge badge-pill badge-danger">New</h2>
                 <h3 class="slideimagedesc">
