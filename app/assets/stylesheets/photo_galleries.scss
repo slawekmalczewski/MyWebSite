@@ -8,5 +8,7 @@
 }
 
 .card {
-  height: 400px;
+  min-height: 400px;
+  max-height: 400px;
+  max-width: 350px;
 }
