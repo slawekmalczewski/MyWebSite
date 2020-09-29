@@ -46,7 +46,7 @@ class MyPhoto < ApplicationRecord
   end
 
   def self.get_latest_photo_uploaded_and_published
-    new_photo_published = MyPhoto.where("myPhotoVisibility = ?", true).order(created_at: :desc).first
+    new_photo_published = MyPhoto.where(:myPhotoVisibility => true).order(created_at: :desc).first
   end
 
 
