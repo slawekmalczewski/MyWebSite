@@ -71,10 +71,10 @@ now override the 3.3 new styles for modern browsers & apply opacity
     }
 
 
-    .carousel-image{
+    .carousel-image {
+      min-width: 100vw;
       background-repeat: no-repeat;
-      background-position: center;
-      background-attachment: fixed;
+      background-position: center center fixed;
       -webkit-background-size: cover;
       -moz-background-size: cover;
       -o-background-size: cover;
