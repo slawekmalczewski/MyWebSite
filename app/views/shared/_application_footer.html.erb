@@ -2,27 +2,6 @@
 
   <div class="footer-left">
 
-    <p class="footer-links">
-      <%= link_to("Home", root_path, class: "nav-link") %>
-      ·
-      <%= link_to("Posts", {:controller => 'posts', :action => 'index'}, class: "nav-link") %>
-      ·
-      <%= link_to("Galleries", {:controller => 'photo_galleries', :action => 'index'}, class: "nav-link") %>
-      ·
-      <%= link_to("About", {:controller => 'static_pages', :action => 'about'}, class: "nav-link") %>
-      ·
-      <%= link_to("Contact", {:controller => 'static_pages', :action => 'about'}, class: "nav-link") %>
-
-    </p>
-
-    <p class="lead text-center text-muted">
-      <%= copyright_generator('Slawomir Malczewski','All rights reserved') %>
-    </p>
-  </div>
-
-
-  <div class="footer-right">
-
     <p class="footer-other-platforms">
       <span>Please visit me on other platforms </span>
     </p>
@@ -36,6 +15,28 @@
       <a href="http://github.com/slawekmalczewski"><%= fa_icon "github" %></a>
 
     </div>
+
+
+  </div>
+
+
+  <div class="footer-right">
+
+    <p class="footer-links">
+      <%= link_to("Home", root_path) %>
+      ·
+      <%= link_to("Posts", {:controller => 'posts', :action => 'index'}) %>
+      ·
+      <%= link_to("Galleries", {:controller => 'photo_galleries', :action => 'index'}) %>
+      ·
+      <%= link_to("About", {:controller => 'static_pages', :action => 'about'}) %>
+      ·
+      <%= link_to("Contact", {:controller => 'static_pages', :action => 'about'}) %>
+    </p>
+
+    <p class="text-center text-muted small">
+      <%= copyright_generator('Slawomir Malczewski','All rights reserved') %>
+    </p>
 
   </div>
 
