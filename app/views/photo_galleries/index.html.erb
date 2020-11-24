@@ -28,13 +28,12 @@
             </p>
           </div>
           <div class="card-read-more" data-turbolinks="false">
-              <i class="glyphicon glyphicon-picture"></i> <%= g.myPhotos.count %> photographs
-              <i class="fa fa-pencil ml-3"></i> <%= g.galleryAuthor %>
+              <i class="glyphicon glyphicon-picture"></i> <%= g.myPhotos.count %> photographs <br/>
+              <i class="fa fa-pencil"></i> <%= g.galleryAuthor %>
               <br/>
               <i class="fa fa-calendar"></i> <%= local_time(g.created_at, '%d %B %Y, %A @ %H:%M') %>
-
-            <%= link_to 'View <i class="glyphicon glyphicon-chevron-right"></i><i class="glyphicon glyphicon-chevron-right"></i>'.html_safe, {:controller => 'photo_galleries', :action => 'show', :id => g.slug}, :class => "btn-lnk" %>
           </div>
+            <%= link_to 'View <i class="glyphicon glyphicon-chevron-right"></i><i class="glyphicon glyphicon-chevron-right"></i>'.html_safe, {:controller => 'photo_galleries', :action => 'show', :id => g.slug}, :class => "btn-lnk" %>
         </div>
 
   <% end %>

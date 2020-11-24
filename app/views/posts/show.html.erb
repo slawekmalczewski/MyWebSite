@@ -1,88 +1,84 @@
 <% title "Post | " +@post.Post_Title %>
 
-<section class = "articleImageHeader">
-  <%= image_tag @post.postHeaderPhoto, :class => "ImageHeader img-responsive"%>
-  <div class = "articleImageHeaderText">
-    <%= @post.Post_Title %>
-    <!--
-    <p class="lead"><%= truncate(@post.Post_Body, :length => 60, :omission => "[...]") %></p>
-  -->
+<!-- Displays hero element: image and text -->
+<header class="hero">
+  <%= image_tag @post.postHeaderPhoto, :class => "articleHeader" %>
+  <div class="hero-content">
+    <h3><%= @post.Post_Title %></h3>
+    <p><%= truncate(@post.Post_Body, :length => 60, :omission => "[...]") %></p>
+  </div>
+</header>
+
+<!-- Displays details about author and time of publishing above the article body -->
+<section class="article-data">
+  <div class="article-data-content">
+    <hr class="separationLine1">
+    <i class="fa fa-pencil"></i>&nbsp;<%= @post.Post_Author %>&nbsp;
+    <i class="fa fa-calendar"></i>&nbsp;<%= local_time(@post.created_at, '%A %d %B, %Y %H:%M') %>
+    <hr class="separationLine1">
   </div>
 </section>
 
-<div class="container-fluid">
+<!-- Displays body of an article -->
+<section class="article-container-flex">
+  <article>
+    <%= raw @post.Post_Body %>
+  </article>
+</section>
 
-<!-- Display in between two lines author of the article and the date of publishing -->
-  <div class="row postData align-items-center ml-4 mr-4">
-    <div class = "col-12">
-      <p><i class="fa fa-pencil"></i> <%= @post.Post_Author %>  &nbsp;|&nbsp;  <i class="fa fa-calendar"></i> <%= local_time(@post.created_at, '%A %d %B, %Y %H:%M') %></p>
-    </div>
-  </div>
-
-<!-- Display body of the article, use raw to maintain text formatting from trix editor -->
-  <div class = "row justify-content-center mb-5">
-      <article class = "col-sm-10 col-md-10 col-lg-8 col-xl-6 blogPost">
-        <%= raw @post.Post_Body %>
-      </article>
-  </div>
-
-</div>
-
-<!-- Display files attached to the article -->
-<div class = "container">
-  <div class ="row justify-content-center">
-
+<!-- Displays files attached to the article -->
+<section>
+  <div class="attachment-container-flex">
     <% @post.uploads.each do |upload| %>
-
-          <% if upload.variable? %>
-            <div class = "col-md-4 text-center mb-5 mt-5">
-              <div class = "card bg-dark text-white border-dark mb-3">
-                <div class="card-header">Attachment</div>
-                  <%= link_to image_tag(upload.variant(resize: "350x350"), :class => "img-responsive mx-auto"),upload %>
-                <div class="card-body">
-                  <h4 class = "card-title"><%= upload.filename %></h4>
-                </div>
-              </div>
-            </div>
-          <% elsif upload.previewable? %>
-          <div class = "col-md-4 text-center mb-5 mt-5">
-            <div class = "card bg-dark text-white border-dark mb-3">
-              <div class="card-header">Attachment</div>
-                <%= link_to image_tag(upload.preview(resize: "350x350"), :class => "img-responsive mx-auto"), upload %>
-              <div class="card-body">
-                <h4 class = "card-title"><%= upload.filename %></h4>
-              </div>
-            </div>
+      <% if upload.variable? %>
+        <div class = "attachment-card">
+          <h5>Attachment</h5>
+          <%= link_to image_tag(upload.variant(resize: "150x150^"), :class => "img-responsive mx-auto"),upload %>
+          <div class="attachment-file-name">
+            <p><%= upload.filename %></p>
           </div>
-          <% else %>
-          <div class = "col-md-4 text-center mb-5 mt-5">
-            <div class = "card bg-dark text-white border-dark mb-3">
-              <div class="card-header">Attachment</div>
-              <div class="card-body">
-                <p style="font-size: 5em; text-align:center;"><i class="fa fa-file"></i></p>
-                <h4 class = "card-title"><%= link_to upload.filename, upload, :style => "color:white; text-decoration:none;" %></h4>
-              </div>
-            </div>
+        </div>
+      <% elsif upload.previewable? %>
+        <div class = "attachment-card">
+          <h5>Attachment</h5>
+          <%= link_to image_tag(upload.preview(resize: "150x150^"), :class => "img-responsive mx-auto"), upload %>
+          <div class="attachment-file-name">
+            <h4><%= upload.filename %></h4>
           </div>
-          <% end %>
+        </div>
+      <% else %>
+        <div class = "card bg-dark text-white border-dark mb-3 mojtest">
+          <div class="card-header">Attachment</div>
+          <div class="card-body">
+            <p style="font-size: 5em; text-align:center;"><i class="fa fa-file"></i></p>
+            <h4><%= link_to upload.filename, upload, :style => "color:white; text-decoration:none;" %></h4>
+          </div>
+        </div>
       <% end %>
+    <% end %>
   </div>
+</section>
 
+<!-- Displays the section responsible for comments -->
+<section>
+  <!-- If currently signed in user display the possibility of adding the comment -->
   <% if !current_user.is_a? GuestUser %>
     <div class="row d-flex justify-content-center">
       <div class="col-10">
-        <h3><%= current_user_name %> leave your comment:</h3>
+        <h5><%= current_user_name %> leave your comment:</h5>
         <%= render 'comments/commentform' %>
       </div>
     </div>
   <% end %>
 
+  <!-- display number of comments for this article -->
     <div class="row d-flex justify-content-center">
       <div class="col-12 text-center mt-3 mb-3">
-        <h3>This article has <%= @post.comments.count %> Comments</h3>
+        <h5>This article has <%= @post.comments.count %> Comments</h5>
       </div>
     </div>
 
+    <!-- Display the comments -->
     <div class="row d-flex justify-content-center">
       <div class="col-12">
         <% if @post.comments.count > 0 %>
@@ -90,5 +86,4 @@
         <% end %>
       </div>
     </div>
-
-</div>
+</section>
