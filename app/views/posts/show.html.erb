@@ -5,7 +5,7 @@
   <%= image_tag @post.postHeaderPhoto, :class => "articleHeader" %>
   <div class="hero-content">
     <h3><%= @post.Post_Title %></h3>
-    <p><%= truncate(@post.Post_Body, :length => 60, :omission => "[...]") %></p>
+    <p><%= article_preview(@post.Post_Body) %></p>
   </div>
 </header>
 
