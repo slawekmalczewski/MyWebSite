@@ -1,55 +1,48 @@
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-6 vertical-center d-flex align-items-center justify-content-center">
-			<div class="page-header">
-				<h1>
-					Welcome back <%= current_user.first_name %>
-				</h1>
-				<button class="btn btn-primary btn-lg btn-block" id="menu-toggle">
-					Toggle Menu
-				</button>
-			</div>
-		</div>
-		<div class="col-md-6 vertical-center d-flex align-items-center justify-content-center">
-			<div class="page-header hidden-xs">
-				<button type="button" class="btn btn-success btn-circle btn-xl mb-2"><%= number_of_posts %>
-					<br/><p>Posts</p>
-				</button>
-				<button type="button" class="btn btn-warning btn-circle btn-xl mb-2"><%= number_of_galleries %>
-					<br/><p>Galleries</p>
-				</button>
-				<button type="button" class="btn btn-primary btn-circle btn-xl mb-2"><%= number_of_photographs %>
-					<br/><p>Photos</p>
-				</button>
-			</div>
+<div class="admin-panel-grid">
+	<div class="welcome-header">
+		<div class="welcome-header-content">
+			<h5>Welcome back <%= current_user.first_name %></h5>
+			<button class="btn btn-primary btn-sm btn-block" id="menu-toggle">
+				Toggle Menu
+			</button>
 		</div>
 	</div>
 
-	<div class="row">
-		<div class="col-md-12">
-			<div class="card">
-				<h2 class="card-header">
-					Latest Draft | <small><%= latest_draft_updated_at %></small>
-				</h2>
-				<div class="card-body">
-					<h4><%= latest_draft %></h4>
+	<div class="circles-info">
+		<div class="circle-buttons">
+			<button type="button" class="btn btn-success btn-circle btn-xl"><%= number_of_posts %>
+			<br/><p>Posts</p>
+			</button>
+			<button type="button" class="btn btn-warning btn-circle btn-xl"><%= number_of_galleries %>
+			<br/><p>Galleries</p>
+			</button>
+			<button type="button" class="btn btn-primary btn-circle btn-xl"><%= number_of_photographs %>
+			<br/><p>Photos</p>
+			</button>
+		</div>
+	</div>
+
+		<div class="draft-card">
+				<div class="draft-card-header">
+					<h4>Latest Draft | <span><%= latest_draft_updated_at %></span></h4>
 				</div>
-				<div class="card-text p-3">
+				<div class="draft-card-container">
+					<%= latest_draft %>
+				</div>
+				<div class="draft-card-container-button">
 					<%= latest_draft_link_button %>
 				</div>
-			</div>
 		</div>
-	</div>
 
-	<div class="row">
 
-		<div class="col-md-4">
-			<div class="card">
-				<h5 class="card-header">
+
+		<div class="post-summary">
+			<div class="summary-card">
+				<div class="summary-card-header">
 					Post Summary
-				</h5>
-				<div class="card-body">
-					<table class="table table-striped">
+				</div>
+				<div class="summary-card-body">
+					<table class="table table-striped table-card-summary">
 					  <thead>
 					    <tr>
 					      <th scope="col">Total Number</th>
@@ -66,7 +59,7 @@
 					      <th scope="col"><%= number_of_unpublished_posts %></th>
 					    </tr>
 					    <tr>
-					      <th scope="col">Most Recent One</th>
+					      <th scope="col">Most Recent</th>
 					      <th scope="col"><%= most_recent_post_title %></th>
 					    </tr>
 							<tr>
@@ -76,21 +69,21 @@
 					  </tbody>
 					</table>
 				</div>
-				<div class="card-footer">
-					<%= link_to("Show Latest", {:controller => 'posts', :action => 'show', :id => latest_post_link_button}, class: "btn btn-success btn-lg pull-right mx-2") %>
-					<%= link_to("Edit Latest", {:controller => 'posts', :action => 'edit', :id => latest_post_link_button}, class: "btn btn-warning btn-lg pull-right") %>
+				<div class="summary-card-footer">
+					<%= link_to("Show Latest", {:controller => 'posts', :action => 'show', :id => latest_post_link_button}, class: "btn btn-success btn-sm") %>
+					<%= link_to("Edit Latest", {:controller => 'posts', :action => 'edit', :id => latest_post_link_button}, class: "btn btn-warning btn-sm") %>
 				</div>
 			</div>
 		</div>
 
 
-		<div class="col-md-4">
-			<div class="card">
-				<h5 class="card-header">
+		<div class="gallery-summary">
+			<div class="summary-card">
+				<div class="summary-card-header">
 					Gallery Summary
-				</h5>
-				<div class="card-body">
-					<table class="table table-striped">
+				</div>
+				<div class="summary-card-body">
+					<table class="table table-striped table-card-summary">
 					  <thead>
 					    <tr>
 					      <th scope="col">Total Number</th>
@@ -107,7 +100,7 @@
 					      <th scope="col"><%= number_of_unpublished_galleries %></th>
 					    </tr>
 					    <tr>
-					      <th scope="col">Most Recent One</th>
+					      <th scope="col">Most Recent</th>
 					      <th scope="col"><%= most_recent_gallery_title %></th>
 					    </tr>
 							<tr>
@@ -117,21 +110,21 @@
 					  </tbody>
 					</table>
 				</div>
-				<div class="card-footer">
-					<%= link_to("Show Latest", {:controller => 'photo_galleries', :action => 'show', :id => latest_gallery_link_button}, class: "btn btn-success btn-lg pull-right mx-2") %>
-					<%= link_to("Edit Latest", {:controller => 'photo_galleries', :action => 'edit', :id => latest_gallery_link_button}, class: "btn btn-warning btn-lg pull-right") %>
+				<div class="summary-card-footer">
+					<%= link_to("Show Latest", {:controller => 'photo_galleries', :action => 'show', :id => latest_gallery_link_button}, class: "btn btn-success btn-sm") %>
+					<%= link_to("Edit Latest", {:controller => 'photo_galleries', :action => 'edit', :id => latest_gallery_link_button}, class: "btn btn-warning btn-sm") %>
 				</div>
 			</div>
 		</div>
 
 
-		<div class="col-md-4">
-			<div class="card">
-				<h5 class="card-header">
+		<div class="photo-summary">
+			<div class="summary-card">
+				<div class="summary-card-header">
 					Photo Summary
-				</h5>
-				<div class="card-body">
-					<table class="table table-striped">
+				</div>
+				<div class="summary-card-body">
+					<table class="table table-striped table-card-summary">
 					  <thead>
 					    <tr>
 					      <th scope="col">Total Number</th>
@@ -148,7 +141,7 @@
 					      <th scope="col"><%= number_of_unpublished_photographs %></th>
 					    </tr>
 					    <tr>
-					      <th scope="col">Most Recent One</th>
+					      <th scope="col">Most Recent</th>
 					      <th scope="col"><%= most_recent_photograph_title %></th>
 					    </tr>
 							<tr>
@@ -158,14 +151,31 @@
 					  </tbody>
 					</table>
 				</div>
-				<div class="card-footer">
-					<%= link_to("Show Latest", {:controller => 'my_photos', :action => 'show', :id => latest_photo_link_button}, class: "btn btn-success btn-lg pull-right mx-2") %>
-					<%= link_to("Edit Latest", {:controller => 'my_photos', :action => 'edit', :id => latest_photo_link_button}, class: "btn btn-warning btn-lg pull-right") %>
+				<div class="summary-card-footer">
+					<%= link_to("Show Latest", {:controller => 'my_photos', :action => 'show', :id => latest_photo_link_button}, class: "btn btn-success btn-sm") %>
+					<%= link_to("Edit Latest", {:controller => 'my_photos', :action => 'edit', :id => latest_photo_link_button}, class: "btn btn-warning btn-sm") %>
 				</div>
 			</div>
 		</div>
-	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
+
+
 
 <!-- Close Administration nav -->
 </div>

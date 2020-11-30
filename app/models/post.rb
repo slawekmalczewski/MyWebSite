@@ -14,7 +14,7 @@ class Post < ApplicationRecord
   validates :Post_Author, presence: true
   validates :Post_Body, presence: true
 
-  scope :newest, lambda{order("posts.created_at DESC")}
+  scope :newest, lambda{order("posts.created_at DESC").where(:Post_Visibility => true)}
   scope :recent, lambda{order("posts.created_at DESC").limit(1)}
   scope :published, lambda{where(:Post_Visibility => true)}
 

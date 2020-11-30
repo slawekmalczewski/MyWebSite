@@ -2,6 +2,223 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+// New Layout
+:root {
+  --my-primary-color: #c72727;
+  --my-secondary-color: #f99500;
+  --my-light-color: #f3f3f3;
+  --my-dark-color: #f333;
+  --my-max-width: 1100px;
+}
+
+.pill-category {
+  --photography-category: #f99500;
+  --technology-category: #fa66be;
+  display: inline-block;
+  color: #fff;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 0.4rem 0.6rem;
+  border-radius: 15px;
+  margin-bottom: 0.5rem;
+}
+
+
+// Reset Browser deafult setting
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.overall-container {
+  background-color: #f3f3f3;
+}
+
+
+// showcase
+#showcase {
+  color: #fff;
+  background: #333;
+  padding: 2rem;
+  position: relative;
+}
+
+#showcase:before {
+  content: '';
+  //background: url('https://unsplash.it/600/400') no-repeat center center/cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+
+
+}
+
+.article-showcase {
+  max-height: 50vh;
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+
+.article-showcase-container {
+  //width: 100%;
+  //height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+}
+
+.article-header-img {
+  max-height: 50vh;
+  grid-column: 1 / span 2;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+
+}
+
+.article-showcase-data {
+  position: absolute;
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%;
+  background: rgba(0, 0, 0, 0.55);
+  color:white;
+  padding: 2rem;
+  border-radius: 10px;
+
+}
+
+#showcase .showcase-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+#showcase .showacse-content {
+  z-index: 1;
+}
+
+.photography-category { background: var(--photography-category)}
+
+// Article card
+#post-articles {
+  margin: 3rem 0;
+}
+
+
+#post-articles .articles-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
+
+.article-card-1 {
+  background: #fff;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column: 1 / span 2;
+  //justify-content: center;
+  //align-items: center;
+  align-content: center;
+  border-radius: 8px;
+  grid-gap: 1rem;
+}
+
+.article-card-2 {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  height: auto;
+}
+
+.article-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  object-position: center;
+  //padding: 10px;
+  background-color: green;
+}
+
+.article-card-bg-1 {
+  background-color: var(--my-primary-color);
+  color: white;
+}
+
+.article-card-bg-2 {
+  background-color: var(--my-secondary-color);
+  color: white;
+}
+
+.article-card-1 .i-data,
+.article-card-2 .i-data {
+  font-size: 0.7rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+  color: #333;
+}
+
+
+.article-button {
+  font-size: 0.75rem;
+  font-weight: bold;
+  display: inline-block;
+  width: 100%;
+  height: auto;
+  background-color: #4CAF50;
+  border-radius: 5px;
+  color: white;
+  padding: 10px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.article-button a {
+  text-decoration: none;
+  color: white;
+}
+
+.article-button:hover {
+  background-color: #3e8e41;
+  text-decoration: none;
+  color: white;
+}
+
+.article-button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  align-content: flex-end;
+}
+
+.page-pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+
+
+// New Layout END
+
 // Reset Browser deafult setting
 *{
   margin: 0;
@@ -114,4 +331,18 @@
   color: #ffffff;
   padding: 15px;
   word-wrap: break-word;
+}
+
+
+// MEDIA QUERY
+@media only screen and (max-width: 740px) {
+  .article-showcase {
+    display: none;
+  }
+
+  #post-articles .articles-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 1rem;
+  }
 }

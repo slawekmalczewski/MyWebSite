@@ -21,7 +21,7 @@ module AdministratorsHelper
     if Post.where(Post_Visibility: false).exists?
       latest_post_draft = Post.where(Post_Visibility: false).order('created_at DESC').first
       draft_id = latest_post_draft.id
-      link_to("Continue Work", {:controller => 'posts', :action => 'edit', :id => "#{draft_id}"}, class: "btn btn-warning btn-lg pull-right")
+      link_to("Continue Work", {:controller => 'posts', :action => 'edit', :id => "#{draft_id}"}, class: "btn btn-warning btn-sm")
     end
   end
 

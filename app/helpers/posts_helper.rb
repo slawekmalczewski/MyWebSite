@@ -1,12 +1,12 @@
 module PostsHelper
 
-  def article_preview(toTruncate)
-    textTruncated = truncate(toTruncate, :length => 80, :omission => "[...]", :escape => false)
+  def post_preview(toTruncate)
+    textTruncated = truncate(toTruncate, :length => 180, :omission => "[...]", :escape => false)
     strip_tags(textTruncated)
   end
 
   def post_title_short(titleToTruncate)
-    post_title_truncated = truncate(titleToTruncate, :length => 40, :omission => "[...]", :escape => false)
+    post_title_truncated = truncate(titleToTruncate, :length => 30, :omission => "[...]", :escape => false)
     strip_tags(post_title_truncated)
   end
 
