@@ -2,14 +2,9 @@
 
 <div class="overall-container">
 
-
-
-
   <header class="article-showcase">
     <div class="article-showcase-container">
-
       <%= image_tag(Post.newest.first.postHeaderPhoto, :class=>"article-header-img") %>
-
       <div class="article-showcase-data">
         <div class="pill-category photography-category">NEW / <%= Post.newest.first.post_category.postcategoryname %></div>
         <h4><%= Post.newest.first.Post_Title %></h4>
@@ -17,16 +12,13 @@
         <%= link_to 'Read <i class="glyphicon glyphicon-chevron-right"></i><i class="glyphicon glyphicon-chevron-right"></i>'.html_safe, {:controller => 'posts', :action => 'show', :id => Post.newest.first.id}, :class => "article-button" %>
       </div>
     </div>
-
   </header>
-
 
 
 <!-- Articles -->
 <section id="post-articles">
   <div class="container">
     <div class="articles-container">
-
 
     <% @post.each_with_index do |p, i| %>
     <% number_of_posts = @post.length %>
@@ -155,7 +147,6 @@
           </div>
       </article>
 
-
       <% else %>
       <!-- TYPE 1 Card -->
       <article class="article-card-1">
@@ -178,10 +169,9 @@
 </section>
 
 
-
-    <!-- Here is pagination using will_paginate gem -->
-    <section class="page-pagination">
-      <div>
-        <%= will_paginate @post, renderer: BootstrapPagination::Rails, :class => "font-weight-bold" %>
-      </div>
-    </section>
+<!-- Here is pagination using will_paginate gem -->
+<section class="page-pagination">
+  <div>
+    <%= will_paginate @post, renderer: BootstrapPagination::Rails, :class => "font-weight-bold" %>
+  </div>
+</section>
