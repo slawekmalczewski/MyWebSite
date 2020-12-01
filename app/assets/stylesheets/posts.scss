@@ -7,6 +7,8 @@
 :root {
   --my-primary-color: #c72727;
   --my-secondary-color: #f99500;
+  --my-third-color: #3415cf;
+  --my-fourth-color: #3b3837;
   --my-light-color: #f3f3f3;
   --my-dark-color: #f333;
   --my-max-width: 1100px;
@@ -138,11 +140,25 @@
   grid-gap: 1rem;
 }
 
-.article-card-2 {
+.article-card-1-reverse {
   background: #fff;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column: 2 / span 2;
+  //justify-content: center;
+  //align-items: center;
+  align-content: center;
+  border-radius: 8px;
+  grid-gap: 1rem;
+
+}
+
+.article-card-2 {
   padding: 1rem;
   border-radius: 8px;
   height: auto;
+  color: #fff;
 }
 
 .article-card-image {
@@ -164,12 +180,22 @@
   color: white;
 }
 
+.article-card-bg-3 {
+  background-color: var(--my-third-color);
+  color: white;
+}
+
+.article-card-bg-4 {
+  background-color: var(--my-fourth-color);
+  color: white;
+}
+
 .article-card-1 .i-data,
+.article-card-1-reverse .i-data,
 .article-card-2 .i-data {
   font-size: 0.7rem;
   margin-bottom: 1rem;
   font-style: italic;
-  color: #333;
 }
 
 

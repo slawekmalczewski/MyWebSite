@@ -6,12 +6,12 @@ class PostsController < ApplicationController
   access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :delete, :confirm_deletion]}, site_admin: :all, editor: :all
 
   def index
-    @post = Post.where(:Post_Visibility => true).paginate(:page => params[:page], :per_page => 6).order('created_at DESC')
+    @post = Post.where(:Post_Visibility => true).paginate(:page => params[:page], :per_page => 8).order('created_at DESC')
     @category = PostCategory.all
   end
 
   def admin_post_index
-    @post = Post.paginate(:page => params[:page], :per_page => 4)
+    @post = Post.paginate(:page => params[:page], :per_page => 8)
     @comments = Comment.all
   end
 
