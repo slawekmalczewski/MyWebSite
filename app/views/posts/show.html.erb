@@ -4,17 +4,16 @@
 <header class="hero">
   <%= image_tag @post.postHeaderPhoto, :class => "articleHeader" %>
   <div class="hero-content">
-    <h3><%= @post.Post_Title %></h3>  
+    <h3><%= @post.Post_Title %></h3>
   </div>
 </header>
 
 <!-- Displays details about author and time of publishing above the article body -->
 <section class="article-data">
   <div class="article-data-content">
-    <hr class="separationLine1">
-    <i class="fa fa-pencil"></i>&nbsp;<%= @post.Post_Author %>&nbsp;
-    <i class="fa fa-calendar"></i>&nbsp;<%= local_time(@post.created_at, '%A %d %B, %Y %H:%M') %>
-    <hr class="separationLine1">
+    <i class="fa fa-pencil">&nbsp;<%= @post.Post_Author %></i>
+    <i class="fa fa-calendar">&nbsp;<%= local_time(@post.created_at, '%A %d %B, %Y') %></i>
+    <i class="fa fa-hourglass-half">&nbsp;<%= local_time(@post.created_at, '%H:%M') %></i>
   </div>
 </section>
 
