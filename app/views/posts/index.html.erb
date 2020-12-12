@@ -30,14 +30,18 @@
       <!-- TYPE 1 Card -->
       <article class="article-card-1">
           <div><%= image_tag(p.postHeaderPhoto, :class => "article-card-image") %></div>
-          <div>
-            <div class="pill-category photography-category"><%= p.post_category.postcategoryname %></div>
-            <h3>
-              <%= post_title_short(p.Post_Title) %>
-            </h3>
-            <i class="fa fa-calendar i-data"> <%= local_time(p.created_at, '%d %B %Y, %A @ %H:%M') %></i>
-            <p><%= post_preview(p.Post_Body) %></p>
-          <%= link_to 'Read <i class="glyphicon glyphicon-chevron-right"></i><i class="glyphicon glyphicon-chevron-right"></i>'.html_safe, {:controller => 'posts', :action => 'show', :id => p.slug}, :class => "article-button" %>
+          <div class="card-text-content">
+            <div>
+              <div class="pill-category photography-category"><%= p.post_category.postcategoryname %></div>
+              <h3>
+                <%= post_title_short(p.Post_Title) %>
+              </h3>
+              <i class="fa fa-calendar i-data"> <%= local_time(p.created_at, '%d %B %Y, %A @ %H:%M') %></i>
+              <p><%= post_preview(p.Post_Body) %></p>
+            </div>
+            <div>
+              <%= link_to 'Read <i class="glyphicon glyphicon-chevron-right"></i><i class="glyphicon glyphicon-chevron-right"></i>'.html_safe, {:controller => 'posts', :action => 'show', :id => p.slug}, :class => "article-button" %>
+            </div>
           </div>
       </article>
 
@@ -52,7 +56,9 @@
           <i class="fa fa-calendar i-data"> <%= local_time(p.created_at, '%d %B %Y, %A @ %H:%M') %></i>
           <p><%= post_preview(p.Post_Body) %></p>
         </div>
-        <%= link_to 'Read <i class="glyphicon glyphicon-chevron-right"></i><i class="glyphicon glyphicon-chevron-right"></i>'.html_safe, {:controller => 'posts', :action => 'show', :id => p.slug}, :class => "article-button" %>
+        <div>
+          <%= link_to 'Read <i class="glyphicon glyphicon-chevron-right"></i><i class="glyphicon glyphicon-chevron-right"></i>'.html_safe, {:controller => 'posts', :action => 'show', :id => p.slug}, :class => "article-button" %>
+        </div>
       </article>
 
 
@@ -67,7 +73,9 @@
           <i class="fa fa-calendar i-data"> <%= local_time(p.created_at, '%d %B %Y, %A @ %H:%M') %></i>
           <p><%= post_preview(p.Post_Body) %></p>
         </div>
-        <%= link_to 'Read <i class="glyphicon glyphicon-chevron-right"></i><i class="glyphicon glyphicon-chevron-right"></i>'.html_safe, {:controller => 'posts', :action => 'show', :id => p.slug}, :class => "article-button" %>
+        <div>
+          <%= link_to 'Read <i class="glyphicon glyphicon-chevron-right"></i><i class="glyphicon glyphicon-chevron-right"></i>'.html_safe, {:controller => 'posts', :action => 'show', :id => p.slug}, :class => "article-button" %>
+        </div>
       </article>
 
 
@@ -82,7 +90,9 @@
           <i class="fa fa-calendar i-data"> <%= local_time(p.created_at, '%d %B %Y, %A @ %H:%M') %></i>
           <p><%= post_preview(p.Post_Body) %></p>
         </div>
-        <%= link_to 'Read <i class="glyphicon glyphicon-chevron-right"></i><i class="glyphicon glyphicon-chevron-right"></i>'.html_safe, {:controller => 'posts', :action => 'show', :id => p.slug}, :class => "article-button" %>
+        <div>
+          <%= link_to 'Read <i class="glyphicon glyphicon-chevron-right"></i><i class="glyphicon glyphicon-chevron-right"></i>'.html_safe, {:controller => 'posts', :action => 'show', :id => p.slug}, :class => "article-button" %>
+        </div>
       </article>
 
       <% elsif i.in?(array_for_type_4) %>
@@ -96,19 +106,26 @@
           <i class="fa fa-calendar i-data"> <%= local_time(p.created_at, '%d %B %Y, %A @ %H:%M') %></i>
           <p><%= post_preview(p.Post_Body) %></p>
         </div>
+        <div>
+          <%= link_to 'Read <i class="glyphicon glyphicon-chevron-right"></i><i class="glyphicon glyphicon-chevron-right"></i>'.html_safe, {:controller => 'posts', :action => 'show', :id => p.slug}, :class => "article-button" %>
+        </div>
       </article>
 
       <% elsif i.in?(array_for_type_2) %>
       <!-- TYPE 1 reverse Card -->
       <article class="article-card-1-reverse">
-        <div>
-          <div class="pill-category photography-category"><%= p.post_category.postcategoryname %></div>
-          <h3>
-            <%= post_title_short(p.Post_Title) %>
-          </h3>
-          <i class="fa fa-calendar i-data"> <%= local_time(p.created_at, '%d %B %Y, %A @ %H:%M') %></i>
-          <p><%= post_preview(p.Post_Body) %></p>
-          <%= link_to 'Read <i class="glyphicon glyphicon-chevron-right"></i><i class="glyphicon glyphicon-chevron-right"></i>'.html_safe, {:controller => 'posts', :action => 'show', :id => p.slug}, :class => "btn-lnk btn-block" %>
+        <div class="card-text-content">
+          <div>
+            <div class="pill-category photography-category"><%= p.post_category.postcategoryname %></div>
+            <h3>
+              <%= post_title_short(p.Post_Title) %>
+            </h3>
+            <i class="fa fa-calendar i-data"> <%= local_time(p.created_at, '%d %B %Y, %A @ %H:%M') %></i>
+            <p><%= post_preview(p.Post_Body) %></p>
+          </div>
+          <div>
+            <%= link_to 'Read <i class="glyphicon glyphicon-chevron-right"></i><i class="glyphicon glyphicon-chevron-right"></i>'.html_safe, {:controller => 'posts', :action => 'show', :id => p.slug}, :class => "article-button" %>
+          </div>
         </div>
         <div><%= image_tag(p.postHeaderPhoto, :class => "article-card-image") %></div>
       </article>
