@@ -6,7 +6,7 @@ ruby '2.5.1'
 gem 'friendly_id'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.0'
+gem 'rails', '~> 6.0'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', group: :development # Added development group.
 gem 'pg', group: :production # Added postgres and made it production only.
@@ -42,6 +42,7 @@ gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 gem 'simple_form'
 
 gem 'aws-sdk'
+gem 'listen', '~> 3.1', '>= 3.1.1'
 
 # gem 'rails_12factor', group: :production
 
