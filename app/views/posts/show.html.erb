@@ -11,9 +11,9 @@
 <!-- Displays details about author and time of publishing above the article body -->
 <section class="article-data">
   <div class="article-data-content">
-    <i class="fa fa-pencil">&nbsp;<%= @post.Post_Author %></i>
-    <i class="fa fa-calendar">&nbsp;<%= local_time(@post.created_at, '%A %d %B, %Y') %></i>
-    <i class="fa fa-hourglass-half">&nbsp;<%= local_time(@post.created_at, '%H:%M') %></i>
+    <div><i class="fas fa-pencil-alt"></i> <%= @post.Post_Author %></div>
+    <div><i class="far fa-calendar-alt"></i> <%= local_time(@post.created_at, '%A %d %B, %Y') %></div>
+    <div><i class="far fa-clock"></i> <%= local_time(@post.created_at, '%H:%M') %></div>
   </div>
 </section>
 

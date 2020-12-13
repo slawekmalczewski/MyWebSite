@@ -4,7 +4,7 @@
   <div class="hamburger-nav-logo">
     SlawekPhotography
   </div>
-  <div class="menu">
+  <div class="menu" data-turbolinks="false">
     <div>
       <div>
         <ul>
@@ -27,7 +27,7 @@
     </div>
 
 
-    <div class="nav-menu">
+    <div class="nav-menu" data-turbolinks="false">
       <ul>
         <li class="<%= 'active' if params[:controller] == 'public' && params[:action] == 'index' %>"><%= link_to("Home", {:controller => 'public', :action => 'index'}) %></li>
         <li class="<%= 'active' if params[:controller] == 'posts' && params[:action] == 'index' %>"><%= link_to("Posts", {:controller => 'posts', :action => 'index'}) %></li>

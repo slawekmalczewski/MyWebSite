@@ -14,7 +14,7 @@ gem 'pg', group: :production # Added postgres and made it production only.
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
-gem 'font-awesome-sass', '~> 4.6', '>= 4.6.2'
+
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -48,7 +48,8 @@ gem 'aws-sdk'
 gem 'mini_magick', '~> 4.5', '>= 4.5.1'
 
 gem 'image_processing'
-gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
+
+gem 'font-awesome-sass', '~> 4.6', '>= 4.6.2'
 gem 'gritter', '~> 1.2'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.14.30'

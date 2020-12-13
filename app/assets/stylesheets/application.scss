@@ -18,12 +18,9 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import 'bootstrap-datetimepicker';
 @import "font-awesome-sprockets";
-@import "font-awesome.css";
-@import "cards";
-@import "footer";
-@import "navbar";
+@import "font-awesome";
+@import 'bootstrap-datetimepicker';
 @import "fullscreenslider";
 @import "lightbox";
 @import "galleryImageGrid";
@@ -142,9 +139,7 @@ Custom Styles for Devise module
 Maps styling chapter
 */
 
-#map {
-  height: 80vh;
-}
+
 
 /*
 Custom Input Group used mainly for properly displaying calendar icon in the Edit Metada form

@@ -15,7 +15,7 @@
 <!-- Display in between two lines author of the article and the date of publishing -->
   <div class="row postData align-items-center ml-4 mr-4">
     <div class = "col-12">
-      <p><i class="fa fa-pencil"></i> <%= @post.Post_Author %>  &nbsp;|&nbsp;  <i class="fa fa-calendar"></i> <%= local_time(@post.created_at, '%d %B %Y, %A %H:%M') %></p>
+      <p><i class="fa fa-pencil"></i> <%= @post.Post_Author %>  &nbsp;|&nbsp;  <i class="fa fa-calendar"></i><%= local_time(@post.created_at, '%d %B %Y, %A %H:%M') %></p>
     </div>
   </div>
 

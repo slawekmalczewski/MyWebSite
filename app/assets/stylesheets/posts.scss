@@ -313,12 +313,13 @@
   align-content: center;
   align-items: center;
   width: 100%;
+  background-color: #f9f7e2;
 }
 
 .article-data-content {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   width: 600px;
   max-width: 600px;
@@ -326,6 +327,7 @@
   padding: 10px;
   text-align: right;
 }
+
 
 
 .attachment-container-flex {
@@ -416,4 +418,18 @@
     margin-bottom: 0.75rem;
     font-style: italic;
   }
+}
+
+@media(max-width: 480px) {
+  .article-container-flex {
+    padding: 0 25px;
+  }
+  .article-container-flex article {
+    font-size: 0.75rem;
+  }
+
+  .article-data .article-data-content {
+    font-size: 0.6rem;
+  }
+
 }

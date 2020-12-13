@@ -2,24 +2,17 @@
 
 <%= render 'shared/photomap_headers' %>
 <% title "Photomap |" %>
-<div id="page-content-wrapper">
-  <div class="container-fluid">
 
-    <div class="row">
-      <div class="col-md-1">
-
-      </div>
-
-      <div class="col-md-10">
-        <%= tag.div nil, id: 'map', data: { photomarkers: @photomarkers.to_json(methods: [:address, :get_image_link])} %>
-      </div>
-
-    </div>
-
+<section id="photomap">
+  <div class="photomap-container">
+    <%= tag.div nil, id: 'map', data: { photomarkers: @photomarkers.to_json(methods: [:address, :get_image_link])} %>
   </div>
 
+</section>
 
-</div>
+
+
+
 
 <!-- Close Administration nav -->
 </div>

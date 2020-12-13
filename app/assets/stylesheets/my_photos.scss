@@ -7,3 +7,25 @@
   -moz-box-shadow: 9px 9px 14px 1px rgba(0,0,0,0.43);
   box-shadow: 9px 9px 14px 1px rgba(0,0,0,0.43);
 }
+
+#map {
+  height: 100vh;
+}
+
+#photomap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+}
+
+.photomap-container {
+  margin: 0 0 0 0;
+}
+
+@media(max-width: 480px) {
+  .photomap-container {
+    margin: 50px 0 0 0;
+  }
+
+}
