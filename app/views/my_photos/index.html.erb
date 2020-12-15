@@ -40,7 +40,11 @@
 
       <% @myPhotography.each do |p| %>
       <tr>
-        <td class="text-center h3 align-middle"><%= displayThumbnail(p.myPhotograph) %></td>
+        <td class="text-center h3 align-middle">
+
+            <%= image_tag(p.myPhotograph, :width => 100) %>
+
+        </td>
         <td class="text-center h3 align-middle"><%= p.myPhotoPosition %></td>
         <td class="text-center h3 align-middle"><%= p.myPhotoTitle %></td>
         <td class="text-center h3 align-middle"><%= iconStatus(p.myPhotoVisibility) %></td>
