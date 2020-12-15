@@ -41,9 +41,7 @@
       <% @myPhotography.each do |p| %>
       <tr>
         <td class="text-center h3 align-middle">
-
-            <%= image_tag(p.myPhotograph, :width => 100) %>
-
+          <%= image_tag(p.myPhotograph.variant(resize_to_fill: [150,100])) if p.myPhotograph.attached? %>
         </td>
         <td class="text-center h3 align-middle"><%= p.myPhotoPosition %></td>
         <td class="text-center h3 align-middle"><%= p.myPhotoTitle %></td>
