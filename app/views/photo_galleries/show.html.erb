@@ -3,19 +3,19 @@
 <div id="page-content-wrapper">
   <div class="container-fluid">
 
-    <div class="container pt-2">
+    <div class="container-gallery">
       <div class="row justify-content-center align-items-center">
-        <div class="col text-center">
-          <h1 class="display-1"><%= @gallery.gallerytitle %></h1>
+        <div class="col text-center mb-2">
+          <h2 class="gallery-title"><%= @gallery.gallerytitle %></h2>
         </div>
       </div>
         <hr class="separationLine1">
-      <div class="row justify-content-center mt-4 mb-2">
+      <div class="row justify-content-center mt-4 mb-1">
         <div class="col text-center">
           <p class="gallery-desc"><%= @gallery.galleryDescription %></p>
         </div>
       </div>
-      <hr class="separationLine1 mb-5">
+      <hr class="separationLine1 mt-1 mb-3">
 
 
     <% sort_gallery_by_photo_position(@gallery.myPhotos.published).each_slice(3) do |row| %>

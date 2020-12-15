@@ -1,8 +1,28 @@
 // Place all the styles related to the photo_galleries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.container-gallery {
+  margin-top: 1rem;
+
+}
 
 .gallery-desc {
-  font-size: 1.75rem;
-  font-weight:300;
+  font-size: 1rem;
+  font-weight:normal;
+}
+
+@media only screen and (max-width: 480px){
+
+  .container-gallery {
+    margin-top: 2rem;
+
+  }
+
+  .gallery-title {
+    font-size: 1.5rem;
+  }
+  .gallery-desc {
+    font-size: 0.85rem;
+    line-height: 1.25rem;
+  }
 }
