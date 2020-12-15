@@ -45,7 +45,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = Comment.new(post_id: params[:post_id])
     # @comment = @post.comments.find(params[:id])
-    if @post.update_attributes(required_parameters)
+    if @post.update(required_parameters)
       flash[:alert] = "Post sucessfully updated"
       redirect_to post_path(@post)
     else

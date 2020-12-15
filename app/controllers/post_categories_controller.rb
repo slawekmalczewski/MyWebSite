@@ -28,7 +28,7 @@ class PostCategoriesController < ApplicationController
 
   def update
     @post_category = PostCategory.find(params[:id])
-    if @post_category.update_attributes(required_parameters)
+    if @post_category.update(required_parameters)
       flash[:alert] = "Post Category sucessfully updated"
       redirect_to(:action => 'show', :id => @post_category.id)
     else

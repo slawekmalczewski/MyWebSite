@@ -40,7 +40,7 @@ class MyPhotosController < ApplicationController
 
   def update
     @myPhotography = MyPhoto.find(params[:id])
-    if @myPhotography.update_attributes(required_parameters)
+    if @myPhotography.update(required_parameters)
       flash[:alert] = "Photograph's information sucessfully updated"
       redirect_to(:action => 'show', :id => @myPhotography.id)
     else
@@ -86,7 +86,7 @@ class MyPhotosController < ApplicationController
     original_date = MyPhoto.last.myPhotograph.blob.metadata.fetch(:original_date,nil)
 
     #update the table with the photo metadata
-    MyPhoto.last.update_attributes(
+    MyPhoto.last.update(
       :latitude => lat,
       :latitude_reference => lat_ref,
       :longitude => lon,
@@ -120,7 +120,7 @@ class MyPhotosController < ApplicationController
     iso = MyPhoto.find(params[:id]).myPhotograph.blob.metadata.fetch(:ISO,nil)
     original_date = MyPhoto.find(params[:id]).myPhotograph.blob.metadata.fetch(:original_date,nil)
 
-    @currentPhoto.update_attributes(
+    @currentPhoto.update(
       :latitude => lat,
       :latitude_reference => lat_ref,
       :longitude => lon,

@@ -26,7 +26,7 @@ class AdministratorsController < ApplicationController
   def subscription_on_off
     # render layout: 'application'
     @user = current_user
-    @user.update_attributes(:subscription => !@user.subscription)
+    @user.update(:subscription => !@user.subscription)
     redirect_to request.referrer
     flash[:alert] = "Subscription status has been changed"
   end

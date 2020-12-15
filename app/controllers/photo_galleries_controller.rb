@@ -37,7 +37,7 @@ class PhotoGalleriesController < ApplicationController
 
   def update
     @gallery = PhotoGallery.find(params[:id])
-    if @gallery.update_attributes(required_parameters)
+    if @gallery.update(required_parameters)
       flash[:alert] = "Photo Gallery sucessfully updated"
       redirect_to(:controller => 'photo_galleries', :action => 'admin_gallery_index')
     else

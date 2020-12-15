@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    if @user.update_attributes(required_parameters)
+    if @user.update(required_parameters)
       flash[:alert] = "User's details sucessfully updated"
       redirect_to(:action => 'show', :id => @user.id)
     else
