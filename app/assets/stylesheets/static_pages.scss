@@ -3,19 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 /* Pen-specific styles */
 /* Pen-specific styles */
-.aboutMeCover {
-    height: 100%;
-    // overflow-y: hidden;
-    overflow-x: hidden;
-    background: url(aboutMe/meRome.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-  }
+.about {
+  height: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 
-.semiTransparent {
-  background: rgba(255, 255, 255, 0.7) !important;
 }
 
 .background_video {
@@ -27,39 +23,103 @@
   z-index: -2;
 }
 
-// Styles for about_me card
-.container-fluid {
-  max-width: 900px;
+
+.container-about {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  overflow-y: hidden;
 }
 
-.card-img-top {
-  object-fit: cover;
+.card-about {
+  max-height: 650px;
+  background-color: white;
+  border-radius: 8px;
+  max-width:550px;
+  margin-top: 4rem;
+  margin-left: 25%;
 }
 
-@media only screen and (max-height: 670px){
-  .card-img-top{
-    max-height: 20vh;
-  }
+.card-body {
+
 }
 
-.avatar {
-  border: 0.3rem solid rgba(#fff, 0.3);
-  margin-top: -6rem;
-  margin-bottom: 1rem;
-  max-width: 9rem;
-}
-
-.about_me_card-text {
-  font-size: 1.40rem;
-  margin-top: 12px;
+.card-about-content {
+  padding: 0.5rem;
 }
 
 .about_me_card-title {
-  font-size: 1.60rem;
-  font-weight: bold;;
+  font-size: 1.25rem;
+  font-weight: bold;
 }
 
 .about_me_card-subtitle {
-  font-size: 1.45rem;
-  font-weight:bolder;
+  font-size: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.about_me_card-text {
+  text-align: left;
+  font-size: 0.85rem;
+}
+
+.about-header-image {
+  width: 100%;
+  height: 250px;
+  background: url("aboutMe/about_me_header_img.jpg") no-repeat center center/cover;
+  position: relative;
+}
+
+.about-header-image::before {
+  content: '';
+  position:absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.avatar {
+  position: relative;
+  border: 0.3rem solid rgba(#fff, 0.3);
+  margin-top: -6rem;
+  max-width: 9rem;
+}
+
+@media only screen and (max-width: 480px){
+  .card-about {
+    //max-height: 600px;;
+    border-radius: 8px;
+    width: 320px;
+    margin-top: 4rem;
+    margin-left: 0;
+  }
+
+  .about-header-image {
+    width: 100%;
+    height: 150px;
+    background: url("aboutMe/about_me_header_img.jpg") no-repeat center center/cover;
+    position: relative;
+  }
+
+  .about_me_card-title {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+
+  .about_me_card-text {
+    font-size: 0.8rem;
+  }
+
+  .card-about-content {
+    padding: 0;
+  }
+
+  .avatar {
+    position: relative;
+    border: 0.3rem solid rgba(#fff, 0.3);
+    margin-top: -5rem;
+    max-width: 6rem;
+  }
 }
