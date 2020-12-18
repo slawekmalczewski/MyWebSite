@@ -3,15 +3,18 @@
 <div class="overall-container">
 
   <header class="article-showcase">
-    <div class="article-showcase-container">
-      <%= image_tag(Post.newest.first.postHeaderPhoto, :class=>"article-header-img") %>
-      <div class="article-showcase-data">
-        <div class="pill-category photography-category">NEW / <%= Post.newest.first.post_category.postcategoryname %></div>
-        <h4><%= Post.newest.first.Post_Title %></h4>
-        <p><%= post_preview(Post.newest.first.Post_Body) %></p>
-        <%= link_to 'Read <i class="glyphicon glyphicon-chevron-right"></i><i class="glyphicon glyphicon-chevron-right"></i>'.html_safe, {:controller => 'posts', :action => 'show', :id => Post.newest.first.id}, :class => "article-button" %>
+      <div class="article-header-img">
+          <%= image_tag(Post.newest.first.postHeaderPhoto) %>
       </div>
-    </div>
+      <div class="article-showcase-data">
+        <div class="article-data-box">
+          <div class="pill-category photography-category">NEW / <%= Post.newest.first.post_category.postcategoryname %></div>
+          <h4><%= Post.newest.first.Post_Title %></h4>
+          <p><%= post_preview(Post.newest.first.Post_Body) %></p>
+          <%= link_to 'Read <i class="glyphicon glyphicon-chevron-right"></i><i class="glyphicon glyphicon-chevron-right"></i>'.html_safe, {:controller => 'posts', :action => 'show', :id => Post.newest.first.id}, :class => "article-button" %>
+        </div>
+      </div>
+
   </header>
 
 

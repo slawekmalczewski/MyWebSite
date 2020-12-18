@@ -39,9 +39,10 @@ applied to thie particular site
             </div>
 
             <div class="item">
-              <div class="">
+              <div class="item-centered">
                 <%= image_tag(MyPhoto.get_latest_photo_uploaded_and_published.myPhotograph, class: "carousel-image") %>
               </div>
+
               <div class="carousel-caption">
                 <h3 class="slideimagetitle"><%= MyPhoto.get_latest_photo_uploaded_and_published.myPhotoTitle %> <sup><span class="badge badge-pill badge-danger">New Photo</span></sup></h3>
                 <h5 class="slideimagedesc"><%= MyPhoto.get_latest_photo_uploaded_and_published.photo_gallery.gallerytitle %></h5>
@@ -50,11 +51,11 @@ applied to thie particular site
             </div>
 
             <div class="item">
-              <div class="">
+              <div class="item-centered">
               <%= image_tag(@latestgallery.last.galleryImageHeader, class: "carousel-image") %>
               </div>
               <div class="carousel-caption">
-                <h3 style="slideimagetitle"><%= @latestgallery.last.gallerytitle %><sup><span class="badge badge-pill badge-danger">New</span></sup></h3>
+                <h3 style="slideimagetitle"><%= @latestgallery.last.gallerytitle %><sup><span class="badge badge-pill badge-danger">New Gallery</span></sup></h3>
                 <h5 class="slideimagedesc">
                   <%= first_sentence(@latestgallery.last.galleryDescription) %>
                 </h5>
