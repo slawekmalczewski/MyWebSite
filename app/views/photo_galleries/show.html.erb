@@ -5,11 +5,11 @@
   <div class="header-container">
     <header class="gallery-header">
       <h2><%= @gallery.gallerytitle %></h2>
-      <p class="gallery-desc"><hr class="separationLine1"><%= @gallery.galleryDescription %><hr class="separationLine1"></p>
+      <p class="gallery-desc"><%= @gallery.galleryDescription %></p>
     </header>
   </div>
 
-  <div  class="gallery-display-container">
+  <div class="gallery-display-container">
     <section class="gallery-display">
       <% sort_gallery_by_photo_position(@gallery.myPhotos.published).each do |photo| %>
       <div class="overlay-container" data-overlay-text="<%= photo.myPhotoTitle %>">
@@ -20,6 +20,7 @@
   </div>
 
 </div>
+
 
 <script>
     lightbox.option({
