@@ -1,39 +1,25 @@
 <% title "Gallery | "+@gallery.gallerytitle %>
 
-<div id="page-content-wrapper">
-  <div class="container-fluid">
+<div class="page-container">
 
-    <div class="container-gallery">
-      <div class="row justify-content-center align-items-center">
-        <div class="col text-center mb-2">
-          <h2 class="gallery-title"><%= @gallery.gallerytitle %></h2>
-        </div>
-      </div>
-        <hr class="separationLine1">
-      <div class="row justify-content-center mt-4 mb-1">
-        <div class="col text-center">
-          <p class="gallery-desc"><%= @gallery.galleryDescription %></p>
-        </div>
-      </div>
-      <hr class="separationLine1 mt-1 mb-3">
-
-
-    <% sort_gallery_by_photo_position(@gallery.myPhotos.published).each_slice(3) do |row| %>
-      <div class ="row justify-content-center">
-        <% row.each do |photo| %>
-        <div class="col-md-3 p-2 m-3">
-          <div class="overlay-container d-flex justify-content-center m-auto" data-overlay-text="<%= photo.myPhotoTitle %>">
-            <%= link_to image_tag(photo.myPhotograph, :class => "img-responsive overlay-img"), photo.myPhotograph, data: {lightbox: 'roadtrip', title: photo.myPhotoTitle+photo.myPhotoDescription}%>
-          </div>
-        </div>
-        <% end %>
-      </div>
-    <% end %>
-
-    </div>
+  <div class="header-container">
+    <header class="gallery-header">
+      <h2><%= @gallery.gallerytitle %></h2>
+      <p class="gallery-desc"><hr class="separationLine1"><%= @gallery.galleryDescription %><hr class="separationLine1"></p>
+    </header>
   </div>
-</div>
 
+  <div  class="gallery-display-container">
+    <section class="gallery-display">
+      <% sort_gallery_by_photo_position(@gallery.myPhotos.published).each do |photo| %>
+      <div class="overlay-container" data-overlay-text="<%= photo.myPhotoTitle %>">
+        <%= link_to image_tag(photo.myPhotograph, :class => "image-inside overlay-img"), photo.myPhotograph, data: {lightbox: 'roadtrip', title: photo.myPhotoTitle+photo.myPhotoDescription}%>
+      </div>
+      <% end %>
+    </section>
+  </div>
+
+</div>
 
 <script>
     lightbox.option({

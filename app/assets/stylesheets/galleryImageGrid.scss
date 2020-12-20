@@ -3,7 +3,10 @@
   // }
 
   .overlay-container {
-    max-width: 300px;
+    //min-width: 200px;
+    //min-height: 200px;
+    width: 300px;
+    height: 300px;
     overflow: hidden;
     display: block;
     position: relative;
@@ -59,5 +62,11 @@
       -o-transform: scale(1.2);
       -webkit-transform: scale(1.2);
       transform: scale(1.2);
+    }
+
+    .image-inside {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
