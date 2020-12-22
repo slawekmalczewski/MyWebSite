@@ -1,18 +1,17 @@
 <% title "Image Summary |" %>
 
-<div id="page-content-wrapper">
-  <div class="container-fluid" data-turbolinks="false">
 
-    <div class="card mx-auto">
-      <div class="card-header">
-        <h1 class="display-4 text-center"><%= @myPhotography.myPhotoTitle %></h1>
-      </div>
-
-      <div class="row p-5">
-        <div class="col md-6 hidden-xs">
-          <%= image_tag(@myPhotography.myPhotograph, width: "100%") %>
+  <div class="page-container" data-turbolinks="false">
+    <div class="content-container">
+      <div class="file-card">
+        <div class="file-card-header">
+          <h3><%= @myPhotography.myPhotoTitle %></h3>
         </div>
-        <div class="col md-6">
+        <div class="file-card-image-preview">
+          <%= image_tag(@myPhotography.myPhotograph.variant(resize_to_limit: [200, 200]), :class => "image_preview") %>
+        </div>
+
+        <div class="file-card-details-table">
           <table class="table table-striped">
             <tbody>
               <tr>
@@ -71,21 +70,29 @@
                 <td>Original Date & Time</td>
                 <td><%= @myPhotography.original_date_time %></td>
               </tr>
-              <tr>
-                <td>
-                  <%= link_to("Delete", {:controller => 'my_photos', :action => 'delete', :id => @myPhotography.id}, :class => "btn btn-lg btn-danger btn-block") %>
-                  <%= link_to("Edit", {:controller => 'my_photos', :action => 'edit', :id => @myPhotography.id}, :class => "btn btn-lg btn-warning btn-block") %>
-                </td>
-                <td>
-                  <%= link_to("OK", {:controller => 'my_photos', :action => 'index', :id => @myPhotography.photo_gallery_id}, :class => "btn btn-success btn-lg btn-block") %>
-                </td>
-              </tr>
             </tbody>
           </table>
+          <div class="file-card-buttons">
+            <div>
+              <%= link_to("Delete", {:controller => 'my_photos', :action => 'delete', :id => @myPhotography.id}, :class => "btn btn-danger btn-block") %>
+            </div>
+            <div>
+              <%= link_to("Edit", {:controller => 'my_photos', :action => 'edit', :id => @myPhotography.id}, :class => "btn btn-warning btn-block") %>        
+            </div>
+            <div>
+              <%= link_to("OK", {:controller => 'my_photos', :action => 'index', :id => @myPhotography.photo_gallery_id}, :class => "btn btn-success btn-block") %>
+            </div>
+          </div>
+
+
+
         </div>
-      </div>
+
 
       </div>
+
+    </div>
+
+
 
   </div>
-</div>

@@ -135,4 +135,9 @@ module AdministratorsHelper
     end
   end
 
+  # Users data functions
+  def number_of_users
+    User.count
+  end
+
 end
