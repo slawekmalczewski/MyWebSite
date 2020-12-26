@@ -6,7 +6,7 @@ class PhotoGalleriesController < ApplicationController
   access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :delete, :confirm_deletion]}, site_admin: :all
 
   def index
-    @gallery = PhotoGallery.where(:galleryVisibility => true).paginate(:page => params[:page], :per_page => 6).order('photo_galleries.galleryPosition')
+    @gallery = PhotoGallery.where(:galleryVisibility => true).order('galleryPosition asc').paginate(:page => params[:page], :per_page => 6)
     @numberOfImages = PhotoGallery.count
   end
 
