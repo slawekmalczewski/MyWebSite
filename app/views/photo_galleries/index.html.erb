@@ -1,41 +1,40 @@
 <% title "My Galleries |" %>
 
 
-<section class="flex-container" data-turbolinks="false">
+<section class="gallery-index-container" data-turbolinks="false">
+
   <% @gallery.each do |g| %>
-
-        <div class="card">
-          <div class="datecircle">
-            <p>
-            <%= g.created_at.day %><br/>
-            <%= g.created_at.strftime('%b') %>
-            </p>
-          </div>
-          <div class="img-card">
-            <%= image_tag(g.galleryImageHeader, :class=>"img-responsive") %>
-            <div class="category text-center">
-              <%= g.country %>
-            </div>
-          </div>
-
-          <br/>
-          <div class="card-content">
-            <h5>
-              <%= g.gallerytitle%>
-            </h5>
-            <p>
-              <%= first_sentence(g.galleryDescription) %>
-            </p>
-          </div>
-          <div class="card-read-more" data-turbolinks="false">
-              <i class="glyphicon glyphicon-picture"></i> <%= g.myPhotos.count %> photographs <br/>
-              <i class="fa fa-pencil"></i> <%= g.galleryAuthor %>
-              <br/>
-              <i class="fa fa-calendar"></i> <%= local_time(g.created_at, '%d %B %Y, %A @ %H:%M') %>
-          </div>
-            <%= link_to 'View <i class="glyphicon glyphicon-chevron-right"></i><i class="glyphicon glyphicon-chevron-right"></i>'.html_safe, {:controller => 'photo_galleries', :action => 'show', :id => g.slug}, :class => "btn-lnk" %>
+    <div class="card">
+      <div class="datecircle">
+        <p>
+          <%= g.created_at.day %><br/>
+          <%= g.created_at.strftime('%b') %>
+        </p>
+      </div>
+      <div class="img-card">
+        <%= image_tag(g.galleryImageHeader, :class=>"img-responsive") %>
+        <div class="category text-center">
+          <%= g.country %>
         </div>
+      </div>
 
+      <br/>
+      <div class="card-content">
+        <h5>
+          <%= g.gallerytitle%>
+        </h5>
+        <p>
+          <%= first_sentence(g.galleryDescription) %>
+        </p>
+      </div>
+      <div class="card-read-more" data-turbolinks="false">
+        <i class="glyphicon glyphicon-picture"></i> <%= g.myPhotos.count %> photographs <br/>
+        <i class="fa fa-pencil"></i> <%= g.galleryAuthor %>
+        <br/>
+        <i class="fa fa-calendar"></i> <%= local_time(g.created_at, '%d %B %Y, %A @ %H:%M') %>
+      </div>
+      <%= link_to 'View <i class="glyphicon glyphicon-chevron-right"></i><i class="glyphicon glyphicon-chevron-right"></i>'.html_safe, {:controller => 'photo_galleries', :action => 'show', :id => g.slug}, :class => "btn-lnk" %>
+    </div>
   <% end %>
 
 </section>
