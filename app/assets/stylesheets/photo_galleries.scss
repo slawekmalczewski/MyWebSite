@@ -70,11 +70,13 @@
 /* Small devices (up to 641px) */
 @media only screen and (max-width: 641px) {
   .gallery-index-container {
-    background-color: yellow;
-    margin: 2rem auto 2rem auto;
+    margin-top: 4rem !important;
     display: grid;
     grid-template-columns: 1fr !important;
     grid-template-rows: auto;
+    .card {
+      justify-self: center;
+    }
   }
 }
 
