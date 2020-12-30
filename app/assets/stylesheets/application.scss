@@ -26,12 +26,30 @@
 @import "galleryImageGrid";
 @import "gritter";
 
+// Global Variables
+
+$general-page-wrapper: 1200px;
+
+
+
+
+// Reset Default web browser styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+// Global Color Schema
+
+
 /*
 Typography Settings START
 */
-html, .root {
+html {
   font-size: 18px;
-  //line-height: 27px;
+  line-height: 27px;
 }
 
 body, .article {
@@ -90,8 +108,12 @@ ul ul, ol ol, ul ol, ol ul {
 Typography Settings END
 */
 
-
-
+// Utility
+.page-wrapper {
+  max-width: $general-page-wrapper;
+  margin: 2rem auto 5rem auto;
+  overflow: hidden;
+}
 
 
 

@@ -1,23 +1,20 @@
 <% title "Gallery | "+@gallery.gallerytitle %>
 
-<div class="page-container">
+<div class="page-wrapper">
 
-  <div class="header-container">
-    <header class="gallery-header">
+  <section class="gallery-content-container">
+    <div class="gallery-introduction">
       <h2><%= @gallery.gallerytitle %></h2>
       <p class="gallery-desc"><%= @gallery.galleryDescription %></p>
-    </header>
-  </div>
+    </div>
 
-  <div class="gallery-display-container">
-    <section class="gallery-display">
       <% sort_gallery_by_photo_position(@gallery.myPhotos.published).each do |photo| %>
       <div class="overlay-container" data-overlay-text="<%= photo.myPhotoTitle %>">
         <%= link_to image_tag(photo.myPhotograph, :class => "image-inside overlay-img"), photo.myPhotograph, data: {lightbox: 'roadtrip', title: photo.myPhotoTitle+photo.myPhotoDescription}%>
       </div>
       <% end %>
-    </section>
-  </div>
+
+  </section>
 
 </div>
 
