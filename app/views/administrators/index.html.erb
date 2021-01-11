@@ -1,15 +1,18 @@
 <div class="admin-panel-container">
 	<div class="admin-panel-grid-set">
 
-		<section class="sidebar-container" id="wrapper">
+		<section class="administration-menu bg-light border-right">
 		  <!-- Sidebar -->
-		  <div class="bg-light border-right" id="sidebar-wrapper" data-turbolinks="false">
-		    <div class="sidebar-heading"><%= link_to("Administration Panel", {:controller => 'administrators', :action => 'index'}) %></div>
+		  <div class="bg-light border-right" data-turbolinks="false">
+		    <div class="administration-menu-heading"><%= link_to("Administration Panel", {:controller => 'administrators', :action => 'index'}) %></div>
 		    <div class="list-group list-group-flush">
 		      <%= link_to("Manage Posts", {:controller => 'posts', :action => 'admin_post_index', :id => 'show'}, :class => "list-group-item list-group-item-action bg-light") %>
 		      <%= link_to("Manage Galleries", {:controller => 'photo_galleries', :action => 'admin_gallery_index'}, :class => "list-group-item list-group-item-action bg-light") %>
 		      <%= link_to("Manage Categories", {:controller => 'post_categories', :action => 'index'}, :class => "list-group-item list-group-item-action bg-light") %>
 		      <%= link_to("Manage Users", {:controller => 'users', :action => 'index'}, :class => "list-group-item list-group-item-action bg-light") %>
+					<%= link_to("Manage Artworks", {:controller => 'artworks', :action => 'index', :additional_param => 'display_all'}, :class => "list-group-item list-group-item-action bg-light") %>
+					<%= link_to("Manage Artwork Galleries", {:controller => 'artwork_galleries', :action => 'index'}, :class => "list-group-item list-group-item-action bg-light") %>
+					<%= link_to("Manage Skills", {:controller => 'skills', :action => 'index'}, :class => "list-group-item list-group-item-action bg-light") %>
 		    </div>
 		  </div>
 		  <!-- /#sidebar-wrapper -->
@@ -19,9 +22,6 @@
 		<div class="welcome-header">
 			<div class="welcome-header-content">
 				<h5>Welcome back <%= current_user.first_name %></h5>
-				<button class="btn btn-primary btn-sm btn-block" id="menu-toggle">
-					Toggle Menu
-				</button>
 			</div>
 		</div>
 

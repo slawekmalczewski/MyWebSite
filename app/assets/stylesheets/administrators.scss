@@ -5,13 +5,16 @@
 @import "gritter";
 
 .admin-panel-container {
-
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .admin-panel-grid-set {
   width: 100%;
   height: 100%;
   display: grid;
+  grid-template-columns: repeat(4, 1fr);
   grid-template-areas:
   "side-menu welcome-area circles-area circles-area"
   "side-menu draft-area draft-area users-area"
@@ -36,6 +39,7 @@
 // Circles Info START
 .circles-info {
   grid-area: circles-area;
+  width: 100%;
 }
 
 .circle-buttons {
@@ -65,7 +69,6 @@
 // Draft Card Styling START
 .draft-card {
   grid-area: draft-area;
-  max-width: 700px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: 5px;
@@ -104,8 +107,7 @@
 // Summary Tables START
 .post-summary {
   grid-area: post-summary-area;
-  width: 350px;
-  height: 400px;
+  height: 450px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -115,8 +117,6 @@
 
 .gallery-summary {
   grid-area: gallery-summary-area;
-  width: 350px;
-  height: 400px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -126,8 +126,6 @@
 
 .photo-summary {
   grid-area: photo-summary-area;
-  width: 350px;
-  height: 400px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -140,8 +138,7 @@
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: 5px;
-  width:80%;
-  height: 80%;
+  width:100%;
 }
 
 .summary-card:hover {
@@ -179,67 +176,41 @@
 }
 // Summary Tables END
 
-//SIDEBAR START
-.sidebar-container {
+//Administration MENU START
+
+.administration-menu {
   grid-area: side-menu;
-  background-color: green;
-}
-
-
-//SIDEBAR END
-
-// --------------------------------------------------------------
-
-
-#sidebar-wrapper {
   min-height: 100vh;
-  margin-left: 0;
-  -webkit-transition: margin .25s ease-out;
-  -moz-transition: margin .25s ease-out;
-  -o-transition: margin .25s ease-out;
-  transition: margin .25s ease-out;
-}
 
-#sidebar-wrapper .sidebar-heading {
-  padding: 0.875rem 1.2rem;
-  font-size: 1rem;
-  font-weight: bold;
-}
+  .administration-menu-heading {
+    padding: 0.875rem 1.2rem;
+    font-size: 1rem;
+    font-weight: bold;
 
-#sidebar-wrapper .list-group {
-  width: 15rem;
-  font-size: 1rem;
-  font-weight: bold;
-}
+    &:hover {
+      background-color: #dae0e5 !important;
+      color: #555;
+      text-decoration: none;
+    }
 
-#page-content-wrapper {
-  //min-width: 100vw;
-  //padding: 2em;
-  //margin-bottom: 250px;
-}
+    a {
+      color: #555;
+      text-decoration: none;
+    }
 
-#wrapper.toggled #sidebar-wrapper {
-  margin-left: -15rem;
+    a:hover {
+      background-color: #dae0e5 !important;
+      color: #555;
+      text-decoration: none;
+    }
+
+  }
 }
 
 
+//Administration MENU END
 
-.sidebar-heading a {
-  color: #555;
-  text-decoration: none;
-}
 
-.sidebar-heading a:hover {
-  background-color: #dae0e5 !important;
-  color: #555;
-  text-decoration: none;
-}
-
-.sidebar-heading:hover {
-  background-color: #dae0e5 !important;
-  color: #555;
-  text-decoration: none;
-}
 
 
 // Media Queries

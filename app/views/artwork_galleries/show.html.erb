@@ -1,0 +1,27 @@
+<% title "Artwork Gallery | "+@artworkgallery.artworkGalleryTitle %>
+
+<div class="page-wrapper">
+
+  <section class="gallery-content-container">
+    <div class="gallery-introduction">
+      <h2><%= @artworkgallery.artworkGalleryTitle %></h2>
+      <p class="gallery-desc"><%= @artworkgallery.artworkGalleryDescription %></p>
+    </div>
+
+      <% @artworkgallery.artworks.each do |art| %>
+      <div class="overlay-container" data-overlay-text="<%= art.artworkTitle %>">
+        <%= link_to image_tag(art.artworkPiece, :class => "image-inside overlay-img"), art.artworkPiece, data: {lightbox: 'roadtrip', title: art.artworkTitle+art.artworkDescription}%>
+      </div>
+      <% end %>
+  </section>
+
+</div>
+
+
+<script>
+    lightbox.option({
+      'resizeDuration': 200,
+      'wrapAround': true,
+      'fitImagesInViewport': true
+    })
+</script>

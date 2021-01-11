@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  artworkTitle: MyString
+  artworkDescription: MyText
+  artworkGalleryId: 1
+  artworkCreationDate: 2021-01-02
+
+two:
+  artworkTitle: MyString
+  artworkDescription: MyText
+  artworkGalleryId: 1
+  artworkCreationDate: 2021-01-02

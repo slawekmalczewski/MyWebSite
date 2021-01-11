@@ -8,7 +8,7 @@
       </div>
       <div class="article-showcase-data">
         <div class="article-data-box">
-          <div class="pill-category photography-category">NEW / <%= Post.newest.first.post_category.postcategoryname %></div>
+          <div class="pill-category" style="background-color: <%= Post.newest.first.post_category.colour %>">NEW / <%= Post.newest.first.post_category.postcategoryname %></div>
           <h4><%= Post.newest.first.Post_Title %></h4>
           <p><%= post_preview(Post.newest.first.Post_Body) %></p>
           <%= link_to 'Read <i class="glyphicon glyphicon-chevron-right"></i><i class="glyphicon glyphicon-chevron-right"></i>'.html_safe, {:controller => 'posts', :action => 'show', :id => Post.newest.first.id}, :class => "article-button" %>
@@ -34,7 +34,7 @@
           <div><%= image_tag(p.postHeaderPhoto, :class => "article-card-image") %></div>
           <div class="card-text-content">
             <div>
-              <div class="pill-category photography-category"><%= p.post_category.postcategoryname %></div>
+              <div class="pill-category" style="background-color: <%= p.post_category.colour %>"><%= p.post_category.postcategoryname %></div>
               <h3>
                 <%= post_title_short(p.Post_Title) %>
               </h3>
@@ -51,7 +51,7 @@
       <!-- TYPE 2 Card -->
       <article class="article-card-2 article-card-bg-<%=rand(1..4)%>">
         <div>
-          <div class="pill-category photography-category"><%= p.post_category.postcategoryname %></div>
+          <div class="pill-category" style="background-color: <%= p.post_category.colour %>"><%= p.post_category.postcategoryname %></div>
           <h3>
             <%= post_title_short(p.Post_Title) %>
           </h3>
@@ -68,7 +68,7 @@
       <!-- TYPE 2 Card -->
       <article class="article-card-2 article-card-bg-<%=rand(1..4)%>">
         <div>
-          <div class="pill-category photography-category"><%= p.post_category.postcategoryname %></div>
+          <div class="pill-category" style="background-color: <%= p.post_category.colour %>"><%= p.post_category.postcategoryname %></div>
           <h3>
             <%= post_title_short(p.Post_Title) %>
           </h3>
@@ -85,7 +85,7 @@
       <!-- TYPE 2 Card -->
       <article class="article-card-2 article-card-bg-<%=rand(1..4)%>">
         <div>
-          <div class="pill-category photography-category"><%= p.post_category.postcategoryname %></div>
+          <div class="pill-category" style="background-color: <%= p.post_category.colour %>"><%= p.post_category.postcategoryname %></div>
           <h3>
             <%= post_title_short(p.Post_Title) %>
           </h3>
@@ -101,7 +101,7 @@
       <!-- TYPE 2 Card -->
       <article class="article-card-2 article-card-bg-<%=rand(1..4)%>">
         <div>
-          <div class="pill-category photography-category"><%= p.post_category.postcategoryname %></div>
+          <div class="pill-category" style="background-color: <%= p.post_category.colour %>"><%= p.post_category.postcategoryname %></div>
           <h3>
             <%= post_title_short(p.Post_Title) %>
           </h3>
@@ -118,7 +118,7 @@
       <article class="article-card-1-reverse">
         <div class="card-text-content">
           <div>
-            <div class="pill-category photography-category"><%= p.post_category.postcategoryname %></div>
+            <div class="pill-category" style="background-color: <%= p.post_category.colour %>"><%= p.post_category.postcategoryname %></div>
             <h3>
               <%= post_title_short(p.Post_Title) %>
             </h3>
@@ -137,7 +137,7 @@
       <article class="article-card-1">
           <div><%= image_tag(p.postHeaderPhoto, :class => "article-card-image") %></div>
           <div>
-            <div class="pill-category photography-category"><%= p.post_category.postcategoryname %></div>
+            <div class="pill-category" style="background-color: <%= p.post_category.colour %>"><%= p.post_category.postcategoryname %></div>
             <h3>
               <%= post_title_short(p.Post_Title) %>
             </h3>
@@ -152,7 +152,7 @@
       <article class="article-card-1">
           <div><%= image_tag(p.postHeaderPhoto, :class => "article-card-image") %></div>
           <div>
-            <div class="pill-category photography-category"><%= p.post_category.postcategoryname %></div>
+            <div class="pill-category" style="background-color: <%= p.post_category.colour %>"><%= p.post_category.postcategoryname %></div>
             <h3>
               <%= post_title_short(p.Post_Title) %>
             </h3>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_13_225434) do
+ActiveRecord::Schema.define(version: 2021_01_07_214551) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -38,6 +38,24 @@ ActiveRecord::Schema.define(version: 2020_12_13_225434) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "artwork_galleries", force: :cascade do |t|
+    t.string "artworkGalleryTitle"
+    t.text "artworkGalleryDescription"
+    t.integer "artworkGalleryPosition"
+    t.boolean "artworkGalleryVisibility"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "artworks", force: :cascade do |t|
+    t.string "artworkTitle"
+    t.text "artworkDescription"
+    t.integer "artwork_gallery_id"
+    t.date "artworkCreationDate"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -106,6 +124,7 @@ ActiveRecord::Schema.define(version: 2020_12_13_225434) do
     t.text "PostCategory_Description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "colour"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -118,6 +137,13 @@ ActiveRecord::Schema.define(version: 2020_12_13_225434) do
     t.datetime "updated_at", null: false
     t.string "slug"
     t.index ["slug"], name: "index_posts_on_slug", unique: true
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.string "skillName"
+    t.integer "skillKnowledge"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
