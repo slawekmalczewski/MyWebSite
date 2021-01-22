@@ -22,21 +22,22 @@
 		<div class="welcome-header">
 			<div class="welcome-header-content">
 				<h5>Welcome back <%= current_user.first_name %></h5>
+				<p class="small">Last Visited: <%= current_user.last_sign_in_at %></p>
 			</div>
 		</div>
 
 		<div class="circles-info">
 			<div class="circle-buttons">
-				<button type="button" class="btn btn-success btn-circle btn-xl"><%= number_of_posts %>
+				<button type="button" class="btn-success btn-circle"><%= number_of_posts %>
 				<br/><p>Posts</p>
 				</button>
-				<button type="button" class="btn btn-warning btn-circle btn-xl"><%= number_of_galleries %>
+				<button type="button" class="btn-warning btn-circle"><%= number_of_galleries %>
 				<br/><p>Galleries</p>
 				</button>
-				<button type="button" class="btn btn-primary btn-circle btn-xl"><%= number_of_photographs %>
+				<button type="button" class="btn-primary btn-circle"><%= number_of_photographs %>
 				<br/><p>Photos</p>
 				</button>
-				<button type="button" class="btn btn-info btn-circle btn-xl"><%= number_of_users %>
+				<button type="button" class="btn-info btn-circle"><%= number_of_users %>
 				<br/><p>Users</p>
 				</button>
 			</div>

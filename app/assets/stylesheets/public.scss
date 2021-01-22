@@ -6,7 +6,7 @@
 // Styling for PORTFOLIO PAGE
 .portfolio-page-wrapper {
   max-width: 1200px;
-  background-color: pink;
+  //background-color: pink;
   margin-left: auto;
   margin-right: auto;
 }
@@ -98,7 +98,7 @@
 
 .item-a {
   grid-area: skills-area;
-  background-color: green;
+  //background-color: green;
   height: 100vh;
   min-width: 300px;
   padding: 20px;
@@ -107,13 +107,13 @@
 
 .item-b {
   grid-area: my-introduction;
-  background-color: blue;
+  //background-color: blue;
   padding: 20px;
 }
 
 .item-c {
   grid-area: artwork-galleries;
-  background-color: yellow;
+  //background-color: yellow;
 
 
 
@@ -147,4 +147,67 @@
     text-align: center;
     background-color: red;
   }
+}
+
+
+// Media Queries
+
+/* Small devices (up to 576px) */
+@media only screen and (max-width: 576px) {
+  .portfolio-page-wrapper {
+    max-width: 330px;
+    //background-color: pink;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .portfolio-page-layout {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-areas:
+    "my-introduction"
+    "artwork-galleries"
+    "artwork-galleries";
+  }
+
+  .item-b {
+    grid-area: my-introduction;
+    //background-color: blue;
+    padding: 20px;
+  }
+
+  .item-c {
+    grid-area: artwork-galleries;
+    //background-color: yellow;
+
+    .portfolio-artwork-galleries-container {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-row-gap: 20px;
+
+      .portfolio-card {
+        place-self: center;
+      }
+
+    }
+  }
+
+}
+
+
+/* Medium devices (between 577px and 768px) */
+@media only screen and (min-width: 577px) and (max-width: 768px) {
+
+}
+
+
+/* Large devices (between 769px and 992px) */
+@media only screen and (min-width: 769px) and (max-width: 1199px) {
+
+}
+
+/* X-Large devices (min width 1200px) */
+@media only screen and (min-width: 1200px) {
+
 }
