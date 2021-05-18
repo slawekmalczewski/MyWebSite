@@ -11,7 +11,7 @@ gem 'rails', '~> 6.0'
 gem 'sqlite3', group: :development # Added development group.
 gem 'pg', group: :production # Added postgres and made it production only.
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 4.3'
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 
