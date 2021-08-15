@@ -57,7 +57,7 @@
 .btn-circle {
     width: 5rem;
     height: 5rem;
-    margin: 1rem 1rem 1rem 1rem;
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
     border-radius: 50%;
     border: 1px solid rgba(0, 0, 0, 0.07);
     p {
@@ -103,7 +103,7 @@
 
 .draft-card-container-button {
   text-align: right;
-  margin-right: 15px;
+  margin: 0 15px 15px 0;
 }
 
 // Draft Card Styling END
@@ -117,6 +117,7 @@
   justify-content: center;
   align-content: center;
   align-items: center;
+  margin: 0 10px 0 0;
 }
 
 .gallery-summary {
@@ -126,6 +127,7 @@
   justify-content: center;
   align-content: center;
   align-items: center;
+  margin: 0 10px 0 0;
 }
 
 .photo-summary {
@@ -135,6 +137,7 @@
   justify-content: center;
   align-content: center;
   align-items: center;
+  margin: 0 10px 0 0;
 }
 
   // Summary Card Styling START
@@ -241,8 +244,9 @@
 
     .administration-menu-heading {
       padding: 0.6rem 0.8rem;
-      font-size: 0.4rem;
+      font-size: 0.6rem;
       font-weight: bold;
+      text-align: left;
 
       &:hover {
         background-color: #dae0e5 !important;
@@ -263,6 +267,4 @@
 
     }
   }
-
-
 }

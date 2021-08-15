@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   end
 
   def admin_post_index
-    @post = Post.paginate(:page => params[:page], :per_page => 8)
+    @post = Post.paginate(:page => params[:page], :per_page => 8).order('created_at DESC')
     @comments = Comment.all
   end
 

@@ -6,6 +6,10 @@ class PhotoGallery < ApplicationRecord
   has_many :myPhotos, :dependent => :destroy
   has_one_attached :galleryImageHeader
 
+  def createGalleryImageHeaderThumbnail
+    return self.galleryImageHeader.variant(resize: '350X350')
+  end
+
   scope :published, lambda{where(:galleryVisibility => true)}
 
   after_commit :add_default_galleryImageHeader, on: [:create, :update]

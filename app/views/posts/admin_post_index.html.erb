@@ -1,28 +1,21 @@
 <% title "Posts" %>
 
-  <div id="page-content-wrapper">
-    <div class="conatiner-fluid">
-      <div class="row">
-          <div class="col col-md-6 mb-5">
-            <h1 class="display-3">Posts | <span class="label label-info"><%= @post.size %></span></h1>
-          </div>
-      </div>
-      <div class="row">
-        <div class="col col-sm-3 col-md-4 col-lg-2 mb-2">
-          <button class="btn btn-primary btn-lg btn-block" id="menu-toggle">
-            Toggle Menu
-          </button>
-        </div>
-        <div class="col2 col-sm-3 col-md-4 col-lg-2 mb-2">
-          <%= link_to("Back", {:controller => "administrators", :action => 'index'}, :class => "btn btn-warning btn-lg btn-block") %>
-        </div>
-        <div class="col col-sm-3 col-md-4 col-lg-2 mb-2">
-          <%= link_to("Add new Post", {:action => 'new'}, :class => "btn btn-success btn-lg btn-block") %>
-        </div>
-      </div>
+<div class="admin-post-panel-container">
 
-      <div class="table-responsive">
-            <table class="table  table-bordered table-striped mt-3 admin-table">
+  <div class="admin-post-panel-grid-set">
+    <div class="page-title-header">
+      <h1>Posts <sup><span class="label label-info"><%= @post.size %></span></sup></h1>
+    </div>
+
+    <div class="button-section">
+      <%= link_to("Back", {:controller => "administrators", :action => 'index'}, :class => "btn btn-warning btn-lg custom") %>
+      <%= link_to("Add new Post", {:action => 'new'}, :class => "btn btn-success btn-lg custom") %>
+
+    </div>
+
+    <div class="table-section">
+      <div class="table table-hover">
+            <table class="table table-bordered mt-3 admin-table">
               <thead>
                 <tr>
                   <th class="align-middle text-center table-header-text w-20">Title</th>
@@ -54,14 +47,18 @@
               </tbody>
             </table>
       </div>
-      <!-- Here is pagination using will_paginate gem -->
-      <div class="row">
-        <div class="col-sm-12 col-md-12 d-flex justify-content-center">
-          <%= will_paginate @post, renderer: BootstrapPagination::Rails, :class => "font-weight-bold" %>
-        </div>
+    </div>
+
+    <div class="pagination-section">
+      <div class="col-sm-12 col-md-12 d-flex justify-content-center">
+        <%= will_paginate @post, renderer: BootstrapPagination::Rails, :class => "font-weight-bold" %>
       </div>
     </div>
+
   </div>
+
+</div>
+
 
 <!-- Close Administration nav -->
 </div>
