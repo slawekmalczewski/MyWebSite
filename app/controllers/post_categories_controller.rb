@@ -57,7 +57,7 @@ class PostCategoriesController < ApplicationController
 
 
   def required_parameters
-    params.require(:post_category).permit(:postcategoryname, :PostCategory_Description)
+    params.require(:post_category).permit(:postcategoryname, :PostCategory_Description, :colour)
   end
 
 end

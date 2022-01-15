@@ -1,0 +1,50 @@
+<div class="portfolio-page-wrapper">
+  <div class="portfolio-page-layout">
+    <div class="item-a">
+      <h3>Technical Skills:</h3>
+      <% @skill.each do |s| %>
+        <h4><%= s.skillName %>: </h4>
+        <div class="progress">
+          <div style="width: <%= s.skillKnowledge %>%;"></div>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="item-b">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero aspernatur sit adipisci esse maxime distinctio quisquam iste rem neque doloribus ut architecto praesentium, ratione possimus quaerat itaque inventore pariatur repellendus aliquam. Quos ipsum eveniet earum, sequi sunt voluptatibus. Rerum cupiditate perferendis repudiandae, at cum. Mollitia harum fugit ipsum dignissimos aut!
+    </div>
+    <div class="item-c">
+      <section class="portfolio-artwork-galleries-container" data-turbolinks="false">
+          <% @artworkGallery.each do |g| %>
+            <div class="portfolio-card">
+
+              <div class="portfolio-card-img">
+              <%= image_tag(g.artworkGalleryMainImage, :class=>"img-responsive") %>
+                <div class="portfolio-card-datecircle">
+                  <p>
+                    <span><%= g.artworks.count %></span><br/>Pieces
+                  </p>
+                </div>
+              </div>
+
+              <div class="portfolio-card-card-content">
+                <h5>
+                  <%= g.artworkGalleryTitle %>
+                </h5>
+                <p>
+                  <%= g.artworkGalleryDescription %>
+                </p>
+              </div>
+              <div class="portfolio-card-last-updated" data-turbolinks="false">
+                <i class="fa fa-sync"></i> &nbsp<%= local_time(g.updated_at, '%d %B %Y, %A @ %H:%M') %>
+              </div>
+              <div class="portfolio-card-button">
+                <%= link_to 'View <i class="glyphicon glyphicon-chevron-right"></i><i class="glyphicon glyphicon-chevron-right"></i>'.html_safe, {:controller => 'artwork_galleries', :action => 'show', :id => g.id}, :class => "btn-lnk" %>
+              </div>
+            </div>
+        <% end %>
+      </section>
+
+    </div>
+  </div>
+</div>

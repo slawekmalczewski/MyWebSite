@@ -1,0 +1,23 @@
+<% title "Edit " + @artworkgallery.artworkGalleryTitle + " Gallery" %>
+
+<div id="page-content-wrapper">
+  <div class="container-fluid">
+
+    <h1>Edit Artwork Gallery: <%= @artworkgallery.artworkGalleryTitle %></h1>
+    <hr class="separationLine3">
+    <div class="row">
+      <div class="col col-md-3">
+        <%= link_to("Back", :back, :class => "btn btn-lg btn-warning btn-block", :style=>"margin:10px 0; padding:0.5rem 3rem;" ) %>
+      </div>
+    </div>
+
+      <%= form_for(:artworkgallery, :url => {:action => 'update', :id => @artworkgallery.id}) do |field| %>
+      <%= render(:partial => "form", :locals => {:field => field}) %>
+      <%= submit_tag("Update", :class => "btn btn-lg btn-success pull-right") %>
+
+    <% end %>
+  </div>
+</div>
+</div>
+<!-- Close Administration nav -->
+</div>

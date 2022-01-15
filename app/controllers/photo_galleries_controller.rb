@@ -48,6 +48,7 @@ class PhotoGalleriesController < ApplicationController
 
   def show
     @gallery = PhotoGallery.friendly.find(params[:id])
+    @weather_results = WeatherStation.search("Rome")
   end
 
   def delete

@@ -4,8 +4,15 @@
 
   <section class="gallery-content-container">
     <div class="gallery-introduction">
-      <h2><%= @gallery.gallerytitle %></h2>
+      <h2><%= image_tag ('https:' + @weather_results['current']['condition']['icon']) %><%= @gallery.gallerytitle %></h2>
       <p class="gallery-desc"><%= @gallery.galleryDescription %></p>
+      <h3>Temperatura <%= @weather_results['current']['temp_c'] %>&#176;C</h3>
+      <h3>Feels like <%= @weather_results['current']['feelslike_c'] %>&#176;C</h3>
+      <h3>Icon  <%= image_tag ('https:' + @weather_results['current']['condition']['icon']) %></h3>
+      <h3>Wind <%= @weather_results['current']['wind_kph'] %>kph</h3>
+      <h3>Humidity <%= @weather_results['current']['humidity'] %>%</h3>
+      <h3>Last Updated <%= @weather_results['current']['last_updated'] %></h3>
+      <h3>Temperatura <%= @weather_results %></h3>
     </div>
 
       <% sort_gallery_by_photo_position(@gallery.myPhotos.published).each do |photo| %>

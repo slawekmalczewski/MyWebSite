@@ -30,8 +30,12 @@
     <% @post.uploads.each do |upload| %>
       <% if upload.variable? %>
         <div class = "attachment-card">
-          <h5>Attachment</h5>
-          <%= link_to image_tag(upload.variant(resize: "150x150^"), :class => "img-responsive mx-auto"),upload %>
+          <div class = "attachment-card-title">
+            <h5>Attachment</h5>
+          </div>
+          <div class="attachment-card-fileThumbnail">
+            <%= link_to image_tag(upload, :class => "attachmentFileThumbnail"), upload %>
+          </div>
           <div class="attachment-file-name">
             <p><%= upload.filename %></p>
           </div>
@@ -39,7 +43,7 @@
       <% elsif upload.previewable? %>
         <div class = "attachment-card">
           <h5>Attachment</h5>
-          <%= link_to image_tag(upload.preview(resize: "150x150^"), :class => "img-responsive mx-auto"), upload %>
+            <%= link_to image_tag(upload.preview(resize: "150x150^"), :class => "img-responsive mx-auto"), upload %>
           <div class="attachment-file-name">
             <h4><%= upload.filename %></h4>
           </div>

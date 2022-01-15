@@ -13,6 +13,7 @@
           <li class="<%= 'active' if params[:controller] == 'photo_galleries' && params[:action] == 'index' %>"><%= link_to("Galleries", {:controller => 'photo_galleries', :action => 'index'}) %></li>
           <li class="<%= 'active' if params[:controller] == 'my_photos' && params[:action] == 'photomap' %>"><%= link_to("Photomap", {:controller => 'my_photos', :action => 'photomap'}) %></li>
           <li class="<%= 'active' if params[:controller] == 'static_pages' && params[:action] == 'about' %>"><%= link_to("About", {:controller => 'static_pages', :action => 'about'}) %></li>
+          <li class="<%= 'active' if params[:controller] == 'static_pages' && params[:action] == 'portfolio' %>"><%= link_to("Portfolio", {:controller => 'static_pages', :action => 'portfolio'}) %></li>
           <%= login_helper %>
         </ul>
       </div>
@@ -34,6 +35,7 @@
         <li class="<%= 'active' if params[:controller] == 'photo_galleries' && params[:action] == 'index' %>"><%= link_to("Galleries", {:controller => 'photo_galleries', :action => 'index'}) %></li>
         <li class="<%= 'active' if params[:controller] == 'my_photos' && params[:action] == 'photomap' %>"><%= link_to("Photomap", {:controller => 'my_photos', :action => 'photomap'}) %></li>
         <li class="<%= 'active' if params[:controller] == 'static_pages' && params[:action] == 'about' %>"><%= link_to("About", {:controller => 'static_pages', :action => 'about'}) %></li>
+        <li class="<%= 'active' if params[:controller] == 'static_pages' && params[:action] == 'portfolio' %>"><%= link_to("Portfolio", {:controller => 'static_pages', :action => 'portfolio'}) %></li>
         <%= login_helper %>
       </ul>
 

@@ -1,0 +1,32 @@
+<div class="form-group row">
+  <label for="artworkPiece" class="col-sm-2 col-form-label">Artwork: </label>
+  <div class="col-sm-10">
+      <%= field.file_field(:artworkPiece, multiple: false) %>
+  </div>
+</div>
+
+<div class="form-group row">
+  <label for="artworkTitle" class="col-sm-2 col-form-label">Artwork Title: </label>
+  <div class="col-sm-10">
+    <%= field.text_field(:artworkTitle, :class => "form-control", :placeholder => "Artwork title goes here...") %>
+  </div>
+</div>
+
+<div class="form-group">
+  <label for ="artworkDescription">Artwork Description: </label>
+  <%= field.text_area(:artworkDescription, :class => "form-control", :rows =>5, :placeholder => "Artwork description goes here...") %>
+</div>
+
+<div class="form-group row">
+  <label for="artwork_gallery_id" class="col-sm-2 col-form-label">Artwork Gallery: </label>
+  <div class="col-sm-10">
+    <%= field.select(:artwork_gallery_id, @artworkGallery.map{|t| [t.artworkGalleryTitle, t.id]}) %>
+  </div>
+</div>
+
+<div class="form-group row">
+  <label for="artworkCreationDate" class="col-sm-2 col-form-label">Artwork Creation Date: </label>
+  <div class="col-sm-10">
+    <%= field.date_select(:artworkCreationDate, :class => "form-control") %>
+  </div>
+</div>

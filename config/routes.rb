@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 
   get 'about', to:'static_pages#about'
+  get 'portfolio', to:'static_pages#portfolio'
 
   match ':controller(/:action(/:id))', :via => [:get, :post]
 
