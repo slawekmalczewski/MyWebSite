@@ -63,6 +63,8 @@ gem 'geocoder', '~> 1.3', '>= 1.3.7'
 
 gem 'webpacker', '~> 4.x'
 
+gem 'httparty', '~> 0.13.7'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
