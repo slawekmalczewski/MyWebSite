@@ -1,11 +1,11 @@
 // Place all the styles related to the photo_galleries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
+@import url(https://fonts.googleapis.com/css?family=EB+Garamond|Droid+Serif|Playfair+Display|Open+Sans+Condensed:300);
 //Gallery Index page
 .photo-gallery-content-layout {
   width: 100%;
-  margin: 2rem auto 2rem auto;
+  margin: 2rem auto;
   display: grid;
   row-gap: 50px;
   grid-template-columns: repeat(3, 1fr);
@@ -16,20 +16,17 @@
     justify-self: center;
   }
 }
-
-.gallery-content-container .gallery-introduction p {
-  margin-top: 1.75rem;
-}
-
+// .gallery-content-container .gallery-introduction p {
+//   margin-top: 1.75rem;
+// }
 
 .gallery-content-container {
   width: 100%;
-  margin: 2rem auto 2rem auto;
+  margin: 2rem auto;
   display: grid;
   row-gap: 50px;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto auto auto;
-  justify-items: center;
 }
 
 .gallery-content-container .gallery-introduction {
@@ -39,17 +36,111 @@
 
 .gallery-desc {
   font-size: 1rem;
-  font-weight:normal;
+  font-weight: normal;
+}
+// Gallery Show Styles
+.galleryHeaderInformation {
+  padding: 2rem;
 }
 
+.galleryHeaderInformation-gridSetUp {
+  display: grid;
+  grid-template-areas: "galleryHeader-Title galleryHeader-Title galleryHeader-Title"
+  "galleryHeader-Quote galleryHeader-Quote galleryHeader-Weather"
+  "galleryHeader-Description galleryHeader-Description galleryHeader-Weather";
+  align-items: center;
+  row-gap: 1.25rem;
+  column-gap: 2rem;
 
+  .galleryHeader-Title {
+    grid-area: galleryHeader-Title;
+  }
+
+  .galleryHeader-Quote {
+    grid-area: galleryHeader-Quote;
+  }
+
+  //Quote style
+  .quote--container {
+    //margin: 4.5rem auto 0;
+    width: 100%;
+    border-bottom: 2px dotted #CECECE;
+    border-top: 2px dotted #CECECE;
+    padding: 0.5rem 0 0.5rem 0;
+  }
+  .quote {
+    position: relative;
+    //font-family: 'EB Garamond';
+    font-size: 1.618rem;
+    line-height: 2.427rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.5rem;
+
+    &:before {
+      content: "“";
+      position: absolute;
+      left: -.7em;
+    }
+
+    &:after {
+      content: "”";
+      margin-right: -1rem;
+    }
+  }
+
+  .quote--highlight {
+    color: #D24335;
+  }
+
+  .quote--author {
+    font-family: 'Open Sans Condensed';
+    font-size: 1rem;
+    text-align: right;
+    font-weight: 300;
+  }
+
+  .galleryHeader-Weather {
+    grid-area: galleryHeader-Weather;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #eaeaea;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+  }
+
+  .galleryHeader-Weather  div {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .galleryHeader-Weather  div:first-of-type {
+    justify-content: center;
+  }
+
+  .weatherParagraph {
+    margin: 0;
+    padding: 0;
+    font-size: 0.8rem;
+  }
+
+  .galleryHeader-Description{
+    grid-area: galleryHeader-Description;
+    p {
+      color: #6D6D6D;
+      text-align: justify;
+    }
+  }
+}
 // Media Queries
-
 /* Small devices (up to 576px) */
 @media only screen and (max-width: 576px) {
   .photo-gallery-content-layout {
     width: 100%;
-    margin: 2rem auto 2rem auto;
+    margin: 2rem auto;
     display: grid;
     row-gap: 50px;
     grid-template-columns: repeat(1, 1fr);
@@ -64,7 +155,7 @@
 
   .gallery-content-container {
     width: 100%;
-    margin: 2rem auto 2rem auto;
+    margin: 2rem auto;
     display: grid;
     row-gap: 50px;
     grid-template-columns: repeat(1, 1fr);
@@ -79,17 +170,15 @@
 
   .gallery-desc {
     font-size: 0.85rem;
-    font-weight:normal;
+    font-weight: normal;
   }
-
 }
-
 
 /* Medium devices (between 577px and 768px) */
 @media only screen and (min-width: 577px) and (max-width: 768px) {
   .photo-gallery-content-layout {
     width: 100%;
-    margin: 2rem auto 2rem auto;
+    margin: 2rem auto;
     display: grid;
     row-gap: 50px;
     grid-template-columns: repeat(2, 1fr);
@@ -104,7 +193,7 @@
 
   .gallery-content-container {
     width: 100%;
-    margin: 2rem auto 2rem auto;
+    margin: 2rem auto;
     display: grid;
     row-gap: 50px;
     grid-template-columns: repeat(1, 1fr);
@@ -119,16 +208,14 @@
 
   .gallery-desc {
     font-size: 0.85rem;
-    font-weight:normal;
+    font-weight: normal;
   }
 }
-
-
 /* Large devices (between 769px and 992px) */
 @media only screen and (min-width: 769px) and (max-width: 1199px) {
   .photo-gallery-content-layout {
     width: 100%;
-    margin: 2rem auto 2rem auto;
+    margin: 2rem auto;
     display: grid;
     row-gap: 50px;
     grid-template-columns: repeat(2, 1fr);
@@ -142,7 +229,7 @@
 
   .gallery-content-container {
     width: 100%;
-    margin: 2rem auto 2rem auto;
+    margin: 2rem auto;
     display: grid;
     row-gap: 50px;
     grid-template-columns: repeat(2, 1fr);
@@ -157,15 +244,14 @@
 
   .gallery-desc {
     font-size: 0.85rem;
-    font-weight:normal;
+    font-weight: normal;
   }
 }
-
 /* X-Large devices (min width 1200px) */
 @media only screen and (min-width: 1200px) {
   .photo-gallery-content-layout {
     width: 100%;
-    margin: 2rem auto 2rem auto;
+    margin: 2rem auto;
     display: grid;
     row-gap: 50px;
     grid-template-columns: repeat(3, 1fr);

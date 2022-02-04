@@ -48,7 +48,8 @@ class PhotoGalleriesController < ApplicationController
 
   def show
     @gallery = PhotoGallery.friendly.find(params[:id])
-    @weather_results = WeatherStation.search("Rome")
+    @weather_city = PhotoGallery.find(params[:id]).country
+    @weather_results = WeatherStation.search(@weather_city)
   end
 
   def delete
@@ -65,7 +66,7 @@ class PhotoGalleriesController < ApplicationController
 private
 
   def required_parameters
-    params.require(:photo_gallery).permit(:gallerytitle, :galleryDescription, :galleryPosition, :galleryVisibility, :galleryAuthor, :country, :galleryImageHeader, uploads: [])
+    params.require(:photo_gallery).permit(:gallerytitle, :galleryDescription, :galleryQuoteText, :galleryQuoteAuthor, :galleryPosition, :galleryVisibility, :galleryAuthor, :country, :galleryImageHeader, uploads: [])
   end
 
 end

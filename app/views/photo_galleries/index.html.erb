@@ -20,9 +20,12 @@
 
         <br/>
         <div class="card-content">
-          <h5>
-            <%= g.gallerytitle%>
-          </h5>
+          <div class="titleWeatherIcon">
+            <h5>
+              <%= g.gallerytitle %>&nbsp;&nbsp;<%= display_weather_icon(g) %>
+            </h5>
+
+          </div>
           <p>
             <%= first_sentence(g.galleryDescription) %>
           </p>

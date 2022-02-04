@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_09_220803) do
+ActiveRecord::Schema.define(version: 2022_02_04_230158) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2022_01_09_220803) do
   end
 
   create_table "active_storage_variant_records", force: :cascade do |t|
-    t.bigint "blob_id", null: false
+    t.integer "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
@@ -110,6 +110,8 @@ ActiveRecord::Schema.define(version: 2022_01_09_220803) do
     t.string "galleryAuthor"
     t.string "country"
     t.string "slug"
+    t.text "galleryQuoteText"
+    t.string "galleryQuoteAuthor"
     t.index ["slug"], name: "index_photo_galleries_on_slug", unique: true
   end
 
