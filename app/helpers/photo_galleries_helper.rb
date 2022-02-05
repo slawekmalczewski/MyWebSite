@@ -5,7 +5,7 @@ module PhotoGalleriesHelper
   end
 
   def display_weather_icon(gallery)
-    @weather_city = gallery.country
+    @weather_city = gallery.city
     @weather_results = WeatherStation.search(@weather_city)
     @result = (image_tag ('https:' + @weather_results['current']['condition']['icon']), style: 'height:2rem;width:auto;')
   end

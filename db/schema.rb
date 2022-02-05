@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_04_230158) do
+ActiveRecord::Schema.define(version: 2022_02_05_200121) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(version: 2022_02_04_230158) do
     t.string "slug"
     t.text "galleryQuoteText"
     t.string "galleryQuoteAuthor"
+    t.string "city"
     t.index ["slug"], name: "index_photo_galleries_on_slug", unique: true
   end
 
