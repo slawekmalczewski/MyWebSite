@@ -83,18 +83,35 @@ now override the 3.3 new styles for modern browsers & apply opacity
 
     .carousel-caption {
       width: 70vw;
+      max-width: 800px;
       margin-top: 60vh;
       margin-bottom: 15vh;
-      background: rgba(0, 0, 0, 0.45);
+      background: rgba(0, 0, 0, 0.55);
       clear: both;
-      border-radius: 2%;
+      border-radius: 18px;
       margin-left: auto;
       margin-right: auto;
-      overflow:hidden;
+      overflow: hidden;
+      padding: 20px 0 20px 0;
+
+    }
+
+    .carousel-caption .carousel-caption-elements {
+      display:flex;
+      flex-direction: column;
+      justify-content:center;
+    }
+
+    .carousel-caption .carousel-caption-elements div:last-child {
+      margin-top: 1rem;
     }
 
     .carousel-caption h1, h2 {
       display: inline;
+    }
+
+    .carousel-caption h3, h5 {
+      margin-top: 0;
     }
 
     .slideimagedesc {

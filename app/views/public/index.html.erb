@@ -23,18 +23,34 @@ applied to thie particular site
         <div class="carousel-inner" role="listbox" data-turbolinks="false">
             <div class="item active">
               <div class="carousel-caption">
-                <h3 class="slideimagetitle">About this project</h3>
-                <h5 class="slideimagedesc">A little bit of information about this project...</h5>
-                <!-- Button trigger modal -->
-                <%= link_to 'Read more...', {:controller => 'posts', :action => 'show', :id => find_about_post}, :class => "btn btn-primary btn-sm" %>
+                <div class="carousel-caption-elements">
+                  <div>
+                    <h3 class="slideimagetitle">About this project</h3>
+                  </div>
+                  <div>
+                    <h5 class="slideimagedesc">A little bit of information about this project...</h5>
+                  </div>
+                  <div>
+                    <!-- Button trigger modal -->
+                    <%= link_to 'Read more...', {:controller => 'posts', :action => 'show', :id => find_about_post}, :class => "btn btn-primary btn-sm" %>
+                  </div>
+                </div>
               </div>
             </div>
 
             <div class="item">
               <div class="carousel-caption">
-                <h3 class="slideimagetitle"><%= @latestpost.last.Post_Title %> <sup><span class="badge badge-pill badge-danger">New</span><sup></h3>
-                <h5 class="slideimagedesc"><%= first_sentence(@latestpost.last.Post_Body) %></h5>
-                <%= link_to 'Read more...', {:controller => 'posts', :action => 'show', :id => @latestpost.last}, :class => "btn btn-primary btn-sm" %>
+                <div class="carousel-caption-elements">
+                  <div>
+                    <h3 class="slideimagetitle"><%= @latestpost.last.Post_Title %> <sup><span class="badge badge-pill badge-danger">New</span><sup></h3>
+                  </div>
+                  <div>
+                    <h5 class="slideimagedesc"><%= first_sentence(@latestpost.last.Post_Body) %></h5>
+                  </div>
+                  <div>
+                    <%= link_to 'Read more...', {:controller => 'posts', :action => 'show', :id => @latestpost.last}, :class => "btn btn-primary btn-sm" %>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -44,9 +60,17 @@ applied to thie particular site
               </div>
 
               <div class="carousel-caption">
-                <h3 class="slideimagetitle"><%= MyPhoto.get_latest_photo_uploaded_and_published.myPhotoTitle %> <sup><span class="badge badge-pill badge-danger">New Photo</span></sup></h3>
-                <h5 class="slideimagedesc"><%= MyPhoto.get_latest_photo_uploaded_and_published.photo_gallery.gallerytitle %></h5>
-                <%= link_to 'View', {:controller => 'photo_galleries', :action => 'show', :id => MyPhoto.get_latest_photo_uploaded_and_published.photo_gallery_id}, :class => "btn btn-primary btn-sm" %>
+                <div class="carousel-caption-elements">
+                  <div>
+                    <h3 class="slideimagetitle"><%= MyPhoto.get_latest_photo_uploaded_and_published.myPhotoTitle %> <sup><span class="badge badge-pill badge-danger">New Photo</span></sup></h3>
+                  </div>
+                  <div>
+                    <h5 class="slideimagedesc"><%= MyPhoto.get_latest_photo_uploaded_and_published.photo_gallery.gallerytitle %></h5>
+                  </div>
+                  <div>
+                    <%= link_to 'View', {:controller => 'photo_galleries', :action => 'show', :id => MyPhoto.get_latest_photo_uploaded_and_published.photo_gallery_id}, :class => "btn btn-primary btn-sm" %>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -55,11 +79,19 @@ applied to thie particular site
               <%= image_tag(@latestgallery.last.galleryImageHeader, class: "carousel-image") %>
               </div>
               <div class="carousel-caption">
-                <h3 style="slideimagetitle"><%= @latestgallery.last.gallerytitle %><sup><span class="badge badge-pill badge-danger">New Gallery</span></sup></h3>
-                <h5 class="slideimagedesc">
-                  <%= first_sentence(@latestgallery.last.galleryDescription) %>
-                </h5>
-                <%= link_to 'View', {:controller => 'photo_galleries', :action => 'show', :id => @latestgallery.last}, :class => "btn btn-primary btn-sm" %>
+                <div class="carousel-caption-elements">
+                  <div>
+                    <h3 style="slideimagetitle"><%= @latestgallery.last.gallerytitle %> <sup><span class="badge badge-pill badge-danger">New Gallery</span></sup></h3>
+                  </div>
+                  <div>
+                    <h5 class="slideimagedesc">
+                      <%= first_sentence(@latestgallery.last.galleryDescription) %>
+                    </h5>
+                  </div>
+                  <div>
+                    <%= link_to 'View', {:controller => 'photo_galleries', :action => 'show', :id => @latestgallery.last}, :class => "btn btn-primary btn-sm" %>
+                  </div>
+                </div>
               </div>
             </div>
         </div>

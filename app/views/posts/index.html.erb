@@ -9,7 +9,7 @@
       <div class="article-showcase-data">
         <div class="article-data-box">
           <div class="pill-category" style="background-color: <%= Post.newest.first.post_category.colour %>">NEW / <%= Post.newest.first.post_category.postcategoryname %></div>
-          <h4><%= Post.newest.first.Post_Title %></h4>
+          <h3><%= Post.newest.first.Post_Title %></h3>
           <p><%= post_preview(Post.newest.first.Post_Body) %></p>
           <%= link_to 'Read <i class="glyphicon glyphicon-chevron-right"></i><i class="glyphicon glyphicon-chevron-right"></i>'.html_safe, {:controller => 'posts', :action => 'show', :id => Post.newest.first.id}, :class => "article-button" %>
         </div>
