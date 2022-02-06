@@ -18,7 +18,7 @@
   grid-template-areas:
   "side-menu welcome-area circles-area circles-area"
   "side-menu draft-area draft-area users-area"
-  "side-menu post-summary-area gallery-summary-area photo-summary-area";
+  "side-menu summary-cards summary-cards summary-cards";
   grid-gap: 30px 30px;
 }
 
@@ -109,39 +109,24 @@
 // Draft Card Styling END
 
 // Summary Tables START
-.post-summary {
-  grid-area: post-summary-area;
-  height: 450px;
+
+.summary-cards {
+  grid-area: summary-cards;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-content: center;
+  flex-wrap: wrap;
   align-items: center;
-  margin: 0 10px 0 0;
+  width: 100%;
+  grid-gap: 1rem;
 }
 
-.gallery-summary {
-  grid-area: gallery-summary-area;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  margin: 0 10px 0 0;
-}
-
-.photo-summary {
-  grid-area: photo-summary-area;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  margin: 0 10px 0 0;
-}
 
   // Summary Card Styling START
 .summary-card {
+  max-width: 280px;
+  min-width: 280px;
+  max-height: 325px;
+  min-height: 325px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: 5px;
@@ -231,9 +216,9 @@
     display: grid;
     grid-template-areas:
     "side-menu welcome-area"
-    "side-menu post-summary-area"
-    "side-menu gallery-summary-area"
-    "side-menu photo-summary-area";
+    "side-menu summary-cards"
+    "side-menu summary-cards"
+    "side-menu summary-cards";
     grid-gap: 30px 30px;
   }
 

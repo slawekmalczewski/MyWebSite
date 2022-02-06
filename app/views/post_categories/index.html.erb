@@ -1,57 +1,58 @@
 <% title "Post Categories" %>
 
-<div id="page-content-wrapper">
-  <div class="conatiner-fluid">
-    <div class="row">
-        <div class="col col-md-6 mb-5">
-          <h1 class="display-3">Post Categories | <span class="label label-info"><%= @post_category.size %></span></h1>
-        </div>
+<div class="admin-postCategory-panel-container">
+
+  <div class="admin-postCategory-panel-grid-set">
+    <div class="page-title-header">
+      <h1>Post Categories <sup><span class="label label-info"><%= @post_category.size %></span></sup></h1>
     </div>
-    <div class="row">
-      <div class="col col-sm-3 col-md-4 col-lg-2 mb-2">
-        <button class="btn btn-primary btn-lg btn-block" id="menu-toggle">
-          Toggle Menu
-        </button>
-      </div>
-      <div class="col2 col-sm-3 col-md-4 col-lg-2 mb-2">
-        <%= link_to("Back", {:controller => "administrators", :action => 'index'}, :class => "btn btn-warning btn-lg btn-block") %>
-      </div>
-      <div class="col col-sm-3 col-md-4 col-lg-2 mb-2">
-        <%= link_to("Add Category", {:action => 'new'}, :class => "btn btn-success btn-lg btn-block") %>
+
+    <div class="button-section">
+      <%= link_to("Back", {:controller => "administrators", :action => 'index'}, :class => "btn btn-warning btn-lg custom") %>
+      <%= link_to("Add Category", {:action => 'new'}, :class => "btn btn-success btn-lg custom") %>
+    </div>
+
+    <div class="table-section">
+      <div class="table table-hover">
+            <table class="table table-bordered mt-3 admin-table">
+              <thead>
+                <tr>
+                  <th class="align-middle text-center table-header-text w-20">Category Name</th>
+                  <th class="align-middle text-center table-header-text w-20">Category Description</th>
+                  <th class="align-middle text-center table-header-text w-20">Created at</th>
+                  <th class="align-middle text-center table-header-text w-20">Posts @ Category</th>
+                  <th class="align-middle text-center table-header-text w-20">Actions</th>
+                </tr>
+
+              </thead>
+              <tbody>
+                <% @post_category.each do |cat| %>
+                <tr>
+                  <td class="align-middle text-center"><%= cat.postcategoryname %></td>
+                  <td class="align-middle text-center"><%= cat.PostCategory_Description %></td>
+                  <td class="align-middle text-center"><%= cat.created_at %></td>
+                  <td class="align-middle text-center"><%= number_of_post_with_category(cat.id) %></td>
+                  <td class="align-middle text-center btn-group-vertical d-block">
+                    <%= link_to("Show", {:action => 'show', :id => cat.id}, :class => "btn btn-success btn-small m-1") %>
+                    <%= link_to("Edit", {:action => "edit", :id => cat.id}, :class => "btn btn-warning btn-small m-1") %>
+                    <%= link_to("Delete", {:action => "delete", :id => cat.id}, :class => "btn btn-danger btn-small m-1") %>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
       </div>
     </div>
 
-    <div class="table-responsive">
-        <table class="table table-bordered table-striped mt-3 admin-table">
-          <thead>
-            <tr>
-              <th class="align-middle text-center table-header-text w-20">Category Name</th>
-              <th class="align-middle text-center table-header-text w-20">Category Description</th>
-              <th class="align-middle text-center table-header-text w-20">Created at</th>
-              <th class="align-middle text-center table-header-text w-20">Posts @ Category</th>
-              <th class="align-middle text-center table-header-text w-20">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-        <% @post_category.each do |cat| %>
-          <tr>
-            <td class="span4 align-middle text-center"><%= cat.postcategoryname %></td>
-            <td class="span4 align-middle text-center"><%= cat.PostCategory_Description %></td>
-            <td class="span4 align-middle text-center"><%= cat.created_at %></td>
-            <td class="span4 align-middle text-center"><%= number_of_post_with_category(cat.id) %></td>
-            <td class="span4 align-middle text-center btn-group-vertical d-block">
-              <%= link_to("Show", {:action => 'show', :id => cat.id}, :class => "btn btn-success btn-small m-1") %>
-              <%= link_to("Edit", {:action => "edit", :id => cat.id}, :class => "btn btn-warning btn-small m-1") %>
-              <%= link_to("Delete", {:action => "delete", :id => cat.id}, :class => "btn btn-danger btn-small m-1") %>
-            </td>
-          </tr>
-
-        <% end %>
-          </tbody>
-        </table>
+    <div class="pagination-section">
+      <div class="col-sm-12 col-md-12 d-flex justify-content-center">
+      </div>
     </div>
+
   </div>
+
 </div>
+
 
 <!-- Close Administration nav -->
 </div>
