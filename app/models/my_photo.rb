@@ -23,6 +23,17 @@ class MyPhoto < ApplicationRecord
     Rails.application.routes.url_helpers.rails_blob_path(myPhotograph, only_path: true)
   end
 
+  def get_gallery_title
+    @find_gallery_id_where_the_photo_belongs = self.photo_gallery_id
+    @find_gallery_title = PhotoGallery.where(:id => @find_gallery_id_where_the_photo_belongs).first.gallerytitle
+  end
+
+  def get_gallery_link
+    @find_gallery_id = self.photo_gallery_id.to_s
+    @gallery_link = 'http://www.slawekmalczewski.com/photo_galleries/show/' + @find_gallery_id
+  end
+
+
   def verify_coordinates
     if self.longitude_reference == 'W' && self.longitude > 0
       self.longitude = (-1)*self.longitude

@@ -5,7 +5,7 @@
 
 <section id="photomap">
   <div class="photomap-container">
-    <%= tag.div nil, id: 'map', data: { photomarkers: @photomarkers.to_json(methods: [:address, :get_image_link])} %>
+    <%= tag.div nil, id: 'map', data: { photomarkers: @photomarkers.to_json(methods: [:address, :get_image_link, :get_gallery_title, :get_gallery_link])} %>
   </div>
 
 </section>
