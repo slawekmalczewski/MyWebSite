@@ -15,33 +15,32 @@
     </div>
     <div class="item-c">
       <section class="portfolio-artwork-galleries-container" data-turbolinks="false">
-          <% @artworkGallery.each do |g| %>
-            <div class="portfolio-card">
-
-              <div class="portfolio-card-img">
-              <%= image_tag(g.artworkGalleryMainImage, :class=>"img-responsive") %>
-                <div class="portfolio-card-datecircle">
-                  <p>
-                    <span><%= g.artworks.count %></span><br/>Pieces
-                  </p>
-                </div>
-              </div>
-
-              <div class="portfolio-card-card-content">
-                <h5>
-                  <%= g.artworkGalleryTitle %>
-                </h5>
-                <p>
-                  <%= g.artworkGalleryDescription %>
-                </p>
-              </div>
-              <div class="portfolio-card-last-updated" data-turbolinks="false">
-                <i class="fa fa-sync"></i> &nbsp<%= local_time(g.updated_at, '%d %B %Y, %A @ %H:%M') %>
-              </div>
-              <div class="portfolio-card-button">
-                <%= link_to 'View <i class="glyphicon glyphicon-chevron-right"></i><i class="glyphicon glyphicon-chevron-right"></i>'.html_safe, {:controller => 'artwork_galleries', :action => 'show', :id => g.id}, :class => "btn-lnk" %>
-              </div>
+        <% @artworkGallery.each do |g| %>
+          <div class="card">
+            <div class="datecircle">
+              <p>
+                <span><%= g.artworks.count %></span><br/>Pieces
+              </p>
             </div>
+            <div class="img-card">
+              <%= image_tag(g.artworkGalleryMainImage, :class=>"img-responsive") %>
+            </div>
+
+            <br/>
+            <div class="card-content">
+              <h5>
+                <%= g.artworkGalleryTitle %>
+              </h5>
+              <p>
+                <%= g.artworkGalleryDescription %>
+              </p>
+            </div>
+            <div class="card-read-more" data-turbolinks="false">
+              <i class="fa fa-calendar"></i> <%= local_time(g.created_at, '%d %B %Y, %A @ %H:%M') %><br/>
+              <i class="glyphicon glyphicon-picture"></i> <%= g.artworks.count %> artworks <br/>
+            </div>
+            <%= link_to 'View <i class="glyphicon glyphicon-chevron-right"></i><i class="glyphicon glyphicon-chevron-right"></i>'.html_safe, {:controller => 'artwork_galleries', :action => 'show', :id => g.id}, :class => "btn-lnk" %>
+          </div>
         <% end %>
       </section>
 

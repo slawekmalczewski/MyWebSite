@@ -1,55 +1,59 @@
-<% title "Artwork Summary |" %>
+<% title "Artworks" %>
 
-<div id="page-content-wrapper">
-  <div class="container-fluid">
+<div class="admin-artwork-panel-container">
 
-    <div class="row">
-      <div class="col col-sm-3 col-md-4 col-lg-2 mb-2">
-        <button class="btn btn-primary btn-lg btn-block" id="menu-toggle">
-          Toggle Menu
-        </button>
-      </div>
-      <div class="col2 col-sm-3 col-md-4 col-lg-2 mb-2">
-        <%= link_to("Back", {:controller => "photo_galleries", :action => 'admin_gallery_index'}, :class => "btn btn-warning btn-lg btn-block") %>
-      </div>
-      <div class="col col-sm-3 col-md-4 col-lg-2 mb-2">
-        <%= link_to("Add new Artwork", {:action => 'new'}, :class => "btn btn-success btn-lg btn-block") %>
+  <div class="admin-gallery-panel-grid-set">
+    <div class="page-title-header">
+      <h1>Artworks <sup><span class="label label-info"><%= @numberOfArtworks %></span></sup></h1>
+    </div>
+
+    <div class="button-section">
+      <%= link_to("Back", {:controller => "administrators", :action => 'index'}, :class => "btn btn-warning btn-lg custom") %>
+      <%= link_to("Add new Artwork", {:action => 'new'}, :class => "btn btn-success btn-lg custom") %>
+
+    </div>
+
+    <div class="table-section">
+      <div class="table table-hover">
+            <table class="table table-bordered mt-3 admin-table">
+              <thead>
+                <tr>
+                  <th scope="col" class="align-middle text-center table-header-text w-15">Thumbnail</th>
+                  <th scope="col" class="align-middle text-center table-header-text w-20">Title</th>
+                  <th scope="col" class="align-middle text-center table-header-text w-10">Created</th>
+                  <th scope="col" class="align-middle text-center table-header-text w-20">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @artwork.each do |art| %>
+                <tr>
+                  <td class="align-middle text-center">
+                    <%= image_tag(art.artworkPiece.variant(resize_to_fill: [150,100])) if art.artworkPiece.attached? %>
+                  </td>
+                  <td class="align-middle text-center"><%= art.artworkTitle %></td>
+                  <td class="align-middle text-center"><%= art.created_at.time.strftime("%d/%m/%Y") %></td>
+                  <td class="align-middle text-center btn-group-vertical d-block" data-turbolinks="false">
+                    <%= link_to("Details", {:controller => 'artworks', :action => 'show', :id => art.id}, :class => "btn btn-success btn-small m-1") %>
+                    <%= link_to("Edit", {:action => "edit", :id => art.id}, :class => "btn btn-warning btn-small m-1") %>
+                    <%= link_to("Delete", {:action => "delete", :id => art.id}, :class => "btn btn-danger btn-small m-1") %>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
       </div>
     </div>
 
+    <div class="pagination-section">
+      <div class="col-sm-12 col-md-12 d-flex justify-content-center">
 
-
-
-  <div class="table-responsive">
-    <table class="table table-bordered table-striped mt-3 admin-table">
-      <thead>
-        <tr>
-          <th scope="col" class="align-middle text-center table-header-text w-15">Thumbnail</th>
-          <th scope="col" class="align-middle text-center table-header-text w-20">Title</th>
-          <th scope="col" class="align-middle text-center table-header-text w-10">Created</th>
-          <th scope="col" class="align-middle text-center table-header-text w-20">Actions</th>
-        </tr>
-      </thead>
-
-      <% @artwork.each do |art| %>
-      <tr>
-        <td class="text-center h3 align-middle">
-          <%= image_tag(art.artworkPiece.variant(resize_to_fill: [150,100])) if art.artworkPiece.attached? %>
-        </td>
-        <td class="text-center h3 align-middle"><%= art.artworkTitle %></td>
-        <td class="text-center h3 align-middle"><%= art.created_at.time.strftime("%d/%m/%Y") %></td>
-        <td class="span4 align-middle text-center btn-group-vertical d-block">
-          <%= link_to("Details", {:controller => 'artworks', :action => 'show', :id => art.id}, :class => "btn btn-success btn-small m-1") %>
-          <%= link_to("Edit", {:action => "edit", :id => art.id}, :class => "btn btn-warning btn-small m-1") %>
-          <%= link_to("Delete", {:action => "delete", :id => art.id}, :class => "btn btn-danger btn-small m-1") %>
-        </td>
-      </tr>
-      <% end %>
-    </table>
-  </div>
+      </div>
+    </div>
 
   </div>
+
 </div>
+
 
 <!-- Close Administration nav -->
 </div>

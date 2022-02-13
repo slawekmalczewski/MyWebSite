@@ -3,6 +3,7 @@ class ArtworksController < ApplicationController
   access all: [], user: [], site_admin: :all
 
   def index
+    @numberOfArtworks = Artwork.count
 
     if (params[:additional_param] == 'display_all')
       @artwork = Artwork.all

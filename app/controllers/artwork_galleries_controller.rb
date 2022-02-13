@@ -53,7 +53,7 @@ class ArtworkGalleriesController < ApplicationController
 private
 
   def required_parameters
-    params.require(:artwork_gallery).permit(:artworkGalleryTitle, :artworkGalleryDescription, :artworkGalleryPosition, :artworkGalleryVisibility, :artworkGalleryMainImage)
+    params.require(:artworkgallery).permit(:artworkGalleryTitle, :artworkGalleryDescription, :artworkGalleryPosition, :artworkGalleryVisibility, :artworkGalleryMainImage)
   end
 
 end

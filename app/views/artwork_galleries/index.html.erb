@@ -1,62 +1,62 @@
 <% title "Artwork Galleries" %>
 
-<div id="page-content-wrapper">
-  <div class="conatiner-fluid">
-    <div class="row">
-        <div class="col col-md-6 mb-5">
-          <h1 class="display-3">Artwork Galleries | <span class="label label-info"><%= @artworkgallery.size %></span></h1>
-        </div>
+<div class="admin-artworkgallery-panel-container">
+
+  <div class="admin-gallery-panel-grid-set">
+    <div class="page-title-header">
+      <h1>Artwork Galleries <sup><span class="label label-info"><%= @artworkgallery.size %></span></sup></h1>
     </div>
-    <div class="row">
-      <div class="col col-sm-3 col-md-4 col-lg-2 mb-2">
-        <button class="btn btn-primary btn-lg btn-block" id="menu-toggle">
-          Toggle Menu
-        </button>
-      </div>
-      <div class="col2 col-sm-3 col-md-4 col-lg-2 mb-2">
-        <%= link_to("Back", {:controller => "administrators", :action => 'index'}, :class => "btn btn-warning btn-lg btn-block") %>
-      </div>
-      <div class="col col-sm-3 col-md-4 col-lg-2 mb-2">
-        <%= link_to("Add new Artwork Gallery", {:action => 'new'}, :class => "btn btn-success btn-lg btn-block") %>
+
+    <div class="button-section">
+      <%= link_to("Back", {:controller => "administrators", :action => 'index'}, :class => "btn btn-warning btn-lg custom") %>
+      <%= link_to("Add new Artwork Gallery", {:action => 'new'}, :class => "btn btn-success btn-lg custom") %>
+
+    </div>
+
+    <div class="table-section">
+      <div class="table table-hover">
+            <table class="table table-bordered mt-3 admin-table">
+              <thead>
+                <tr>
+                  <th class="align-middle text-center table-header-text w-5">Position</th>
+                  <th class="align-middle text-center table-header-text w-25">Title</th>
+                  <th class="align-middle text-center table-header-text w-15">Artworks</th>
+                  <th class="align-middle text-center table-header-text w-15">Published</th>
+                  <th class="align-middle text-center table-header-text w-15">Created</th>
+                  <th class="align-middle text-center table-header-text w-25">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @artworkgallery.each do |art| %>
+                <tr>
+                  <td class="align-middle text-center"><%= art.artworkGalleryPosition %></td>
+                  <td class="align-middle text-center"><%= art.artworkGalleryTitle %></td>
+                  <td class="align-middle text-center"><%= art.artworks.count %></td>
+                  <td class="align-middle text-center"><%= iconStatus(art.artworkGalleryVisibility) %></td>
+                  <td class="align-middle text-center"><%= local_time(art.created_at, '%d %b, %Y %H:%M')  %></td>
+                  <td class="align-middle text-center btn-group-vertical d-block" data-turbolinks="false">
+                    <%= link_to("Manage Artworks", {:controller => 'artworks', :action => 'index', :id => art.id }, :class => "btn btn-info btn-small m-1") %>
+                    <%= link_to("Edit Gallery Details", {:action => 'edit', :id => art.id}, :class => "btn btn-warning btn-small m-1") %>
+                    <%= link_to("Preview", {:controller => 'artwork_galleries', :action => 'show', :id => art.id}, :class => "btn btn-success btn-small m-1") %>
+                    <%= link_to("Delete", {:action => 'delete', :id => art.id}, :class => "btn btn-danger btn-small m-1") %>
+                  </td>
+                </tr>
+                <% end %>
+              </tbody>
+            </table>
       </div>
     </div>
 
-    <div class="table-responsive">
-        <table class="table table-bordered table-striped mt-3 admin-table">
-          <thead>
-            <tr>
-              <th class="align-middle text-center table-header-text w-5">Position</th>
-              <th class="align-middle text-center table-header-text w-25">Title</th>
-              <th class="align-middle text-center table-header-text w-15">Artworks</th>
-              <th class="align-middle text-center table-header-text w-15">Published</th>
-              <th class="align-middle text-center table-header-text w-15">Created</th>
-              <th class="align-middle text-center table-header-text w-25">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-        <% @artworkgallery.each do |art| %>
-          <tr>
-            <td class="span1 align-middle text-center"><%= art.artworkGalleryPosition %></td>
-            <td class="span2 align-middle text-center"><%= art.artworkGalleryTitle %></td>
-            <td class="span1 align-middle text-center"><%= art.artworks.count %></td>
-            <td class="span1 align-middle text-center"><%= iconStatus(art.artworkGalleryVisibility) %></td>
-            <td class="span1 align-middle text-center"><%= local_time(art.created_at, '%d %b, %Y %H:%M')  %></td>
-            <td class="span3 align-middle text-center btn-group-vertical d-block" data-turbolinks="false">
-              <%= link_to("Manage Artworks", {:controller => 'artworks', :action => 'index', :id => art.id }, :class => "btn btn-info btn-small m-1") %>
-              <%= link_to("Edit Gallery Details", {:action => 'edit', :id => art.id}, :class => "btn btn-warning btn-small m-1") %>
-              <%= link_to("Preview", {:controller => 'artwork_galleries', :action => 'show', :id => art.id}, :class => "btn btn-success btn-small m-1") %>
-              <%= link_to("Delete", {:action => 'delete', :id => art.id}, :class => "btn btn-danger btn-small m-1") %>
-            </td>
-          </tr>
-        <% end %>
-        </tbody>
-        </table>
+    <div class="pagination-section">
+      <div class="col-sm-12 col-md-12 d-flex justify-content-center">
+
+      </div>
     </div>
+
   </div>
+
 </div>
+
 
 <!-- Close Administration nav -->
-</div>
-<div class="row" style="height: 0vh">
-  <!-- Line Spacer to keep footer stick to the bottom -->
 </div>

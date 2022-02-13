@@ -13,11 +13,11 @@
 
 .portfolio-page-layout {
   display: grid;
-  grid-gap: 1rem;
   grid-template-areas:
   "skills-area my-introduction my-introduction"
   "skills-area artwork-galleries artwork-galleries"
   "skills-area artwork-galleries artwork-galleries";
+  grid-gap: 1rem;
 }
 
 .portfolio-card {
@@ -98,38 +98,27 @@
 
 .item-a {
   grid-area: skills-area;
-  //background-color: green;
   height: 100vh;
   min-width: 300px;
   padding: 20px;
-
 }
 
 .item-b {
   grid-area: my-introduction;
-  //background-color: blue;
   padding: 20px;
 }
 
 .item-c {
   grid-area: artwork-galleries;
-  //background-color: yellow;
-
-
 
   .portfolio-artwork-galleries-container {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-row-gap: 20px;
-
-
-
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
     .portfolio-card {
       place-self: center;
-
     }
-
   }
 }
 
@@ -156,7 +145,6 @@
 @media only screen and (max-width: 576px) {
   .portfolio-page-wrapper {
     max-width: 330px;
-    //background-color: pink;
     margin-left: auto;
     margin-right: auto;
   }
@@ -167,24 +155,30 @@
     grid-template-areas:
     "my-introduction"
     "artwork-galleries"
-    "artwork-galleries";
+    "artwork-galleries"
+    "skills-area";
+  }
+
+  .item-a {
+    grid-area: skills-area;
+    height: auto;
+    margin-bottom: 2rem;
   }
 
   .item-b {
     grid-area: my-introduction;
-    //background-color: blue;
+    margin-top: 3rem;
     padding: 20px;
   }
 
   .item-c {
     grid-area: artwork-galleries;
-    //background-color: yellow;
 
     .portfolio-artwork-galleries-container {
       width: 100%;
       display: grid;
       grid-template-columns: repeat(1, 1fr);
-      grid-row-gap: 20px;
+      grid-row-gap: 30px;
 
       .portfolio-card {
         place-self: center;
