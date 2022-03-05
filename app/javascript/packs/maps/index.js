@@ -23,7 +23,7 @@ photomarkers.forEach(function(photomarker){
       title: photomarker.myPhotoTitle,
       infoWindow:{
         content: `
-        <h3><a href='${photomarker.get_gallery_link}' style="text-decoration: none;">${photomarker.get_gallery_title}</a></h3>
+        <h3><a href='${photomarker.get_gallery_link}' style="text-decoration: none; color:black; font-weight:bold;">${photomarker.get_gallery_title}</a></h3>
         <img src='${photomarker.get_image_link}' style="width:180px; height:auto; border: 1px solid #ddd; padding: 5px; margin-top:5px; margin-bottom:0px; margin-left:10px;"><br/>
         <h5>${photomarker.myPhotoTitle}</h5>
         <hr style="height:1px;border-width:0;color:gray;background-color:gray">

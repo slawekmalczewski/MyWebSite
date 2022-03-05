@@ -35,10 +35,10 @@
           <div class="card-text-content">
             <div>
               <div class="pill-category" style="background-color: <%= p.post_category.colour %>"><%= p.post_category.postcategoryname %></div>
-              <h3>
+              <h3 style="margin-top: 0.5rem;">
                 <%= post_title_short(p.Post_Title) %>
               </h3>
-              <i class="fa fa-calendar i-data"> <%= local_time(p.created_at, '%d %B %Y, %A @ %H:%M') %></i>
+              <i class="fa fa-calendar i-data"> <span><%= local_time(p.created_at, '%d %B %Y, %A @ %H:%M') %></span></i>
               <p><%= post_preview(p.Post_Body) %></p>
             </div>
             <div>
@@ -52,10 +52,10 @@
       <article class="article-card-2 article-card-bg-<%=rand(1..4)%>">
         <div>
           <div class="pill-category" style="background-color: <%= p.post_category.colour %>"><%= p.post_category.postcategoryname %></div>
-          <h3>
+          <h3 style="margin-top: 0.5rem;">
             <%= post_title_short(p.Post_Title) %>
           </h3>
-          <i class="fa fa-calendar i-data"> <%= local_time(p.created_at, '%d %B %Y, %A @ %H:%M') %></i>
+          <i class="fa fa-calendar i-data"> <span><%= local_time(p.created_at, '%d %B %Y, %A @ %H:%M') %></span></i>
           <p><%= post_preview(p.Post_Body) %></p>
         </div>
         <div>
@@ -69,10 +69,10 @@
       <article class="article-card-2 article-card-bg-<%=rand(1..4)%>">
         <div>
           <div class="pill-category" style="background-color: <%= p.post_category.colour %>"><%= p.post_category.postcategoryname %></div>
-          <h3>
+          <h3 style="margin-top: 0.5rem;">
             <%= post_title_short(p.Post_Title) %>
           </h3>
-          <i class="fa fa-calendar i-data"> <%= local_time(p.created_at, '%d %B %Y, %A @ %H:%M') %></i>
+          <i class="fa fa-calendar i-data"> <span><%= local_time(p.created_at, '%d %B %Y, %A @ %H:%M') %></span></i>
           <p><%= post_preview(p.Post_Body) %></p>
         </div>
         <div>
@@ -86,10 +86,10 @@
       <article class="article-card-2 article-card-bg-<%=rand(1..4)%>">
         <div>
           <div class="pill-category" style="background-color: <%= p.post_category.colour %>"><%= p.post_category.postcategoryname %></div>
-          <h3>
+          <h3 style="margin-top: 0.5rem;">
             <%= post_title_short(p.Post_Title) %>
           </h3>
-          <i class="fa fa-calendar i-data"> <%= local_time(p.created_at, '%d %B %Y, %A @ %H:%M') %></i>
+          <i class="fa fa-calendar i-data"> <span><%= local_time(p.created_at, '%d %B %Y, %A @ %H:%M') %></span></i>
           <p><%= post_preview(p.Post_Body) %></p>
         </div>
         <div>
@@ -102,10 +102,10 @@
       <article class="article-card-2 article-card-bg-<%=rand(1..4)%>">
         <div>
           <div class="pill-category" style="background-color: <%= p.post_category.colour %>"><%= p.post_category.postcategoryname %></div>
-          <h3>
+          <h3 style="margin-top: 0.5rem;">
             <%= post_title_short(p.Post_Title) %>
           </h3>
-          <i class="fa fa-calendar i-data"> <%= local_time(p.created_at, '%d %B %Y, %A @ %H:%M') %></i>
+          <i class="fa fa-calendar i-data"> <span><%= local_time(p.created_at, '%d %B %Y, %A @ %H:%M') %></span></i>
           <p><%= post_preview(p.Post_Body) %></p>
         </div>
         <div>
@@ -119,10 +119,10 @@
         <div class="card-text-content">
           <div>
             <div class="pill-category" style="background-color: <%= p.post_category.colour %>"><%= p.post_category.postcategoryname %></div>
-            <h3>
+            <h3 style="margin-top: 0.5rem;">
               <%= post_title_short(p.Post_Title) %>
             </h3>
-            <i class="fa fa-calendar i-data"> <%= local_time(p.created_at, '%d %B %Y, %A @ %H:%M') %></i>
+            <i class="fa fa-calendar i-data"> <span><%= local_time(p.created_at, '%d %B %Y, %A @ %H:%M') %></span></i>
             <p><%= post_preview(p.Post_Body) %></p>
           </div>
           <div>
@@ -138,10 +138,10 @@
           <div><%= image_tag(p.postHeaderPhoto, :class => "article-card-image") %></div>
           <div>
             <div class="pill-category" style="background-color: <%= p.post_category.colour %>"><%= p.post_category.postcategoryname %></div>
-            <h3>
+            <h3 style="margin-top: 0.5rem;">
               <%= post_title_short(p.Post_Title) %>
             </h3>
-            <i class="fa fa-calendar i-data"> <%= local_time(p.created_at, '%d %B %Y, %A @ %H:%M') %></i>
+            <i class="fa fa-calendar i-data"> <span><%= local_time(p.created_at, '%d %B %Y, %A @ %H:%M') %></span></i>
             <p><%= post_preview(p.Post_Body) %></p>
           <%= link_to 'Read <i class="glyphicon glyphicon-chevron-right"></i><i class="glyphicon glyphicon-chevron-right"></i>'.html_safe, {:controller => 'posts', :action => 'show', :id => p.slug}, :class => "article-button" %>
           </div>
@@ -153,10 +153,10 @@
           <div><%= image_tag(p.postHeaderPhoto, :class => "article-card-image") %></div>
           <div>
             <div class="pill-category" style="background-color: <%= p.post_category.colour %>"><%= p.post_category.postcategoryname %></div>
-            <h3>
+            <h3 style="margin-top: 0.5rem;">
               <%= post_title_short(p.Post_Title) %>
             </h3>
-            <i class="fa fa-calendar i-data"> <%= local_time(p.created_at, '%d %B %Y, %A @ %H:%M') %></i>
+            <i class="fa fa-calendar i-data"> <span><%= local_time(p.created_at, '%d %B %Y, %A @ %H:%M') %></span></i>
             <p><%= post_preview(p.Post_Body) %></p>
           <%= link_to 'Read <i class="glyphicon glyphicon-chevron-right"></i><i class="glyphicon glyphicon-chevron-right"></i>'.html_safe, {:controller => 'posts', :action => 'show', :id => p.slug}, :class => "article-button" %>
           </div>

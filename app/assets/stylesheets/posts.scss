@@ -17,7 +17,6 @@
   text-transform: uppercase;
   padding: 0.4rem 0.6rem;
   border-radius: 15px;
-  margin-bottom: 0.5rem;
 }
 
 
@@ -118,6 +117,7 @@
   grid-column: 1 / span 2;
   border-radius: 8px;
   grid-gap: 1rem;
+  box-shadow: 4px 4px 6px #d3d3d3;
 }
 
 .article-card-1 .card-text-content,
@@ -135,6 +135,7 @@
   grid-column: 2 / span 2;
   border-radius: 8px;
   grid-gap: 1rem;
+  box-shadow: 4px 4px 6px #d3d3d3;
 }
 
 .article-card-2 {
@@ -142,6 +143,7 @@
   border-radius: 8px;
   height: auto;
   color: #fff;
+  box-shadow: 4px 4px 6px #d3d3d3;
 }
 
 .article-card-image {
@@ -184,7 +186,9 @@
 .article-card-2 .i-data {
   font-size: 0.7rem;
   margin-bottom: 1rem;
-  font-style: italic;
+  span{
+    font-family: "Lato";
+  }
 }
 
 
