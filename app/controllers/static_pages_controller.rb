@@ -9,7 +9,7 @@ class StaticPagesController < ApplicationController
 
     def portfolio
       @artworkGallery = ArtworkGallery.all
-      @skill = Skill.all.alphabetical_order
+      @skill = Skill.all
 
     end
 
