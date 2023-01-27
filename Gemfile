@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 
 gem 'jquery-rails', '~> 4.2', '>= 4.2.2'
-gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
+gem 'jquery-ui-rails', '~> 6.0'
 gem 'paperclip'
 gem 'trix'
 gem 'shrine'
